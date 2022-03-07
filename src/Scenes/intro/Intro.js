@@ -3,17 +3,18 @@ import { SceneContext } from '../../contexts/SceneContext';
 import Scenes from "../../utils/Scenes"
 import useLoadAsset from '../../utils/useLoadAsset';
 import PlayAudio from "../../utils/playAudio"
-import IntroMap from './AssetMap';
+
 import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
-import "../../styles/monkey.css"
+import "../../styles/Scene2.css"
 import { Stars2 } from './Stars';
+import { BGContext } from '../../contexts/Background';
 
 
 export default function Intro() {
-  const { Bg, Loading } = useLoadAsset(IntroMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { Bg, setBg } = useContext(BGContext)
   const { intro } = Assets
 
   const [count, setcount] = useState(1)
@@ -23,14 +24,19 @@ export default function Intro() {
   const [Correct, setCorrect] = useState(0)
 
   const [swing, setswing] = useState(false)
+
   const Ref = useRef(null);
   const Ref2 = useRef(null);
+  const Ref3 = useRef(null);
+  const Ref4 = useRef(null);
+
   const countRef = useRef(null);
   countRef.current = count
 
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
+  const [paint, setpaint] = useState(false)
 
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
@@ -66,49 +72,66 @@ export default function Intro() {
 
   // loading animation
   useEffect(() => {
-
+    setBg(Assets["Backgrounds"]?.sprites[4])
     if (num1 == null && num2 === null) {
       gen_nums()
     }
 
-    if (intro && Ref.current && !Loading) {
+    if (intro && Ref.current) {
       try {
         const ch = lottie.loadAnimation({
-          name: "hang",
+          name: "1",
           container: Ref.current,
           renderer: "svg",
-          loop: true,
+          loop: false,
           autoplay: true,
-          animationData: intro?.lottie[0],
+          animationData: Assets["Backgrounds"]?.lottie[2],
         })
 
         const ch2 = lottie.loadAnimation({
-          name: "swing",
+          name: "2",
           container: Ref2.current,
           renderer: "svg",
           loop: false,
+          autoplay: true,
+          animationData: Assets["Backgrounds"]?.lottie[3],
+        })
+
+        ch2.addEventListener("complete", () => {
+          setpaint(true)
+        })
+
+
+        const ch3 = lottie.loadAnimation({
+          name: "wipe",
+          container: Ref3.current,
+          renderer: "svg",
+          loop: false,
           autoplay: false,
-          animationData: intro?.lottie[1],
+          animationData: Assets["Backgrounds"]?.lottie[5],
         })
 
-        ch2.addEventListener('complete', () => {
-          // if (Math.floor(ch2.currentFrame) === 33) {
-          setswing(false)
-          setcount(countRef.current + 1)
-          setcountp1(0)
-          console.log("completed honey");
-          // }
 
+        const ch4 = lottie.loadAnimation({
+          name: "blue",
+          container: Ref4.current,
+          renderer: "svg",
+          loop: false,
+          autoplay: false,
+          animationData: Assets["Backgrounds"]?.lottie[4],
         })
+
+
+
       } catch (err) {
         console.log(err)
       }
     }
 
-    if (!Loading) {
-      Assets?.intro?.sounds[0]?.play()
-    }
-  }, [Assets, Loading])
+
+    Assets?.intro?.sounds[0]?.play()
+
+  }, [])
 
   useEffect(() => {
     if (starCount === 6) {
@@ -117,62 +140,13 @@ export default function Intro() {
     }
   }, [starCount])
 
-
-  const get_swing_class = () => {
-    switch (countRef.current) {
-      case 1:
-        return "branch1_swing"
-        break;
-      case 2:
-        return "branch2_swing"
-        break
-
-      case 3:
-        return "branch3_swing"
-        break
-
-      case 4:
-        return "branch4_swing"
-        break
-
-      // case 5:
-      //   return "branch4_swing"
-      //   break
-
-
-      default:
-        break;
+  useEffect(() => {
+    if (paint) {
+      lottie.play("wipe")
+      lottie.play("blue")
     }
-  }
+  }, [paint])
 
-
-
-  const get_idle_class = () => {
-    switch (count) {
-      case 1:
-        return "branch1_idle"
-        break;
-      case 2:
-        return "branch2_idle"
-        break
-
-      case 3:
-        return "branch3_idle"
-        break
-
-      case 4:
-        return "branch4_idle"
-        break
-
-      case 5:
-        return "branch5_idle"
-        break
-
-
-      default:
-        break;
-    }
-  }
 
   const Next = () => {
     stop_all_sounds()
@@ -185,6 +159,7 @@ export default function Intro() {
     gen_nums()
   }
 
+  console.log(Assets["Backgrounds"]?.lottie[5])
 
   return <Scenes
     Bg={Bg}
@@ -192,24 +167,6 @@ export default function Intro() {
       <>
 
         {/* border 1 */}
-        {Wrong === 1 && <Image
-          src={intro?.sprites[5]}
-          className='_1st_pebel' />}
-
-        {Correct === 1 && <Image
-          src={intro?.sprites[6]}
-          className='_1st_pebel' />}
-
-
-        {/* border 2 */}
-        {Wrong === 2 && <Image
-          src={intro?.sprites[5]}
-          className='_2nd_pebel' />}
-
-        {Correct === 2 && <Image
-          src={intro?.sprites[6]}
-          className='_2nd_pebel' />}
-
 
         <Stars2
           count={starCount}
@@ -254,49 +211,13 @@ export default function Intro() {
           }}
           className='num_pos_2'>{num2}</span>
 
-        <Image
-          src={intro?.sprites[1]}
-          className='_1st_pebel' />
 
-        <Image
-          src={intro?.sprites[1]}
-          className="_2nd_pebel" />
-        {/* Title */}
+        <div ref={Ref} className='yellow_lottie'></div>
+        <div ref={Ref2} className='paint_pos_1' style={{ opacity: paint ? 0 : 1 }}></div>
 
-        <Image
-          style={{ display: count === 1 ? "none" : "" }}
-          className="swing_1"
-          src={intro?.sprites[0]}
-        />
+        <div ref={Ref3} className='paint_pos_1' style={{ opacity: paint ? 1 : 0 }}></div>
+        <div ref={Ref4} className='yellow_lottie'></div>
 
-        <Image
-          style={{ display: count === 2 || countp1 === 2 ? "none" : "" }}
-          className="swing_2"
-          src={intro?.sprites[0]}
-        />
-
-        <Image
-          style={{ display: count === 3 || countp1 === 3 ? "none" : "" }}
-          className="swing_3"
-          src={intro?.sprites[0]}
-        />
-
-        <Image
-          style={{ display: count === 4 || countp1 === 4 ? "none" : "" }}
-          className="swing_4"
-          src={intro?.sprites[0]}
-        />
-
-        <Image
-          style={{ display: count === 5 || countp1 === 5 ? "none" : "" }}
-          className="swing_5"
-          src={intro?.sprites[0]}
-        />
-
-
-
-        <div ref={Ref} className={get_idle_class()} style={{ opacity: !swing ? 1 : 0 }}></div>
-        <div ref={Ref2} className={get_swing_class()} style={{ opacity: !swing ? 0 : 1 }}></div>
       </>
     }
   />;

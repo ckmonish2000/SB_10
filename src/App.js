@@ -4,10 +4,9 @@ import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
 import "./styles/app.css"
 import Frog from "./Scenes/intro/frog";
-import Select from "./Scenes/select/Select";
+
 import Home from "./Scenes/Home";
-import FrogEnd from "./Scenes/EndScenes/FrogEnd";
-import MonkeyEnd from "./Scenes/EndScenes/MonkeyEnd";
+
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import { SceneContext } from "./contexts/SceneContext";
@@ -28,7 +27,7 @@ function App() {
   const { SceneId } = useContext(SceneContext);
 
 
-  const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props]
+  const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
   const Asset = useAllAsset(Map)
 
   useEffect(() => {
@@ -75,7 +74,7 @@ function App() {
       {!mute && SceneId !== "/home" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
       {mute && SceneId !== "/home" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
-      <Router sceneId="/home">
+      <Router sceneId="/">
         <Home />
       </Router>
 
@@ -83,15 +82,7 @@ function App() {
         <Scene1 />
       </Router>
 
-      <Router sceneId="/fend">
-        <FrogEnd />
-      </Router>
-
-      <Router sceneId="/mend">
-        <MonkeyEnd />
-      </Router>
-
-      <Router sceneId="/">
+      <Router sceneId="/Scene2">
         <Intro />
       </Router>
 
