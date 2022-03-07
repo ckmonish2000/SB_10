@@ -309,3 +309,60 @@
     transform: rotate(133deg) scale(2.3)
   }
 }
+
+
+.progress_head{
+  position: absolute;
+  left: 69%;
+  width: 20%;
+  /* height: 50%; */
+  top: 13%;
+}
+
+.leaves{
+  display: flex;
+  width: 30%;
+  height: 40%;
+  position: absolute;
+  left: 11%;
+  top: 47%;
+}
+
+.star{
+  margin: 0px 5%;
+}
+/* .star_1{
+  position: absolute;
+  width: 10%;
+  left: 10%;
+  top: 12.5%;
+} */
+
+
+/* .star_2{
+  position: absolute;
+  width: 10%;
+  
+  top: 52.5%;
+}
+
+.star_3{
+  position: absolute;
+  width: 10%;
+  left: 10%;
+  top: 12.5%;
+}
+
+.star_4{
+  position: absolute;
+  width: 10%;
+  left: 10%;
+  top: 12.5%;
+}
+
+.star_5{
+  position: absolute;
+  width: 10%;
+  left: 10%;
+  top: 12.5%;
+} */

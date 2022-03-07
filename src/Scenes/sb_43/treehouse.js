@@ -8,7 +8,7 @@ import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import "../../styles/Scene2.css"
-import { Stars2 } from './Stars';
+import Stars, { Stars2 } from './Stars';
 import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
@@ -112,10 +112,26 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
     }
   }
 
+  console.log(Assets?.props?.sprites[7])
   return <Scenes
     Bg={Bg}
     sprites={
       <>
+
+        <Stars
+          board={Assets?.props?.sprites[7]}
+          styles={[
+            "progress_head",
+            "star",
+            "star",
+            "star",
+            "star",
+            "star",
+          ]}
+          color={Assets?.props?.sprites[6]}
+          grey={Assets?.props?.sprites[5]}
+          count={count}
+        />
 
         {/* numbers */}
         <span className={num[0]}
@@ -165,6 +181,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
 
 
         {/* logs */}
+
         {count > 0 && <Image
           // id="slide-in-bck-center"
           src={Assets["props"]?.sprites[4]}

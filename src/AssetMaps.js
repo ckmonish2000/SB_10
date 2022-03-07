@@ -45,7 +45,10 @@ const AllAssetMap = {
       `${imgUrl}sb_43/Bus.svg`,
       `${imgUrl}sb_43/tree/Tree_house.svg`,
       `${imgUrl}sb_43/tree/Tree_branch.svg`,
-      `${imgUrl}sb_43/tree/Woodenlog_1.svg`
+      `${imgUrl}sb_43/tree/Woodenlog_1.svg`,
+      `${imgUrl}sb_43/tree/Brown_leaf.svg`,
+      `${imgUrl}sb_43/tree/Green_leaf.svg`,
+      `${imgUrl}sb_43/tree/progressbar_2.svg`
     ],
 
 
