@@ -40,6 +40,7 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second 
   const [num3, setnum3] = useState(null)
   const [paint, setpaint] = useState(false)
   const [final, setfinal] = useState(false)
+  const [show, setshow] = useState(false)
 
 
 
@@ -90,6 +91,7 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second 
 
         ch2.addEventListener("complete", () => {
           setpaint(true)
+          setshow(true)
         })
 
 
@@ -133,12 +135,9 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second 
   }, [paint])
 
   const Switch_now = () => {
-    if (SceneId === next) {
-      setSceneId("")
-      setSceneId(next)
-    } else {
-      setSceneId(next)
-    }
+
+    setSceneId(next)
+
   }
 
   const first_click = () => {
@@ -183,20 +182,20 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second 
       <>
 
         {/* numbers */}
-        <span className={num[0]}
+        {show && <span className={num[0]}
           style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: final ? 999999 : "" }}
           onClick={first_click}
-        >{num1}</span>
+        >{num1}</span>}
 
-        <span
+        {show && <span
           style={{ left: `${num2}`.length === 2 ? second[1] : "", zIndex: final ? 999999 : "" }}
           onClick={second_click}
-          className={num[1]}>{num2}</span>
+          className={num[1]}>{num2}</span>}
 
-        <span
+        {show && <span
           style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: final ? 999999 : "" }}
           onClick={third_click}
-          className={num[2]}>{num3}</span>
+          className={num[2]}>{num3}</span>}
 
         {/* numbers box*/}
         <Image onClick={first_click} src={Assets["intro"]?.sprites[numbox]} className={box[0]} style={{ zIndex: final ? 9999 : "" }} />
