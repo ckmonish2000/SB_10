@@ -36,21 +36,27 @@ export default function Intro() {
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
+  const [num3, setnum3] = useState(null)
   const [paint, setpaint] = useState(false)
 
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
   const gen_nums = () => {
-    const one = randomInt(0, 9)
-    let two = randomInt(0, 9)
+    const one = randomInt(1, 10)
+    let two = randomInt(1, 10)
+    let three = randomInt(1, 10)
 
-    while (two === one) {
-      two = randomInt(0, 9)
+    while (two === one || two === three) {
+      two = randomInt(1, 10)
     }
 
+    while (three === one || two === three) {
+      three = randomInt(1, 10)
+    }
 
     setnum1(one)
     setnum2(two)
+    setnum3(three)
   }
 
   const stop_all_sounds = () => {
@@ -159,7 +165,6 @@ export default function Intro() {
     gen_nums()
   }
 
-  console.log(Assets["Backgrounds"]?.lottie[5])
 
   return <Scenes
     Bg={Bg}
@@ -185,6 +190,7 @@ export default function Intro() {
 
 
         <span className='num_pos_1'
+          style={{ left: `${num1}`.length === 2 ? "23.5%" : "" }}
           onClick={() => {
             if (num1 > num2 && !swing) {
               setCorrect(1)
@@ -211,6 +217,23 @@ export default function Intro() {
           }}
           className='num_pos_2'>{num2}</span>
 
+        <span
+          onClick={() => {
+            if (num1 < num2 && !swing) {
+              setCorrect(2)
+              setTimeout(() => { Next() }, 500)
+            } else {
+              stop_all_sounds()
+              setWrong(2)
+              Assets?.intro?.sounds[2]?.play()
+            }
+          }}
+          className='num_pos_3'>{num3}</span>
+
+
+        <Image src={Assets["intro"]?.sprites[0]} className="first_box" />
+        <Image src={Assets["intro"]?.sprites[0]} className="second_box" />
+        <Image src={Assets["intro"]?.sprites[0]} className="third_box" />
 
         <div ref={Ref} className='yellow_lottie'></div>
         <div ref={Ref2} className='paint_pos_1' style={{ opacity: paint ? 0 : 1 }}></div>
