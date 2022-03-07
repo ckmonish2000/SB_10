@@ -82,3 +82,66 @@
     z-index: 1;
     cursor: pointer;
 }
+
+.gar_num_1{
+  position: absolute;
+  left: 33%;
+  bottom: 47%;
+  font-size: 900%;
+  z-index: 2;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gar_num_2{
+  position: absolute;
+    left: 46.5%;
+    bottom: 47%;
+    font-size: 900%;
+    z-index: 2;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.gar_num_3{
+  position: absolute;
+  left: 61%;
+  bottom: 47%;
+  font-size: 900%;
+  z-index: 2;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+.gar_box_1{
+  position: absolute;
+    bottom: 48%;
+    left: 30%;
+    width: 11%;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.gar_box_2{
+  position: absolute;
+    bottom: 45%;
+    left: 43%;
+    width: 15%;
+    z-index: 1;
+    cursor: pointer;
+    position: absolute;
+    bottom: 48%;
+    width: 11%;
+    cursor: pointer;
+}
+
+.gar_box_3{
+  position: absolute;
+  bottom: 48%;
+  left: 57.3%;
+  width: 11%;
+  z-index: 1;
+  cursor: pointer;
+
+}

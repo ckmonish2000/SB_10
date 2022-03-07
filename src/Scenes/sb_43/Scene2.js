@@ -33,7 +33,7 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second 
 
   const countRef = useRef(null);
   countRef.current = count
-
+  console.log(Assets)
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)

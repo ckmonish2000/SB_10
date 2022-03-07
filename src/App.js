@@ -100,7 +100,7 @@ function App() {
           // number positioning
           bg={2}
           numbox={1}
-          next="/Scene2"
+          next="/Scene4"
           num={['bus_num_pos1', 'bus_num_pos2', 'bus_num_pos3']}
           box={["bus_box_1", "bus_box_2", "bus_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
@@ -110,6 +110,21 @@ function App() {
           </div>}
         />
       </Router>
+
+
+      <Router sceneId="/Scene4">
+        <Scene2
+          // number positioning
+          bg={5}
+          numbox={2}
+          next="/Scene4"
+          num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
+          box={["gar_box_1", "gar_box_2", "gar_box_3"]}
+          ani={['yellow_lottie', 'paint_pos_1']}
+          second={["21.5%", "37%", "53%"]}
+        />
+      </Router>
+
 
 
     </GameContainer>
