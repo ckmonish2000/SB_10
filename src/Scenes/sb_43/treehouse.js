@@ -18,7 +18,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   const { Bg, setBg } = useContext(BGContext)
 
 
-  const [count, setcount] = useState(1)
+  const [count, setcount] = useState(0)
   const [starCount, setstarCount] = useState(1)
   const [countp1, setcountp1] = useState(0)
   const [Wrong, setWrong] = useState(0)
@@ -27,7 +27,6 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
 
   const countRef = useRef(null);
   countRef.current = count
-  console.log(Assets)
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
@@ -68,9 +67,12 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
 
 
   const Switch_now = () => {
-
     // setSceneId(next)
-    gen_nums(setnum1, setnum2, setnum3)
+    setTimeout(() => {
+      gen_nums(setnum1, setnum2, setnum3)
+    }, 2000)
+
+    setcount(count + 1)
 
   }
 
@@ -158,16 +160,44 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
 
         <Image
           src={Assets["props"]?.sprites[3]}
-          className={box[2]}
-        />
-
-        <Image
-          src={Assets["props"]?.sprites[3]}
-          className={box[2]}
+          className="treehouse_branch"
         />
 
 
+        {/* logs */}
+        {count > 0 && <Image
+          // id="slide-in-bck-center"
+          src={Assets["props"]?.sprites[4]}
+          className="tree_log_1"
+        />}
 
+
+
+        {count > 1 && <Image
+          // id="slide-in-bck-center"
+          src={Assets["props"]?.sprites[4]}
+          className="tree_log_2"
+        />}
+
+        {count > 2 && <Image
+          // id="slide-in-bck-center"
+          src={Assets["props"]?.sprites[4]}
+          className="tree_log_3"
+        />}
+
+        {count > 3 && <Image
+          // id="slide-in-bck-center"
+          src={Assets["props"]?.sprites[4]}
+          className="tree_log_4"
+        />}
+
+
+
+        {count > 4 && <Image
+          // id="slide-in-bck-center"
+          src={Assets["props"]?.sprites[4]}
+          className="tree_log_5"
+        />}
 
       </>
     }

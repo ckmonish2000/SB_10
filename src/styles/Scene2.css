@@ -187,3 +187,125 @@
     left: 34%;
     z-index: 1;
 }
+
+.treehouse_branch{
+  position: absolute;
+  left: 22%;
+  width: 30%;
+  top: 16%;
+  z-index: 9;
+}
+
+
+/* logs */
+
+.tree_log_1{
+  position: absolute;
+  width: 3%;
+  left: 47.5%;
+  bottom: 49.7%;
+  z-index: 8;
+  animation: animation1 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+
+.tree_log_2{
+  position: absolute;
+    left: 41%;
+    width: 3%;
+    bottom: 61%;
+    z-index: 8;
+    transform: rotate(87deg) scale(1.45);
+    animation: animation2 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+.tree_log_3{
+  position: absolute;
+  left: 41%;
+  width: 2%;
+  bottom: 70%;
+  z-index: 8;
+  transform: rotate(87deg) scale(1.2);
+  animation: animation3 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.tree_log_4{
+  position: absolute;
+  left: 37%;
+  width: 2%;
+  bottom: 65%;
+  z-index: 8;
+  transform: rotate(-133deg) scale(2.3);
+  animation: animation4 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.tree_log_5{
+  position: absolute;
+  left: 47%;
+  width: 2%;
+  bottom: 65%;
+  z-index: 8;
+  transform: rotate(133deg) scale(2.3);
+  animation: animation5 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+
+
+
+@keyframes animation1 {
+  from{
+    opacity: 0;
+    transform:scale(3)
+  }
+  to{
+    opacity: 1;
+    transform:scale(1)
+  }
+}
+
+@keyframes animation2 {
+  from{
+    opacity: 0;
+    transform:rotate(87deg) scale(3)
+  }
+  to{
+    opacity: 1;
+    transform:rotate(87deg) scale(1.2)
+  }
+}
+
+
+@keyframes animation3 {
+  from{
+    opacity: 0;
+    transform:rotate(87deg) scale(3)
+  }
+  to{
+    opacity: 1;
+    transform: rotate(87deg) scale(1.2);
+  }
+}
+
+@keyframes animation4 {
+  from{
+    opacity: 0;
+    transform:rotate(-133deg) scale(3)
+  }
+  to{
+    opacity: 1;
+    transform:rotate(-133deg) scale(2.3)
+  }
+}
+
+@keyframes animation5 {
+  from{
+    opacity: 0;
+    transform:rotate(133deg) scale(3)
+  }
+  to{
+    opacity: 1;
+    transform: rotate(133deg) scale(2.3)
+  }
+}
