@@ -6,17 +6,17 @@ import "../styles/intro.css"
 import Image from '../utils/elements/Image';
 import "../styles/monkey.css"
 import HomeMap from './HomeMap';
+import { BGContext } from '../contexts/Background';
 
 
 export default function Home() {
-  const { Bg, Loading } = useLoadAsset(HomeMap)
+  // const { Bg, Loading } = useLoadAsset(HomeMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
-
+  const { Bg, setBg } = useContext(BGContext)
   useEffect(() => {
-    const BG_IMG = document.querySelector(".Bg_Image")
-    BG_IMG.style.background = "#CDE4F2"
+    setBg(Assets["Backgrounds"]?.sprites[0])
   }, [])
-
+  console.log(Assets)
 
   return <Scenes
     Bg={Bg}
@@ -24,14 +24,12 @@ export default function Home() {
       <>
 
         <Image
-          src={Assets?.select?.sprites[1]} className="number_fg" />
+          src={Assets?.Backgrounds?.sprites[1]} className="number_fg" />
 
-        <Image
-          src={Assets?.select?.sprites[2]} className="number_fg_title" />
 
         <Image
           onClick={() => { setSceneId("/select") }}
-          src={Assets?.select?.sprites[0]} className="play_butn" />
+          src={Assets?.icons?.sprites[0]} className="play_butn" />
 
         {/* <div className="select_bg">.</div>
         <Image

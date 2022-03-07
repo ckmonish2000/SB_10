@@ -11,6 +11,9 @@ import MonkeyEnd from "./Scenes/EndScenes/MonkeyEnd";
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import { SceneContext } from "./contexts/SceneContext";
+import useAllAsset from "./utils/useAllAssets";
+import AllAssetMap from "./AssetMaps";
+import HomeMap from "./Scenes/HomeMap";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -22,6 +25,10 @@ function App() {
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
   const { SceneId } = useContext(SceneContext);
+
+
+  const Map = [AllAssetMap.Bg, HomeMap]
+  const Asset = useAllAsset(Map)
 
   useEffect(() => {
     setTimeout(() => {
@@ -59,7 +66,7 @@ function App() {
   const toggleMute = () => { setmute(!mute) }
 
 
-  if (Load) return <div className="intro_Loading_screen">Loading....</div>
+  if (Load || Asset?.Loading) return <div className="intro_Loading_screen">Loading....</div>
 
 
   return (

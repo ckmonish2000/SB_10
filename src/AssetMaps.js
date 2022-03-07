@@ -1,4 +1,4 @@
-import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
+import { imgUrl, soundUrl, lottieUrl } from "./utils/path"
 
 const AllAssetMap = {
   // backgrounds & common lottie
@@ -34,3 +34,6 @@ const AllAssetMap = {
   },
 
 }
+
+
+export default AllAssetMap
