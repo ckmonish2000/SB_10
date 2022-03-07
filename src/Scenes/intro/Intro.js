@@ -10,6 +10,7 @@ import Image from '../../utils/elements/Image';
 import "../../styles/Scene2.css"
 import { Stars2 } from './Stars';
 import { BGContext } from '../../contexts/Background';
+import { gen_nums } from './helper';
 
 
 export default function Intro() {
@@ -40,25 +41,7 @@ export default function Intro() {
   const [paint, setpaint] = useState(false)
   const [final, setfinal] = useState(false)
 
-  const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
-  const gen_nums = () => {
-    const one = randomInt(1, 10)
-    let two = randomInt(1, 10)
-    let three = randomInt(1, 10)
-
-    while (two === one || two === three) {
-      two = randomInt(1, 10)
-    }
-
-    while (three === one || two === three) {
-      three = randomInt(1, 10)
-    }
-
-    setnum1(one)
-    setnum2(two)
-    setnum3(three)
-  }
 
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
@@ -82,7 +65,7 @@ export default function Intro() {
     setBg(Assets["Backgrounds"]?.sprites[4])
 
     if (num1 == null && num2 === null && num2 === null) {
-      gen_nums()
+      gen_nums(setnum1, setnum2, setnum3)
     }
 
     if (intro && Ref.current) {
@@ -151,7 +134,41 @@ export default function Intro() {
 
 
 
-  console.log(Correct)
+  const first_click = () => {
+    if (num1 > num2 && num1 > num3 && !swing) {
+      setCorrect(1)
+      Assets?.intro?.sounds[1]?.play()
+
+    } else {
+      stop_all_sounds()
+      setWrong(1)
+      Assets?.intro?.sounds[2]?.play()
+    }
+  }
+
+  const second_click = () => {
+    if (num2 > num1 && num2 > num3 && !swing) {
+      Assets?.intro?.sounds[1]?.play()
+      setCorrect(2)
+
+    } else {
+      stop_all_sounds()
+      setWrong(2)
+      Assets?.intro?.sounds[2]?.play()
+    }
+  }
+
+  const third_click = () => {
+    if (num3 > num1 && num3 > num2 && !swing) {
+      Assets?.intro?.sounds[1]?.play()
+      setCorrect(2)
+
+    } else {
+      stop_all_sounds()
+      setWrong(2)
+      Assets?.intro?.sounds[2]?.play()
+    }
+  }
 
   return <Scenes
     Bg={Bg}
@@ -161,50 +178,23 @@ export default function Intro() {
         {/* numbers */}
         <span className='num_pos_1'
           style={{ left: `${num1}`.length === 2 ? "23.5%" : "", zIndex: final ? 999999 : "" }}
-          onClick={() => {
-            if (num1 > num2 && num1 > num3 && !swing) {
-              setCorrect(1)
-              // setTimeout(() => { Next() }, 500)
-            } else {
-              stop_all_sounds()
-              setWrong(1)
-              Assets?.intro?.sounds[2]?.play()
-            }
-          }}
+          onClick={first_click}
         >{num1}</span>
 
         <span
           style={{ zIndex: final ? 999999 : "" }}
-          onClick={() => {
-            if (num2 > num1 && num2 > num3 && !swing) {
-              setCorrect(2)
-              // setTimeout(() => { Next() }, 500)
-            } else {
-              stop_all_sounds()
-              setWrong(2)
-              Assets?.intro?.sounds[2]?.play()
-            }
-          }}
+          onClick={second_click}
           className='num_pos_2'>{num2}</span>
 
         <span
           style={{ zIndex: final ? 999999 : "" }}
-          onClick={() => {
-            if (num3 > num1 && num3 > num2 && !swing) {
-              setCorrect(2)
-              // setTimeout(() => { Next() }, 500)
-            } else {
-              stop_all_sounds()
-              setWrong(2)
-              Assets?.intro?.sounds[2]?.play()
-            }
-          }}
+          onClick={third_click}
           className='num_pos_3'>{num3}</span>
 
         {/* numbers box*/}
-        <Image src={Assets["intro"]?.sprites[0]} className="first_box" style={{ zIndex: final ? 9999 : "" }} />
-        <Image src={Assets["intro"]?.sprites[0]} className="second_box" style={{ zIndex: final ? 9999 : "" }} />
-        <Image src={Assets["intro"]?.sprites[0]} className="third_box" style={{ zIndex: final ? 9999 : "" }} />
+        <Image onClick={first_click} src={Assets["intro"]?.sprites[0]} className="first_box" style={{ zIndex: final ? 9999 : "" }} />
+        <Image onClick={second_click} src={Assets["intro"]?.sprites[0]} className="second_box" style={{ zIndex: final ? 9999 : "" }} />
+        <Image onClick={third_click} src={Assets["intro"]?.sprites[0]} className="third_box" style={{ zIndex: final ? 9999 : "" }} />
 
 
         {/* lotties */}

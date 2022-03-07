@@ -3,7 +3,7 @@ import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
 import "./styles/app.css"
-import Frog from "./Scenes/intro/frog";
+
 
 import Home from "./Scenes/Home";
 
@@ -14,8 +14,7 @@ import useAllAsset from "./utils/useAllAssets";
 import AllAssetMap from "./AssetMaps";
 import HomeMap from "./iconMap";
 import Scene1 from "./Scenes/sb_43/scene1";
-// import Animation from "./Scenes/Animations/Animations";
-// import Trace from "./Scenes/trace/Trace";
+
 
 function App() {
   const [Load, setLoad] = useState(true);
@@ -86,9 +85,6 @@ function App() {
         <Intro />
       </Router>
 
-      <Router sceneId="/frog">
-        <Frog />
-      </Router>
 
       {/* <Router sceneId="/Summer">
         <Animation sceneName="summer" />
