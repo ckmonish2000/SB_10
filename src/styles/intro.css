@@ -1,3 +1,7 @@
+*{
+color: white !important;
+}
+
 .dressing_txt_img{
     width: 35%;
     position: absolute;
