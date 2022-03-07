@@ -13,7 +13,8 @@ import { LoadImage } from "./utils/loadImage";
 import { SceneContext } from "./contexts/SceneContext";
 import useAllAsset from "./utils/useAllAssets";
 import AllAssetMap from "./AssetMaps";
-import HomeMap from "./Scenes/HomeMap";
+import HomeMap from "./iconMap";
+import Scene1 from "./Scenes/sb_43/scene1";
 // import Animation from "./Scenes/Animations/Animations";
 // import Trace from "./Scenes/trace/Trace";
 
@@ -27,7 +28,7 @@ function App() {
   const { SceneId } = useContext(SceneContext);
 
 
-  const Map = [AllAssetMap.Bg, HomeMap]
+  const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props]
   const Asset = useAllAsset(Map)
 
   useEffect(() => {
@@ -78,8 +79,8 @@ function App() {
         <Home />
       </Router>
 
-      <Router sceneId="/select">
-        <Select />
+      <Router sceneId="/Scene1">
+        <Scene1 />
       </Router>
 
       <Router sceneId="/fend">

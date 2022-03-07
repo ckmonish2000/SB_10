@@ -19,20 +19,39 @@ const AllAssetMap = {
 
 
     sounds: [
-      // `${soundUrl}Intro.mp3`
+      `${soundUrl}Scene1.mp3`
     ],
 
     lottie: [
-      `${lottieUrl}intro/bluecharacter.json`,
-      `${lottieUrl}intro/yellowcharacter.json`,
-      `${lottieUrl}scene3/Ch_Walking.json`,
-      `${lottieUrl}scene3/paint_green.json`,
-      `${lottieUrl}scene4/Blue_Ch_Walk.json`,
-      `${lottieUrl}scene4/wipe_paint.json`,
+      `${lottieUrl}sb_43/intro/bluecharacter.json`,
+      `${lottieUrl}sb_43/intro/yellowcharacter.json`,
+      `${lottieUrl}sb_43/scene3/Ch_Walking.json`,
+      `${lottieUrl}sb_43/scene3/paint_green.json`,
+      `${lottieUrl}sb_43/scene4/Blue_Ch_Walk.json`,
+      `${lottieUrl}sb_43/scene4/wipe_paint.json`,
 
     ]
   },
 
+
+  // fg props
+  Props: {
+    id: "props",
+
+    Bg: ``,
+
+    sprites: [
+      `${imgUrl}sb_43/Color-Bucket.svg`,
+
+    ],
+
+
+    sounds: [
+      // `${soundUrl}Intro.mp3`
+    ],
+
+    lottie: []
+  },
 }
 
 

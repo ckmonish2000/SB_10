@@ -5,7 +5,7 @@ import useLoadAsset from '../utils/useLoadAsset';
 import "../styles/intro.css"
 import Image from '../utils/elements/Image';
 import "../styles/monkey.css"
-import HomeMap from './HomeMap';
+import HomeMap from '../iconMap';
 import { BGContext } from '../contexts/Background';
 
 
@@ -16,7 +16,6 @@ export default function Home() {
   useEffect(() => {
     setBg(Assets["Backgrounds"]?.sprites[0])
   }, [])
-  console.log(Assets)
 
   return <Scenes
     Bg={Bg}
@@ -24,27 +23,13 @@ export default function Home() {
       <>
 
         <Image
-          src={Assets?.Backgrounds?.sprites[1]} className="number_fg" />
+          src={Assets?.Backgrounds?.sprites[1]} className="title" />
 
 
         <Image
-          onClick={() => { setSceneId("/select") }}
+          onClick={() => { setSceneId("/Scene1") }}
           src={Assets?.icons?.sprites[0]} className="play_butn" />
 
-        {/* <div className="select_bg">.</div>
-        <Image
-          onClick={() => { setSceneId("/frog") }}
-          src={Assets?.select?.sprites[0]} className="first_circle" />
-        <Image
-          onClick={() => { setSceneId("/") }}
-          src={Assets?.select?.sprites[0]} className="second_circle" />
-
-        <Image
-          onClick={() => { setSceneId("/frog") }}
-          src={Assets?.select?.sprites[1]} className="frog_selct_char" />
-        <Image
-          onClick={() => { setSceneId("/") }}
-          src={Assets?.select?.sprites[2]} className="monkey_select_char" /> */}
 
 
       </>
