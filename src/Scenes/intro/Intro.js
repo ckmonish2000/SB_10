@@ -38,6 +38,7 @@ export default function Intro() {
   const [num2, setnum2] = useState(null)
   const [num3, setnum3] = useState(null)
   const [paint, setpaint] = useState(false)
+  const [final, setfinal] = useState(false)
 
   const randomInt = (max, min) => Math.round(Math.random() * (max - min)) + min;
 
@@ -79,7 +80,8 @@ export default function Intro() {
   // loading animation
   useEffect(() => {
     setBg(Assets["Backgrounds"]?.sprites[4])
-    if (num1 == null && num2 === null) {
+
+    if (num1 == null && num2 === null && num2 === null) {
       gen_nums()
     }
 
@@ -128,23 +130,17 @@ export default function Intro() {
         })
 
 
+        ch4.addEventListener("complete", () => { setfinal(true) })
 
       } catch (err) {
         console.log(err)
       }
     }
 
-
     Assets?.intro?.sounds[0]?.play()
-
   }, [])
 
-  useEffect(() => {
-    if (starCount === 6) {
 
-      setSceneId("/mend")
-    }
-  }, [starCount])
 
   useEffect(() => {
     if (paint) {
@@ -154,47 +150,21 @@ export default function Intro() {
   }, [paint])
 
 
-  const Next = () => {
-    stop_all_sounds()
-    Assets?.intro?.sounds[1]?.play()
-    setswing(true)
-    setcountp1(count + 1)
-    lottie.stop("swing")
-    lottie.play("swing")
-    setstarCount(starCount + 1)
-    gen_nums()
-  }
 
+  console.log(Correct)
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
 
-        {/* border 1 */}
-
-        <Stars2
-          count={starCount}
-          board={Assets?.intro?.sprites[2]}
-          grey={Assets?.intro?.sprites[3]}
-          color={Assets?.intro?.sprites[4]}
-          styles={["root_star_pos",
-            { position: 'absolute', width: '100%', left: "0%" },
-            "b_star_1",
-            "b_star_2",
-            "b_star_3",
-            "b_star_4",
-            "b_star_5",
-          ]}
-        />
-
-
+        {/* numbers */}
         <span className='num_pos_1'
-          style={{ left: `${num1}`.length === 2 ? "23.5%" : "" }}
+          style={{ left: `${num1}`.length === 2 ? "23.5%" : "", zIndex: final ? 999999 : "" }}
           onClick={() => {
-            if (num1 > num2 && !swing) {
+            if (num1 > num2 && num1 > num3 && !swing) {
               setCorrect(1)
-              setTimeout(() => { Next() }, 500)
+              // setTimeout(() => { Next() }, 500)
             } else {
               stop_all_sounds()
               setWrong(1)
@@ -203,12 +173,12 @@ export default function Intro() {
           }}
         >{num1}</span>
 
-
         <span
+          style={{ zIndex: final ? 999999 : "" }}
           onClick={() => {
-            if (num1 < num2 && !swing) {
+            if (num2 > num1 && num2 > num3 && !swing) {
               setCorrect(2)
-              setTimeout(() => { Next() }, 500)
+              // setTimeout(() => { Next() }, 500)
             } else {
               stop_all_sounds()
               setWrong(2)
@@ -218,10 +188,11 @@ export default function Intro() {
           className='num_pos_2'>{num2}</span>
 
         <span
+          style={{ zIndex: final ? 999999 : "" }}
           onClick={() => {
-            if (num1 < num2 && !swing) {
+            if (num3 > num1 && num3 > num2 && !swing) {
               setCorrect(2)
-              setTimeout(() => { Next() }, 500)
+              // setTimeout(() => { Next() }, 500)
             } else {
               stop_all_sounds()
               setWrong(2)
@@ -230,10 +201,13 @@ export default function Intro() {
           }}
           className='num_pos_3'>{num3}</span>
 
+        {/* numbers box*/}
+        <Image src={Assets["intro"]?.sprites[0]} className="first_box" style={{ zIndex: final ? 9999 : "" }} />
+        <Image src={Assets["intro"]?.sprites[0]} className="second_box" style={{ zIndex: final ? 9999 : "" }} />
+        <Image src={Assets["intro"]?.sprites[0]} className="third_box" style={{ zIndex: final ? 9999 : "" }} />
 
-        <Image src={Assets["intro"]?.sprites[0]} className="first_box" />
-        <Image src={Assets["intro"]?.sprites[0]} className="second_box" />
-        <Image src={Assets["intro"]?.sprites[0]} className="third_box" />
+
+        {/* lotties */}
 
         <div ref={Ref} className='yellow_lottie'></div>
         <div ref={Ref2} className='paint_pos_1' style={{ opacity: paint ? 0 : 1 }}></div>

@@ -164,82 +164,9 @@
     z-index: 9;
 }
 
-.Big_frog{
-  position: absolute;
-    left: 66%;
-    bottom: 30%;
-}
-
-.water_ripple_pos{
-  position: absolute;
-  left: 24%;
-  bottom: 26%;
-}
-
-.swing_1{
-  position: absolute;
-  bottom: 0%;
-  z-index: 0;
-  width: 39%;
-  height: 67%;
-    top: -1%;
-    left: 1%;
-}
-
-.swing_2{
-  position: absolute;
-  bottom: 0%;
-  z-index: 0;
-  width: 39%;
-  height: 67%;
-  top: -1%;
-  left: 12%;
-}
 
 
-.swing_3{
-  position: absolute;
-  bottom: 0%;
-  z-index: 0;
-  width: 39%;
-  height: 67%;
-  top: -1%;
-  left: 23%;
-}
 
-.swing_4{
-  position: absolute;
-  bottom: 0%;
-  z-index: 0;
-  width: 39%;
-  height: 67%;
-  top: -1%;
-  left:34%;
-}
-
-.swing_5{
-  position: absolute;
-  bottom: 0%;
-  z-index: 0;
-  width: 39%;
-  height: 67%;
-  top: -1%;
-  left: 45%;
-}
-
-._1st_pebel{
-  position: absolute;
-  bottom: 10px;
-  left: 35%;
-  width: 12%;
-}
-
-._2nd_pebel{
-  position: absolute;
-  bottom: 10px;
-  left: 54%;
-  width: 12%;
-}
 
 .num_pos_1{
   position: absolute;
@@ -261,6 +188,7 @@
   cursor: pointer;
 }
 
+
 .num_pos_3{
   position: absolute;
     left: 75.5%;
@@ -274,37 +202,9 @@
 
 
 
-.first_circle{
-  position: absolute;
-  left: 20%;
-  width: 25%;
-  bottom: 20%;
-  cursor: pointer;
-}
 
-.second_circle{
-  position: absolute;
-  left: 55%;
-  width: 25%;
-  bottom: 20%;
-  cursor: pointer;
-}
 
-.frog_selct_char{
-  position: absolute;
-  left: 24.7%;
-  width: 15%;
-  bottom: 35%;
-  cursor: pointer;
-}
 
-.monkey_select_char{
-  position: absolute;
-  left: 61%;
-  width: 14%;
-  bottom: 27%;
-  cursor: pointer;
-}
 
 .play_butn{
   width: 11.5%;
