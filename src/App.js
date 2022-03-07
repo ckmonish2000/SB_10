@@ -131,11 +131,9 @@ function App() {
         <Treehouse
           bg={3}
           numbox={3}
-          next="/Scene4"
           num={['wood_num_1', 'wood_num_2', 'wood_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
-          ani={['yellow_lottie', 'paint_pos_1']}
-          second={["31.7%", "45%", "59.5%"]}
+          second={["31.7%", "46%", "59.5%"]}
         />
       </Router>
 

@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
-export default function Treehouse({ num, box, ani, extra, bg, next, numbox, second }) {
+export default function Treehouse({ num, box, bg, numbox, second }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
@@ -24,12 +24,6 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
 
-  const [swing, setswing] = useState(false)
-
-  const Ref = useRef(null);
-  const Ref2 = useRef(null);
-  const Ref3 = useRef(null);
-  const Ref4 = useRef(null);
 
   const countRef = useRef(null);
   countRef.current = count
@@ -38,9 +32,8 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
   const [num3, setnum3] = useState(null)
-  const [paint, setpaint] = useState(false)
-  const [final, setfinal] = useState(false)
-  const [show, setshow] = useState(false)
+
+
 
 
 
@@ -74,14 +67,6 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
   }, [])
 
 
-
-  useEffect(() => {
-    if (paint) {
-      lottie.play("wipe")
-      lottie.play("blue")
-    }
-  }, [paint])
-
   const Switch_now = () => {
 
     // setSceneId(next)
@@ -90,7 +75,7 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
   }
 
   const first_click = () => {
-    if (num1 > num2 && num1 > num3 && !swing) {
+    if (num1 > num2 && num1 > num3) {
       setCorrect(1)
       Assets?.intro?.sounds[1]?.play()
       Switch_now()
@@ -102,7 +87,7 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
   }
 
   const second_click = () => {
-    if (num2 > num1 && num2 > num3 && !swing) {
+    if (num2 > num1 && num2 > num3) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
       Switch_now()
@@ -114,7 +99,7 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
   }
 
   const third_click = () => {
-    if (num3 > num1 && num3 > num2 && !swing) {
+    if (num3 > num1 && num3 > num2) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
       Switch_now()
@@ -132,17 +117,17 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
 
         {/* numbers */}
         <span className={num[0]}
-          style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: final ? 999999 : "" }}
+          style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: 3 }}
           onClick={first_click}
         >{num1}</span>
 
         <span
-          style={{ left: `${num2}`.length === 2 ? second[1] : "", zIndex: final ? 999999 : "" }}
+          style={{ left: `${num2}`.length === 2 ? second[1] : "48%", zIndex: 3 }}
           onClick={second_click}
           className={num[1]}>{num2}</span>
 
         <span
-          style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: final ? 999999 : "" }}
+          style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: 3 }}
           onClick={third_click}
           className={num[2]}>{num3}</span>
 
@@ -150,19 +135,36 @@ export default function Treehouse({ num, box, ani, extra, bg, next, numbox, seco
         <Image
           onClick={first_click}
           src={Assets["intro"]?.sprites[numbox]} className={box[0]}
-          style={{ zIndex: final ? 9999 : "", bottom: "5%" }} />
+          style={{ bottom: "5%", zIndex: 2 }} />
 
         <Image
           onClick={second_click}
           src={Assets["intro"]?.sprites[numbox]}
           className={box[1]}
-          style={{ zIndex: final ? 9999 : "", bottom: "5%" }} />
+          style={{ bottom: "5%", zIndex: 2, left: "44%" }} />
 
         <Image
           onClick={third_click}
           src={Assets["intro"]?.sprites[numbox]}
           className={box[2]}
-          style={{ zIndex: final ? 9999 : "", bottom: "5%" }} />
+          style={{ bottom: "5%", zIndex: 2 }} />
+
+
+        {/* house */}
+        <Image
+          src={Assets["props"]?.sprites[2]}
+          className="treeHouse"
+        />
+
+        <Image
+          src={Assets["props"]?.sprites[3]}
+          className={box[2]}
+        />
+
+        <Image
+          src={Assets["props"]?.sprites[3]}
+          className={box[2]}
+        />
 
 
 

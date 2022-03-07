@@ -43,6 +43,9 @@ const AllAssetMap = {
     sprites: [
       `${imgUrl}sb_43/Color-Bucket.svg`,
       `${imgUrl}sb_43/Bus.svg`,
+      `${imgUrl}sb_43/tree/Tree_house.svg`,
+      `${imgUrl}sb_43/tree/Tree_branch.svg`,
+      `${imgUrl}sb_43/tree/Woodenlog_1.svg`
     ],
 
 
