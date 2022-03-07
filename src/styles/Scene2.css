@@ -145,3 +145,37 @@
   cursor: pointer;
 
 }
+
+
+.wood_num_1{
+  position: absolute;
+  left: 33.5%;
+  bottom: 5%;
+  font-size: 900%;
+  z-index: 2;
+  font-weight: bold;
+  cursor: pointer;
+  color: black !important;
+}
+
+.wood_num_2{
+  position: absolute;
+    left: 46.7%;
+    bottom: 5%;
+    font-size: 900%;
+    z-index: 2;
+    font-weight: bold;
+    cursor: pointer;
+    color: black !important;
+}
+
+.wood_num_3{
+  position: absolute;
+  left: 61%;
+  bottom: 5%;
+  font-size: 900%;
+  z-index: 2;
+  font-weight: bold;
+  cursor: pointer;
+  color: black !important;
+}

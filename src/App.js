@@ -15,6 +15,7 @@ import HomeMap from "./iconMap";
 import Scene1 from "./Scenes/sb_43/scene1";
 import Scene2 from "./Scenes/sb_43/Scene2";
 import Image from "./utils/elements/Image";
+import Treehouse from "./Scenes/sb_43/treehouse";
 
 
 function App() {
@@ -122,6 +123,19 @@ function App() {
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
           second={["21.5%", "37%", "53%"]}
+        />
+      </Router>
+
+
+      <Router sceneId="/Scene5">
+        <Treehouse
+          bg={3}
+          numbox={3}
+          next="/Scene4"
+          num={['wood_num_1', 'wood_num_2', 'wood_num_3']}
+          box={["gar_box_1", "gar_box_2", "gar_box_3"]}
+          ani={['yellow_lottie', 'paint_pos_1']}
+          second={["31.7%", "45%", "59.5%"]}
         />
       </Router>
 
