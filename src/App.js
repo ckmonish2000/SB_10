@@ -1,5 +1,4 @@
 import { useState, useEffect, useContext } from "react"
-import Intro from "./Scenes/intro/Intro";
 import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
 import "./styles/app.css"
@@ -14,6 +13,7 @@ import useAllAsset from "./utils/useAllAssets";
 import AllAssetMap from "./AssetMaps";
 import HomeMap from "./iconMap";
 import Scene1 from "./Scenes/sb_43/scene1";
+import Scene2 from "./Scenes/intro/Scene2";
 
 
 function App() {
@@ -82,7 +82,7 @@ function App() {
       </Router>
 
       <Router sceneId="/Scene2">
-        <Intro />
+        <Scene2 />
       </Router>
 
 

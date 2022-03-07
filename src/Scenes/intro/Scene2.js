@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
-export default function Intro() {
+export default function Scene2() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const { intro } = Assets

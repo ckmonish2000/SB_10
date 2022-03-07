@@ -34,7 +34,9 @@ export default function Scene1() {
         animationData: Assets["Backgrounds"]?.lottie[1],
       })
 
-      Assets["Backgrounds"]?.sounds[0]?.play()
+      const audio = Assets["Backgrounds"]?.sounds[0]
+      audio?.play()
+      audio.on("end", () => { setSceneId("/Scene2") })
     }
 
 
