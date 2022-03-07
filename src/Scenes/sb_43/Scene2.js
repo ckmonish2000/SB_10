@@ -13,10 +13,10 @@ import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
-export default function Scene2() {
+export default function Scene2({ num, box, ani, extra, bg, next, numbox, second }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
-  const { intro } = Assets
+
 
   const [count, setcount] = useState(1)
   const [starCount, setstarCount] = useState(1)
@@ -62,13 +62,13 @@ export default function Scene2() {
 
   // loading animation
   useEffect(() => {
-    setBg(Assets["Backgrounds"]?.sprites[4])
+    setBg(Assets["Backgrounds"]?.sprites[bg])
 
     if (num1 == null && num2 === null && num2 === null) {
       gen_nums(setnum1, setnum2, setnum3)
     }
 
-    if (intro && Ref.current) {
+    if (Ref.current) {
       try {
         const ch = lottie.loadAnimation({
           name: "1",
@@ -132,13 +132,20 @@ export default function Scene2() {
     }
   }, [paint])
 
-
+  const Switch_now = () => {
+    if (SceneId === next) {
+      setSceneId("")
+      setSceneId(next)
+    } else {
+      setSceneId(next)
+    }
+  }
 
   const first_click = () => {
     if (num1 > num2 && num1 > num3 && !swing) {
       setCorrect(1)
       Assets?.intro?.sounds[1]?.play()
-
+      Switch_now()
     } else {
       stop_all_sounds()
       setWrong(1)
@@ -150,7 +157,7 @@ export default function Scene2() {
     if (num2 > num1 && num2 > num3 && !swing) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
-
+      Switch_now()
     } else {
       stop_all_sounds()
       setWrong(2)
@@ -162,7 +169,7 @@ export default function Scene2() {
     if (num3 > num1 && num3 > num2 && !swing) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
-
+      Switch_now()
     } else {
       stop_all_sounds()
       setWrong(2)
@@ -176,34 +183,36 @@ export default function Scene2() {
       <>
 
         {/* numbers */}
-        <span className='num_pos_1'
-          style={{ left: `${num1}`.length === 2 ? "23.5%" : "", zIndex: final ? 999999 : "" }}
+        <span className={num[0]}
+          style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: final ? 999999 : "" }}
           onClick={first_click}
         >{num1}</span>
 
         <span
-          style={{ zIndex: final ? 999999 : "" }}
+          style={{ left: `${num2}`.length === 2 ? second[1] : "", zIndex: final ? 999999 : "" }}
           onClick={second_click}
-          className='num_pos_2'>{num2}</span>
+          className={num[1]}>{num2}</span>
 
         <span
-          style={{ zIndex: final ? 999999 : "" }}
+          style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: final ? 999999 : "" }}
           onClick={third_click}
-          className='num_pos_3'>{num3}</span>
+          className={num[2]}>{num3}</span>
 
         {/* numbers box*/}
-        <Image onClick={first_click} src={Assets["intro"]?.sprites[0]} className="first_box" style={{ zIndex: final ? 9999 : "" }} />
-        <Image onClick={second_click} src={Assets["intro"]?.sprites[0]} className="second_box" style={{ zIndex: final ? 9999 : "" }} />
-        <Image onClick={third_click} src={Assets["intro"]?.sprites[0]} className="third_box" style={{ zIndex: final ? 9999 : "" }} />
+        <Image onClick={first_click} src={Assets["intro"]?.sprites[numbox]} className={box[0]} style={{ zIndex: final ? 9999 : "" }} />
+        <Image onClick={second_click} src={Assets["intro"]?.sprites[numbox]} className={box[1]} style={{ zIndex: final ? 9999 : "" }} />
+        <Image onClick={third_click} src={Assets["intro"]?.sprites[numbox]} className={box[2]} style={{ zIndex: final ? 9999 : "" }} />
 
 
         {/* lotties */}
 
-        <div ref={Ref} className='yellow_lottie'></div>
-        <div ref={Ref2} className='paint_pos_1' style={{ opacity: paint ? 0 : 1 }}></div>
+        <div ref={Ref} className={ani[0]}></div>
+        <div ref={Ref2} className={ani[1]} style={{ opacity: paint ? 0 : 1 }}></div>
 
-        <div ref={Ref3} className='paint_pos_1' style={{ opacity: paint ? 1 : 0 }}></div>
-        <div ref={Ref4} className='yellow_lottie'></div>
+        <div ref={Ref3} className={ani[1]} style={{ opacity: paint ? 1 : 0 }}></div>
+        <div ref={Ref4} className={ani[0]}></div>
+
+        {extra}
 
       </>
     }

@@ -201,10 +201,35 @@
 
 
 
+.bus_num_pos1{
+  position: absolute;
+  left: 23%;
+  bottom: 47%;
+  font-size: 900%;
+  z-index: 2;
+  font-weight: bold;
+  cursor: pointer;
+}
 
+.bus_num_pos2{
+  position: absolute;
+    left: 39.5%;
+    bottom: 47%;
+    font-size: 900%;
+    z-index: 2;
+    font-weight: bold;
+    cursor: pointer;
+}
 
-
-
+.bus_num_pos3{
+  position: absolute;
+    left: 55%;
+    bottom: 47%;
+    font-size: 900%;
+    z-index: 2;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 .play_butn{
   width: 11.5%;

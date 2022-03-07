@@ -13,7 +13,8 @@ import useAllAsset from "./utils/useAllAssets";
 import AllAssetMap from "./AssetMaps";
 import HomeMap from "./iconMap";
 import Scene1 from "./Scenes/sb_43/scene1";
-import Scene2 from "./Scenes/intro/Scene2";
+import Scene2 from "./Scenes/sb_43/Scene2";
+import Image from "./utils/elements/Image";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
   const [icon2, seticon2] = useState("")
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
-  const { SceneId } = useContext(SceneContext);
+  const { SceneId, Assets } = useContext(SceneContext);
 
 
   const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
@@ -82,14 +83,33 @@ function App() {
       </Router>
 
       <Router sceneId="/Scene2">
-        <Scene2 />
+        <Scene2
+          // number positioning
+          bg={4}
+          numbox={0}
+          next="/Scene3"
+          num={['num_pos_1', 'num_pos_2', 'num_pos_3']}
+          box={["first_box", "second_box", "third_box"]}
+          ani={['yellow_lottie', 'paint_pos_1']}
+          second={["23.5%", "48.5%", "73.5%"]}
+        />
       </Router>
 
-
-      {/* <Router sceneId="/Summer">
-        <Animation sceneName="summer" />
-      </Router> */}
-
+      <Router sceneId="/Scene3">
+        <Scene2
+          // number positioning
+          bg={2}
+          numbox={1}
+          next="/Scene2"
+          num={['bus_num_pos1', 'bus_num_pos2', 'bus_num_pos3']}
+          box={["bus_box_1", "bus_box_2", "bus_box_3"]}
+          ani={['yellow_lottie', 'paint_pos_1']}
+          second={["21.5%", "37%", "53%"]}
+          extra={<div>
+            <Image src={Assets?.props?.sprites[1]} className="bus_pos" />
+          </div>}
+        />
+      </Router>
 
 
     </GameContainer>

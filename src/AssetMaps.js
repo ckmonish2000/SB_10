@@ -42,7 +42,7 @@ const AllAssetMap = {
 
     sprites: [
       `${imgUrl}sb_43/Color-Bucket.svg`,
-
+      `${imgUrl}sb_43/Bus.svg`
     ],
 
 
@@ -61,7 +61,8 @@ const AllAssetMap = {
 
     sprites: [
 
-      `${imgUrl}sb_43/wall_text_box.svg`
+      `${imgUrl}sb_43/wall_text_box.svg`,
+      `${imgUrl}sb_43/invisble_box.svg`,
     ],
 
 
