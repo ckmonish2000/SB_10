@@ -43,6 +43,8 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
 
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
+    Assets?.props?.sounds?.map(v => v.stop())
+    Assets?.Backgrounds?.sounds?.map(v => v.stop())
   }
 
   useEffect(() => {
@@ -175,7 +177,6 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
 
-  console.log("wrong=", Wrong, "correct=", Correct)
   return <Scenes
     Bg={Bg}
     sprites={
