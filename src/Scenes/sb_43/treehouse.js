@@ -62,7 +62,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
     }
 
 
-    Assets?.intro?.sounds[0]?.play()
+    Assets?.intro?.sounds[4]?.play()
   }, [])
 
 

@@ -16,6 +16,7 @@ import Scene1 from "./Scenes/sb_43/scene1";
 import Scene2 from "./Scenes/sb_43/Scene2";
 import Image from "./utils/elements/Image";
 import Treehouse from "./Scenes/sb_43/treehouse";
+import BeforeTree from "./Scenes/sb_43/BeforeTree";
 
 
 function App() {
@@ -158,7 +159,7 @@ function App() {
           snd={0}
           bg={5}
           numbox={2}
-          next="/Scene5"
+          next="/beforeTree"
           num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
@@ -166,6 +167,10 @@ function App() {
         />
       </Router>
 
+
+      <Router sceneId="/beforeTree">
+        <BeforeTree />
+      </Router>
 
       <Router sceneId="/Scene5">
         <Treehouse
