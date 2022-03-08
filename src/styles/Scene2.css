@@ -88,7 +88,7 @@
 .gar_num_1{
   position: absolute;
   left: 33%;
-  bottom: 47%;
+  bottom: 46%;
   font-size: 900%;
   z-index: 2;
   font-weight: bold;
@@ -98,7 +98,7 @@
 .gar_num_2{
   position: absolute;
     left: 46.5%;
-    bottom: 47%;
+    bottom: 46%;
     font-size: 900%;
     z-index: 2;
     font-weight: bold;
@@ -108,7 +108,7 @@
 .gar_num_3{
   position: absolute;
   left: 61%;
-  bottom: 47%;
+  bottom: 46%;
   font-size: 900%;
   z-index: 2;
   font-weight: bold;
@@ -352,12 +352,21 @@
 
 .progress_head_2{
   position: absolute;
-  left: 70%;
-  width: 20%;
+  left: 68%;
+  width: 22%;
   /* height: 50%; */
   top: 17%;
+  z-index: 9;
 }
 
 .star2{
   margin: 0px 10%;
+}
+
+
+.well_pos{
+  position: absolute;
+  left: 22%;
+  bottom: 10%;
+  width: 59%;
 }

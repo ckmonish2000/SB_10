@@ -14,6 +14,7 @@ import Scene2 from "./Scenes/sb_43/Scene2";
 import Image from "./utils/elements/Image";
 import Treehouse from "./Scenes/sb_43/treehouse";
 import BeforeTree from "./Scenes/sb_43/BeforeTree";
+import End from "./Scenes/sb_43/End";
 
 
 function App() {
@@ -92,7 +93,7 @@ function App() {
           num={['num_pos_1', 'num_pos_2', 'num_pos_3']}
           box={["first_box", "second_box", "third_box"]}
           ani={['yellow_lottie', 'paint_pos_1']}
-          second={["23.5%", "48.5%", "73.5%"]}
+          second={["23%", "48%", "73%"]}
         />
       </Router>
 
@@ -107,7 +108,7 @@ function App() {
           num={['bus_num_pos1', 'bus_num_pos2', 'bus_num_pos3']}
           box={["bus_box_1", "bus_box_2", "bus_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
-          second={["21.5%", "37%", "53%"]}
+          second={["21.5%", "37%", "52.5%"]}
           extra={<div>
             <Image src={Assets?.props?.sprites[1]} className="bus_pos" />
           </div>}
@@ -125,7 +126,7 @@ function App() {
           num={['bus_num_pos1', 'bus_num_pos2', 'bus_num_pos3']}
           box={["bus_box_1", "bus_box_2", "bus_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
-          second={["21.5%", "37%", "53%"]}
+          second={["21.5%", "37%", "52.5%"]}
           extra={<div>
             <Image src={Assets?.props?.sprites[1]} className="bus_pos" />
           </div>}
@@ -145,7 +146,7 @@ function App() {
           num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
-          second={["31.5%", "44.5%", "59%"]}
+          second={["31%", "44%", "58.5%"]}
         />
       </Router>
 
@@ -160,7 +161,7 @@ function App() {
           num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
-          second={["31.5%", "44.5%", "59%"]}
+          second={["31%", "44%", "58.5%"]}
         />
       </Router>
 
@@ -175,8 +176,12 @@ function App() {
           numbox={3}
           num={['wood_num_1', 'wood_num_2', 'wood_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
-          second={["31.7%", "46%", "59.5%"]}
+          second={["31%", "45%", "58.2%"]}
         />
+      </Router>
+
+      <Router sceneId="/End">
+        <End BG_sound={BG_sound} />
       </Router>
 
 

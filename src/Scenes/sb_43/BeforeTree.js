@@ -7,7 +7,7 @@ import { BGContext } from '../../contexts/Background';
 
 
 export default function BeforeTree() {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, setStarz } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
   const Ref1 = useRef(null)
@@ -36,7 +36,10 @@ export default function BeforeTree() {
 
       const audio = Assets["Backgrounds"]?.sounds[1]
       audio?.play()
-      audio.on("end", () => { setSceneId("/Scene5") })
+      audio.on("end", () => {
+        setSceneId("/Scene5")
+        setStarz(0)
+      })
     }
 
 

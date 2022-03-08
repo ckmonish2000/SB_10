@@ -1,5 +1,12 @@
+@font-face {
+  font-family: myFirstFont;
+  src: url(/public/internal/SassoonSansUSBold.ttf);
+}
+
+
 *{
 color: white !important;
+font-family: myFirstFont !important;
 }
 
 .dressing_txt_img{
@@ -175,7 +182,7 @@ color: white !important;
 .num_pos_1{
   position: absolute;
   left: 25%;
-  bottom: 47%;
+  bottom: 46%;
   font-size: 900%;
   z-index: 2;
   font-weight: bold;
@@ -185,7 +192,7 @@ color: white !important;
 .num_pos_2{
   position: absolute;
   left: 50.5%;
-  bottom: 47%;
+  bottom: 46%;
   font-size: 900%;
   z-index: 2;
   font-weight: bold;
@@ -196,7 +203,7 @@ color: white !important;
 .num_pos_3{
   position: absolute;
     left: 75.5%;
-    bottom: 47%;
+    bottom: 46%;
     font-size: 900%;
     z-index: 2;
     font-weight: bold;

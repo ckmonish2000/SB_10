@@ -15,13 +15,15 @@ const AllAssetMap = {
       `${imgUrl}sb_43/Wall_bg.svg`,
       `${imgUrl}sb_43/Garage.svg`,
       `${imgUrl}sb_43/Well_Done_bg.svg`,
+      `${imgUrl}replay.svg`
     ],
 
 
     sounds: [
       `${soundUrl}Scene1.mp3`,
       `${soundUrl}BeforeTree.mp3`,
-      `${soundUrl}TreeEnd.mp3`
+      `${soundUrl}TreeEnd.mp3`,
+      `${soundUrl}replayAudio.mp3`
     ],
 
     lottie: [
@@ -31,6 +33,7 @@ const AllAssetMap = {
       `${lottieUrl}sb_43/scene3/paint_green.json`,
       `${lottieUrl}sb_43/scene4/Blue_Ch_Walk.json`,
       `${lottieUrl}sb_43/scene4/wipe_paint.json`,
+      `${lottieUrl}sb_43/welldone_1.json`
 
     ]
   },

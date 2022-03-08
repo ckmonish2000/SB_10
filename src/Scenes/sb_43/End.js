@@ -6,7 +6,7 @@ import lottie from "lottie-web"
 import { BGContext } from '../../contexts/Background';
 
 
-export default function BeforeTree() {
+export default function End({ BG_sound }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
@@ -22,13 +22,13 @@ export default function BeforeTree() {
         renderer: "svg",
         loop: true,
         autoplay: true,
-        animationData: Assets["Backgrounds"]?.lottie[0],
+        animationData: Assets["Backgrounds"]?.lottie[6],
       })
 
 
-      const audio = Assets["Backgrounds"]?.sounds[1]
+      const audio = Assets["Backgrounds"]?.sounds[3]
       audio?.play()
-      audio.on("end", () => { setSceneId("/Scene5") })
+      // audio.on("end", () => { setSceneId("/Scene5") })
     }
 
 
@@ -40,9 +40,16 @@ export default function BeforeTree() {
       <>
 
 
-        {/* <Image src={Assets?.props?.sprites[0]} className="paint_bucket" id="vision" /> */}
 
-        <div ref={Ref1} className="scene1_blue_char_pos" style={{ bottom: "-1%" }}></div>
+        <div ref={Ref1} className="well_pos" ></div>
+        <Image src={Assets?.Backgrounds?.sprites[7]}
+          onClick={() => {
+            BG_sound?.stop()
+            Assets["Backgrounds"]?.sounds[3]?.stop()
+            setSceneId("/")
+          }}
+          style={{ left: "50%", width: "10%", bottom: "2%" }}
+          className="paint_bucket" id="vision" />
 
 
       </>
