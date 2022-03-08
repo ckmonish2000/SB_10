@@ -18,22 +18,19 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   const { Bg, setBg } = useContext(BGContext)
 
 
-  const [count, setcount] = useState(1)
-  const [starCount, setstarCount] = useState(1)
-  const [countp1, setcountp1] = useState(0)
+
+
   const [Wrong, setWrong] = useState(0)
   const [Correct, setCorrect] = useState(0)
 
-  const [swing, setswing] = useState(false)
+
 
   const Ref = useRef(null);
   const Ref2 = useRef(null);
   const Ref3 = useRef(null);
   const Ref4 = useRef(null);
 
-  const countRef = useRef(null);
-  countRef.current = count
-  console.log(Assets)
+
 
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
@@ -142,7 +139,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const first_click = () => {
-    if (num1 > num2 && num1 > num3 && !swing) {
+    if (num1 > num2 && num1 > num3) {
       setCorrect(1)
       Assets?.intro?.sounds[1]?.play()
       Switch_now()
@@ -154,7 +151,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const second_click = () => {
-    if (num2 > num1 && num2 > num3 && !swing) {
+    if (num2 > num1 && num2 > num3) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
       Switch_now()
@@ -166,7 +163,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const third_click = () => {
-    if (num3 > num1 && num3 > num2 && !swing) {
+    if (num3 > num1 && num3 > num2) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(3)
       Switch_now()

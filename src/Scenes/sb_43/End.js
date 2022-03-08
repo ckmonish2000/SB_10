@@ -39,18 +39,20 @@ export default function End({ BG_sound }) {
     sprites={
       <>
 
-
-
         <div ref={Ref1} className="well_pos" ></div>
-        <Image src={Assets?.Backgrounds?.sprites[7]}
-          onClick={() => {
-            BG_sound?.stop()
-            Assets["Backgrounds"]?.sounds[3]?.stop()
-            setSceneId("/")
-          }}
-          style={{ left: "50%", width: "10%", bottom: "2%" }}
-          className="paint_bucket" id="vision" />
 
+        <div style={{ left: "50%", width: "10%", bottom: "2%" }}
+          className="paint_bucket">
+          <Image
+            src={Assets?.Backgrounds?.sprites[7]}
+            style={{ width: "100%" }}
+            onClick={() => {
+              BG_sound?.stop()
+              Assets["Backgrounds"]?.sounds[3]?.stop()
+              setSceneId("/")
+            }}
+            id="vision" />
+        </div>
 
       </>
     }

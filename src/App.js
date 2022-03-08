@@ -48,7 +48,7 @@ function App() {
 
   useEffect(() => {
     if (BG_sound !== null && SceneId !== "/" && playing === false) {
-      BG_sound?.play()
+      // BG_sound?.play()
       setplaying(true)
     }
   }, [BG_sound, SceneId])

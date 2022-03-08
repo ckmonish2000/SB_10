@@ -25,11 +25,12 @@ export default function Home() {
         <Image
           src={Assets?.Backgrounds?.sprites[1]} className="title" />
 
-
-        <Image
-          onClick={() => { setSceneId("/Scene1") }}
-          src={Assets?.icons?.sprites[0]} className="play_butn" />
-
+        <div style={{ width: "10%" }} className="play_butn">
+          <Image
+            style={{ width: "100%" }}
+            onClick={() => { setSceneId("/Scene1") }}
+            src={Assets?.icons?.sprites[0]} />
+        </div>
 
 
       </>
