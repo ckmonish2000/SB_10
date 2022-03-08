@@ -103,11 +103,11 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   const third_click = () => {
     if (num3 > num1 && num3 > num2) {
       Assets?.intro?.sounds[1]?.play()
-      setCorrect(2)
+      setCorrect(3)
       Switch_now()
     } else {
       stop_all_sounds()
-      setWrong(2)
+      setWrong(3)
       Assets?.intro?.sounds[2]?.play()
     }
   }
@@ -167,6 +167,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
           className={box[2]}
           style={{ bottom: "5%", zIndex: 2 }} />
 
+        {Correct !== 0 && <Image src={Assets["intro"]?.sprites[8]} className={box[Correct - 1]} style={{ zIndex: 99999, bottom: "5%", left: Correct === 2 ? "44%" : "" }} />}
 
         {/* house */}
         <Image

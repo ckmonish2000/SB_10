@@ -52,6 +52,7 @@ const AllAssetMap = {
       `${imgUrl}sb_43/Progress_bar_1.svg`,
       `${imgUrl}sb_43/grey_star.svg`,
       `${imgUrl}sb_43/Star_icon.svg`,
+
     ],
 
 
@@ -78,6 +79,7 @@ const AllAssetMap = {
       `${imgUrl}sb_43/Bus_Green_highlight.svg`,
       `${imgUrl}sb_43/box_red_highlight.svg`,
       `${imgUrl}sb_43/box_yellow_highlight.svg`,
+      `${imgUrl}sb_43/Pink-highlight.svg`,
     ],
 
 
