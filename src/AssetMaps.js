@@ -76,9 +76,10 @@ const AllAssetMap = {
 
     sounds: [
 
-      `${soundUrl}monkey_1.mp3`,
+      `${soundUrl}big_1.mp3`,
       `${soundUrl}monkey_correct.mp3`,
       `${soundUrl}wrong.mp3`,
+      `${soundUrl}big_2.mp3`,
     ],
 
     lottie: [

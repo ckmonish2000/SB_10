@@ -112,7 +112,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
     }
   }
 
-  console.log(Assets?.props?.sprites[7])
+  console.log(window.innerHeight)
   return <Scenes
     Bg={Bg}
     sprites={

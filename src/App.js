@@ -86,6 +86,7 @@ function App() {
       <Router sceneId="/Scene2">
         <Scene2
           // number positioning
+          snd={0}
           bg={4}
           numbox={0}
           next="/Scene3"
@@ -99,6 +100,7 @@ function App() {
       <Router sceneId="/Scene3">
         <Scene2
           // number positioning
+          snd={3}
           bg={2}
           numbox={1}
           next="/Scene4"
@@ -116,6 +118,7 @@ function App() {
       <Router sceneId="/Scene4">
         <Scene2
           // number positioning
+          snd={0}
           bg={5}
           numbox={2}
           next="/Scene4"

@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
-export default function Scene2({ num, box, ani, extra, bg, next, numbox, second }) {
+export default function Scene2({ num, box, ani, extra, bg, next, numbox, second, snd }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
@@ -122,7 +122,7 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second 
       }
     }
 
-    Assets?.intro?.sounds[0]?.play()
+    Assets?.intro?.sounds[snd]?.play()
   }, [])
 
 

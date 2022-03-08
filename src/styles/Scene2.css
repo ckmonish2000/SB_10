@@ -331,38 +331,10 @@
 .star{
   margin: 0px 5%;
 }
-/* .star_1{
-  position: absolute;
-  width: 10%;
-  left: 10%;
-  top: 12.5%;
-} */
 
 
-/* .star_2{
-  position: absolute;
-  width: 10%;
-  
-  top: 52.5%;
+@media all and (display-mode: fullscreen) {
+  .progress_head {
+    top: 0%;
+  }
 }
-
-.star_3{
-  position: absolute;
-  width: 10%;
-  left: 10%;
-  top: 12.5%;
-}
-
-.star_4{
-  position: absolute;
-  width: 10%;
-  left: 10%;
-  top: 12.5%;
-}
-
-.star_5{
-  position: absolute;
-  width: 10%;
-  left: 10%;
-  top: 12.5%;
-} */
