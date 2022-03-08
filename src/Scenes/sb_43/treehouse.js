@@ -66,6 +66,15 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   }, [])
 
 
+  useEffect(() => {
+    if (count === 5) {
+      setTimeout(() => {
+        Assets?.Backgrounds?.sounds[2]?.play()
+      }, 1000)
+    }
+  }, [count])
+
+
   const Switch_now = () => {
     // setSceneId(next)
     setTimeout(() => {
@@ -132,43 +141,43 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
           grey={Assets?.props?.sprites[5]}
           count={count}
         />
+        {count !== 5 && <span>
+          {/* numbers */}
+          <span className={num[0]}
+            style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: 3 }}
+            onClick={first_click}
+          >{num1}</span>
 
-        {/* numbers */}
-        <span className={num[0]}
-          style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: 3 }}
-          onClick={first_click}
-        >{num1}</span>
+          <span
+            style={{ left: `${num2}`.length === 2 ? second[1] : "48%", zIndex: 3 }}
+            onClick={second_click}
+            className={num[1]}>{num2}</span>
 
-        <span
-          style={{ left: `${num2}`.length === 2 ? second[1] : "48%", zIndex: 3 }}
-          onClick={second_click}
-          className={num[1]}>{num2}</span>
+          <span
+            style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: 3 }}
+            onClick={third_click}
+            className={num[2]}>{num3}</span>
 
-        <span
-          style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: 3 }}
-          onClick={third_click}
-          className={num[2]}>{num3}</span>
+          {/* numbers box*/}
+          <Image
+            onClick={first_click}
+            src={Assets["intro"]?.sprites[numbox]} className={box[0]}
+            style={{ bottom: "5%", zIndex: 2 }} />
 
-        {/* numbers box*/}
-        <Image
-          onClick={first_click}
-          src={Assets["intro"]?.sprites[numbox]} className={box[0]}
-          style={{ bottom: "5%", zIndex: 2 }} />
+          <Image
+            onClick={second_click}
+            src={Assets["intro"]?.sprites[numbox]}
+            className={box[1]}
+            style={{ bottom: "5%", zIndex: 2, left: "44%" }} />
 
-        <Image
-          onClick={second_click}
-          src={Assets["intro"]?.sprites[numbox]}
-          className={box[1]}
-          style={{ bottom: "5%", zIndex: 2, left: "44%" }} />
+          <Image
+            onClick={third_click}
+            src={Assets["intro"]?.sprites[numbox]}
+            className={box[2]}
+            style={{ bottom: "5%", zIndex: 2 }} />
 
-        <Image
-          onClick={third_click}
-          src={Assets["intro"]?.sprites[numbox]}
-          className={box[2]}
-          style={{ bottom: "5%", zIndex: 2 }} />
-
-        {Correct !== 0 && <Image src={Assets["intro"]?.sprites[8]} className={box[Correct - 1]} style={{ zIndex: 99999, bottom: "5%", left: Correct === 2 ? "44%" : "" }} />}
-
+          {Correct !== 0 && <Image src={Assets["intro"]?.sprites[8]} className={box[Correct - 1]} style={{ zIndex: 99999, bottom: "5%", left: Correct === 2 ? "44%" : "" }} />}
+        </span>}
         {/* house */}
         <Image
           src={Assets["props"]?.sprites[2]}

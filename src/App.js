@@ -2,10 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import GameContainer from "./utils/GameContainer"
 import Router from "./utils/Router"
 import "./styles/app.css"
-
-
 import Home from "./Scenes/Home";
-
 import { AudioPlayer2 } from "./utils/loadAudio";
 import { LoadImage } from "./utils/loadImage";
 import { SceneContext } from "./contexts/SceneContext";
