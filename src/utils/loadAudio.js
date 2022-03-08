@@ -34,7 +34,8 @@ export async function AudioPlayer2(url) {
   how = new Howl({
     src: [how],
     format: ["mp3"],
-    volume: 0.2
+    volume: 0.2,
+    loop: true
   })
 
   return how
