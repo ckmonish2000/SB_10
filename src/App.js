@@ -128,7 +128,7 @@ function App() {
           num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
-          second={["21.5%", "37%", "53%"]}
+          second={["31.5%", "44.5%", "59%"]}
         />
       </Router>
 
