@@ -105,6 +105,24 @@ function App() {
           snd={3}
           bg={2}
           numbox={1}
+          next="/Scene3.5"
+          num={['bus_num_pos1', 'bus_num_pos2', 'bus_num_pos3']}
+          box={["bus_box_1", "bus_box_2", "bus_box_3"]}
+          ani={['yellow_lottie', 'paint_pos_1']}
+          second={["21.5%", "37%", "53%"]}
+          extra={<div>
+            <Image src={Assets?.props?.sprites[1]} className="bus_pos" />
+          </div>}
+        />
+      </Router>
+
+      <Router sceneId="/Scene3.5">
+        <Scene2
+          // number positioning
+          cw={[5, 7]}
+          snd={3}
+          bg={2}
+          numbox={1}
           next="/Scene4"
           num={['bus_num_pos1', 'bus_num_pos2', 'bus_num_pos3']}
           box={["bus_box_1", "bus_box_2", "bus_box_3"]}
@@ -117,6 +135,7 @@ function App() {
       </Router>
 
 
+
       <Router sceneId="/Scene4">
         <Scene2
           // number positioning
@@ -124,7 +143,22 @@ function App() {
           snd={0}
           bg={5}
           numbox={2}
-          next="/Scene4"
+          next="/Scene4.5"
+          num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
+          box={["gar_box_1", "gar_box_2", "gar_box_3"]}
+          ani={['yellow_lottie', 'paint_pos_1']}
+          second={["31.5%", "44.5%", "59%"]}
+        />
+      </Router>
+
+      <Router sceneId="/Scene4.5">
+        <Scene2
+          // number positioning
+          cw={[4, 6]}
+          snd={0}
+          bg={5}
+          numbox={2}
+          next="/Scene5"
           num={['gar_num_1', 'gar_num_2', 'gar_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
           ani={['yellow_lottie', 'paint_pos_1']}
