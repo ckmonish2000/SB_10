@@ -8,13 +8,13 @@ import lottie from "lottie-web"
 import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import "../../styles/Scene2.css"
-import { Stars2 } from './Stars';
+import Stars, { Stars2 } from './Stars';
 import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
 export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, second, snd }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
 
@@ -135,6 +135,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }, [paint])
 
   const Switch_now = () => {
+    setStarz(Starz + 1)
     setTimeout(() => {
       setSceneId(next)
     }, 1000)
@@ -182,6 +183,22 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
     Bg={Bg}
     sprites={
       <>
+
+        <Stars
+          s={true}
+          board={Assets?.props?.sprites[8]}
+          styles={[
+            "progress_head_2",
+            "star2",
+            "star2",
+            "star2",
+            "star2",
+            "star2",
+          ]}
+          color={Assets?.props?.sprites[10]}
+          grey={Assets?.props?.sprites[9]}
+          count={Starz}
+        />
 
         {/* numbers */}
         {show && <span className={num[0]}

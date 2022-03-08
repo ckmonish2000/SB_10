@@ -1,12 +1,12 @@
 import React from 'react'
 import Image from '../../utils/elements/Image'
 
-export default function Stars({ board, grey, color, styles, count }) {
+export default function Stars({ board, grey, color, styles, count, s = false }) {
   return (
     <div className={styles[0]}>
       <Image src={board} />
 
-      <div className="leaves">
+      <div className={s ? "leaves2" : "leaves"}>
         <Image src={count > 0 ? color : grey} className={styles[1]} />
         <Image src={count > 1 ? color : grey} className={styles[2]} />
         <Image src={count > 2 ? color : grey} className={styles[3]} />

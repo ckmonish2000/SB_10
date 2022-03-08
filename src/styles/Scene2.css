@@ -340,3 +340,24 @@
     top: 0%;
   }
 }
+
+.leaves2{
+  display: flex;
+    width: 30%;
+    height: 40%;
+    position: absolute;
+    left: 15%;
+    top: 26%;
+}
+
+.progress_head_2{
+  position: absolute;
+  left: 70%;
+  width: 20%;
+  /* height: 50%; */
+  top: 17%;
+}
+
+.star2{
+  margin: 0px 10%;
+}
