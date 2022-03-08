@@ -70,7 +70,11 @@ const AllAssetMap = {
       `${imgUrl}sb_43/wall_text_box.svg`,
       `${imgUrl}sb_43/invisble_box.svg`,
       `${imgUrl}sb_43/garage_box.svg`,
-      `${imgUrl}sb_43/Woodenlog.svg`
+      `${imgUrl}sb_43/Woodenlog.svg`,
+      `${imgUrl}sb_43/Green_highlight_box.svg`,
+      `${imgUrl}sb_43/Bus_Green_highlight.svg`,
+      `${imgUrl}sb_43/box_red_highlight.svg`,
+      `${imgUrl}sb_43/box_yellow_highlight.svg`,
     ],
 
 

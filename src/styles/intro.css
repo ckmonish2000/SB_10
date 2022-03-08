@@ -213,6 +213,7 @@ color: white !important;
   z-index: 2;
   font-weight: bold;
   cursor: pointer;
+  color: black !important;
 }
 
 .bus_num_pos2{
@@ -223,6 +224,7 @@ color: white !important;
     z-index: 2;
     font-weight: bold;
     cursor: pointer;
+    color: black !important;
 }
 
 .bus_num_pos3{
@@ -233,6 +235,7 @@ color: white !important;
     z-index: 2;
     font-weight: bold;
     cursor: pointer;
+    color: black !important;
 }
 
 .play_butn{

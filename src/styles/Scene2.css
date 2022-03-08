@@ -54,33 +54,35 @@
 }
 
 .bus_box_1{
-  
-    position: absolute;
-    bottom: 45%;
-    left: 18%;
-    width: 15%;
-    z-index: 1;
-    cursor: pointer;
-}
 
-
-.bus_box_2{
   position: absolute;
-  bottom: 45%;
-  left: 33%;
-  width: 15%;
+  bottom: 47%;
+  left: 19.2%;
+  width: 12%;
   z-index: 1;
   cursor: pointer;
 }
 
 
+.bus_box_2{
+ 
+  position: absolute;
+  bottom: 47%;
+  left: 34.8%;
+  width: 12%;
+  z-index: 1;
+  cursor: pointer;
+
+}
+
+
 .bus_box_3{
-    position: absolute;
-    bottom: 45%;
-    left: 48%;
-    width: 15%;
-    z-index: 1;
-    cursor: pointer;
+  position: absolute;
+  bottom: 47%;
+  left: 50.5%;
+  width: 12%;
+  z-index: 1;
+  cursor: pointer;
 }
 
 .gar_num_1{

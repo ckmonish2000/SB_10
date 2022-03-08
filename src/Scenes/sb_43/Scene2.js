@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
-export default function Scene2({ num, box, ani, extra, bg, next, numbox, second, snd }) {
+export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, second, snd }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
@@ -135,9 +135,9 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second,
   }, [paint])
 
   const Switch_now = () => {
-
-    setSceneId(next)
-
+    setTimeout(() => {
+      setSceneId(next)
+    }, 1000)
   }
 
   const first_click = () => {
@@ -167,15 +167,17 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second,
   const third_click = () => {
     if (num3 > num1 && num3 > num2 && !swing) {
       Assets?.intro?.sounds[1]?.play()
-      setCorrect(2)
+      setCorrect(3)
       Switch_now()
     } else {
       stop_all_sounds()
-      setWrong(2)
+      setWrong(3)
       Assets?.intro?.sounds[2]?.play()
     }
   }
 
+
+  console.log("wrong=", Wrong, "correct=", Correct)
   return <Scenes
     Bg={Bg}
     sprites={
@@ -202,6 +204,11 @@ export default function Scene2({ num, box, ani, extra, bg, next, numbox, second,
         <Image onClick={second_click} src={Assets["intro"]?.sprites[numbox]} className={box[1]} style={{ zIndex: final ? 9999 : "" }} />
         <Image onClick={third_click} src={Assets["intro"]?.sprites[numbox]} className={box[2]} style={{ zIndex: final ? 9999 : "" }} />
 
+
+        {/* wrong write box */}
+
+        {Correct !== 0 && <Image src={Assets["intro"]?.sprites[cw[0]]} className={box[Correct - 1]} style={{ zIndex: 99999 }} />}
+        {Wrong !== 0 && <Image src={Assets["intro"]?.sprites[cw[1]]} className={box[Wrong - 1]} style={{ zIndex: 99999 }} />}
 
         {/* lotties */}
 
