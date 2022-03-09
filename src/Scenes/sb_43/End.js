@@ -27,7 +27,9 @@ export default function End({ BG_sound }) {
 
 
       const audio = Assets["Backgrounds"]?.sounds[3]
-      audio?.play()
+      const audio2 = Assets["Backgrounds"]?.sounds[4]
+      audio2?.play()
+      audio2.on("end", () => { audio?.play() })
       // audio.on("end", () => { setSceneId("/Scene5") })
     }
 
