@@ -34,7 +34,7 @@ function App() {
     if (window.innerWidth <= 1264) {
       setheight("87%")
     } else {
-      setheight("71%")
+      setheight("73%")
     }
   }
 

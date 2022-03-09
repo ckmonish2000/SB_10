@@ -181,7 +181,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
       <>
 
         <Stars
-          height={height}
+          // height={height}
           s={true}
           board={Assets?.props?.sprites[8]}
           styles={[

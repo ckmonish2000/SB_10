@@ -318,7 +318,7 @@
   left: 69%;
   width: 20%;
   /* height: 50%; */
-  top: 13%;
+  top: 15%;
 }
 
 .leaves{
@@ -339,6 +339,10 @@
   .progress_head {
     top: 0%;
   }
+
+  .progress_head_2 {
+    top: 5% !important;
+  }
 }
 
 .leaves2{
@@ -355,7 +359,7 @@
   left: 71%;
   width: 20%;
   /* height: 50%; */
-  /* top: 17%; */
+  top: 21%;
   z-index: 9;
 }
 
