@@ -32,11 +32,9 @@ function App() {
 
   const resizer = () => {
     if (window.innerWidth <= 1264) {
-      console.log("89%")
-      setheight("89%")
+      setheight("87%")
     } else {
-      console.log("73%")
-      setheight("73%")
+      setheight("71%")
     }
   }
 
@@ -192,7 +190,7 @@ function App() {
           numbox={3}
           num={['wood_num_1', 'wood_num_2', 'wood_num_3']}
           box={["gar_box_1", "gar_box_2", "gar_box_3"]}
-          second={["31%", "45%", "58.2%"]}
+          second={["31.5%", "45.5%", "58.7%"]}
         />
       </Router>
 

@@ -179,6 +179,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
             style={{ bottom: "5%", zIndex: 2 }} />
 
           {Correct !== 0 && <Image src={Assets["intro"]?.sprites[8]} className={box[Correct - 1]} style={{ zIndex: 99999, bottom: "5%", left: Correct === 2 ? "44%" : "" }} />}
+          {Wrong !== 0 && <Image src={Assets["intro"]?.sprites[9]} className={box[Wrong - 1]} style={{ zIndex: 99999, bottom: "5%", left: Wrong === 2 ? "44%" : "" }} />}
         </span>}
         {/* house */}
         <Image

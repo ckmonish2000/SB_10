@@ -86,6 +86,7 @@ const AllAssetMap = {
       `${imgUrl}sb_43/box_red_highlight.svg`,
       `${imgUrl}sb_43/box_yellow_highlight.svg`,
       `${imgUrl}sb_43/Pink-highlight.svg`,
+      `${imgUrl}sb_43/red_log_highlight.svg`,
     ],
 
 
