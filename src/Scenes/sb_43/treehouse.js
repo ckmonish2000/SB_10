@@ -228,6 +228,13 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
           className="tree_log_5"
         />}
 
+
+        {/* boy */}
+        {count > 4 &&
+          <Image
+            onClick={first_click}
+            src={Assets["Backgrounds"]?.sprites[8]} className="boy"
+          />}
       </>
     }
   />;

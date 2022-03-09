@@ -24,11 +24,21 @@ function App() {
   const [icon2, seticon2] = useState("")
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
-  const { SceneId, Assets } = useContext(SceneContext);
+  const { SceneId, Assets, height, setheight } = useContext(SceneContext);
 
 
   const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
   const Asset = useAllAsset(Map)
+
+  const resizer = () => {
+    if (window.innerWidth <= 1264) {
+      console.log("89%")
+      setheight("89%")
+    } else {
+      console.log("73%")
+      setheight("73%")
+    }
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,6 +46,12 @@ function App() {
     }, 3000)
 
     loadAudio()
+
+    window.addEventListener("resize", resizer)
+
+    return () => {
+      window.removeEventListener("resize", resizer)
+    }
   }, []);
 
 
@@ -48,7 +64,7 @@ function App() {
 
   useEffect(() => {
     if (BG_sound !== null && SceneId !== "/" && playing === false) {
-      // BG_sound?.play()
+      BG_sound?.play()
       setplaying(true)
     }
   }, [BG_sound, SceneId])

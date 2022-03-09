@@ -14,7 +14,7 @@ import { gen_nums } from './helper';
 
 
 export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, second, snd }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
 
@@ -38,8 +38,6 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   const [paint, setpaint] = useState(false)
   const [final, setfinal] = useState(false)
   const [show, setshow] = useState(false)
-
-
 
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
@@ -183,6 +181,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
       <>
 
         <Stars
+          height={height}
           s={true}
           board={Assets?.props?.sprites[8]}
           styles={[

@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from '../../utils/elements/Image'
 
-export default function Stars({ board, grey, color, styles, count, s = false }) {
+export default function Stars({ board, grey, color, styles, count, s = false, height = "" }) {
   return (
-    <div className={styles[0]}>
+    <div className={styles[0]} style={{ bottom: height }}>
       <Image src={board} />
 
       <div className={s ? "leaves2" : "leaves"}>

@@ -15,7 +15,8 @@ const AllAssetMap = {
       `${imgUrl}sb_43/Wall_bg.svg`,
       `${imgUrl}sb_43/Garage.svg`,
       `${imgUrl}sb_43/Well_Done_bg.svg`,
-      `${imgUrl}replay.svg`
+      `${imgUrl}replay.svg`,
+      `${imgUrl}sb_43/boy.svg`,
     ],
 
 
