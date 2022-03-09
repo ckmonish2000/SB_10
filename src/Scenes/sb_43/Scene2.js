@@ -38,6 +38,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   const [paint, setpaint] = useState(false)
   const [final, setfinal] = useState(false)
   const [show, setshow] = useState(false)
+  const [Wipe, setWipe] = useState(true)
 
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
@@ -101,7 +102,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
           animationData: Assets["Backgrounds"]?.lottie[5],
         })
 
-
+        ch3.addEventListener("complete", () => { setWipe(false) })
         const ch4 = lottie.loadAnimation({
           name: "blue",
           container: Ref4.current,
@@ -118,11 +119,14 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
         console.log(err)
       }
     }
-
-    Assets?.intro?.sounds[snd]?.play()
   }, [])
 
 
+  useEffect(() => {
+    if (!Wipe) {
+      Assets?.intro?.sounds[snd]?.play()
+    }
+  }, [Wipe])
 
   useEffect(() => {
     if (paint) {
