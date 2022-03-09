@@ -114,7 +114,7 @@ function App() {
       <Router sceneId="/Scene3">
         <Scene2
           // number positioning
-          cw={[5, 7]}
+          cw={[5, 6]}
           snd={3}
           bg={2}
           numbox={1}
@@ -132,7 +132,7 @@ function App() {
       <Router sceneId="/Scene3.5">
         <Scene2
           // number positioning
-          cw={[5, 7]}
+          cw={[5, 6]}
           snd={3}
           bg={2}
           numbox={1}
