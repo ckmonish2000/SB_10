@@ -39,6 +39,9 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   const [final, setfinal] = useState(false)
   const [show, setshow] = useState(false)
   const [Wipe, setWipe] = useState(true)
+  const [playing, setplaying] = useState(true)
+
+  const timer = null
 
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
@@ -78,19 +81,23 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
           animationData: Assets["Backgrounds"]?.lottie[2],
         })
 
-        const ch2 = lottie.loadAnimation({
-          name: "2",
-          container: Ref2.current,
-          renderer: "svg",
-          loop: false,
-          autoplay: true,
-          animationData: Assets["Backgrounds"]?.lottie[3],
-        })
 
-        ch2.addEventListener("complete", () => {
-          setpaint(true)
-          setshow(true)
-        })
+        setTimeout(function () {
+          const ch2 = lottie.loadAnimation({
+            name: "2",
+            container: Ref2.current,
+            renderer: "svg",
+            loop: false,
+            autoplay: true,
+            animationData: Assets["Backgrounds"]?.lottie[3],
+          })
+
+
+          ch2.addEventListener("complete", () => {
+            setpaint(true)
+            setshow(true)
+          })
+        }, 500)
 
 
         const ch3 = lottie.loadAnimation({
