@@ -71,7 +71,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
       setTimeout(() => {
         const audio = Assets?.Backgrounds?.sounds[2]
         audio?.play()
-        audio?.on("end", () => { setSceneId("/End") })
+        // audio?.on("end", () => { setSceneId("/End") })
       }, 1000)
     }
   }, [count])
