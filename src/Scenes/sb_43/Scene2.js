@@ -133,6 +133,9 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
     if (!Wipe) {
       const sound = Assets?.intro?.sounds[snd]
       sound?.play()
+      sound?.on("end", () => {
+        setplaying(false)
+      })
     }
   }, [Wipe])
 
