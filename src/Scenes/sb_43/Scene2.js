@@ -131,7 +131,8 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
 
   useEffect(() => {
     if (!Wipe) {
-      Assets?.intro?.sounds[snd]?.play()
+      const sound = Assets?.intro?.sounds[snd]
+      sound?.play()
     }
   }, [Wipe])
 
