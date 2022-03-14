@@ -50,7 +50,10 @@ export default function End({ BG_sound }) {
             style={{ width: "100%" }}
             onClick={() => {
               BG_sound?.stop()
-              Assets["Backgrounds"]?.sounds[3]?.stop()
+              const audio = Assets["Backgrounds"]?.sounds[3]
+              const audio2 = Assets["Backgrounds"]?.sounds[4]
+              audio?.stop()
+              audio2?.stop()
               setSceneId("/")
             }}
             id="vision" />
