@@ -41,7 +41,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   const [Wipe, setWipe] = useState(true)
   const [playing, setplaying] = useState(true)
 
-  const timer = null
+  let timer = null
 
   const stop_all_sounds = () => {
     Assets?.intro?.sounds?.map(v => v.stop())
@@ -140,6 +140,24 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }, [Wipe])
 
   useEffect(() => {
+    if (!playing) {
+      timer = setTimeout(() => {
+        setplaying(true)
+        const sound = Assets?.intro?.sounds[snd]
+        sound?.play()
+        sound?.on("end", () => {
+          setplaying(false)
+        })
+      }, 10000)
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer)
+    }
+  }, [playing])
+
+
+  useEffect(() => {
     if (paint) {
       lottie.play("wipe")
       lottie.play("blue")
@@ -149,11 +167,13 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   const Switch_now = () => {
     setStarz(Starz + 1)
     setTimeout(() => {
+      stop_all_sounds()
       setSceneId(next)
     }, 1000)
   }
 
   const first_click = () => {
+    if (timer) clearTimeout(timer)
     if (num1 > num2 && num1 > num3) {
       setCorrect(1)
       setWrong(0)
@@ -168,6 +188,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const second_click = () => {
+    if (timer) clearTimeout(timer)
     if (num2 > num1 && num2 > num3) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
@@ -182,6 +203,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const third_click = () => {
+    if (timer) clearTimeout(timer)
     if (num3 > num1 && num3 > num2) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(3)
