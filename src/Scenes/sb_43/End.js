@@ -43,7 +43,7 @@ export default function End({ BG_sound }) {
 
         <div ref={Ref1} className="well_pos" ></div>
 
-        <div style={{ left: "50%", width: "10%", bottom: "2%" }}
+        <div style={{ left: "45.5%", width: "7.5%", bottom: "4%" }}
           className="paint_bucket">
           <Image
             src={Assets?.Backgrounds?.sprites[7]}

@@ -370,7 +370,8 @@
 
 .well_pos{
   position: absolute;
-  left: 22%;
-  bottom: 10%;
-  width: 59%;
+    left: 23%;
+    bottom: 20%;
+    width: 50%;
+    cursor: pointer;
 }

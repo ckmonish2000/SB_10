@@ -150,11 +150,11 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const first_click = () => {
-    if (num1 > num2 && num1 > num3) {
+    if (num1 > num2 && num1 > num3 && Wrong === 0) {
       setCorrect(1)
       Assets?.intro?.sounds[1]?.play()
       Switch_now()
-    } else {
+    } else if (Correct === 0) {
       stop_all_sounds()
       setWrong(1)
       Assets?.intro?.sounds[2]?.play()
@@ -162,11 +162,11 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const second_click = () => {
-    if (num2 > num1 && num2 > num3) {
+    if (num2 > num1 && num2 > num3 && Wrong === 0) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
       Switch_now()
-    } else {
+    } else if (Correct === 0) {
       stop_all_sounds()
       setWrong(2)
       Assets?.intro?.sounds[2]?.play()
@@ -174,11 +174,11 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
   }
 
   const third_click = () => {
-    if (num3 > num1 && num3 > num2) {
+    if (num3 > num1 && num3 > num2 && Wrong === 0) {
       Assets?.intro?.sounds[1]?.play()
       setCorrect(3)
       Switch_now()
-    } else {
+    } else if (Correct === 0) {
       stop_all_sounds()
       setWrong(3)
       Assets?.intro?.sounds[2]?.play()
