@@ -31,7 +31,8 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   const [num1, setnum1] = useState(null)
   const [num2, setnum2] = useState(null)
   const [num3, setnum3] = useState(null)
-
+  const [playing, setplaying] = useState(true)
+  let timer = null
 
 
 
@@ -61,8 +62,9 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
       gen_nums(setnum1, setnum2, setnum3)
     }
 
-
-    Assets?.intro?.sounds[4]?.play()
+    const sound = Assets?.intro?.sounds[4]
+    sound?.play()
+    sound?.on("end", () => { setplaying(false) })
   }, [])
 
 
@@ -71,10 +73,29 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
       setTimeout(() => {
         const audio = Assets?.Backgrounds?.sounds[2]
         audio?.play()
-        // audio?.on("end", () => { setSceneId("/End") })
+        audio?.on("end", () => {
+          stop_all_sounds()
+          setplaying(false)
+          setSceneId("/End")
+        })
       }, 1000)
     }
   }, [count])
+
+  useEffect(() => {
+    if (!playing) {
+      timer = setTimeout(() => {
+        setplaying(true)
+        const sound = Assets?.intro?.sounds[4]
+        sound?.play()
+        sound?.on("end", () => { setplaying(false) })
+      }, 10000)
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer)
+    }
+  }, [playing])
 
 
   const Switch_now = () => {
@@ -88,12 +109,14 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   }
 
   const first_click = () => {
+    if (timer) clearTimeout(timer)
     if (num1 > num2 && num1 > num3) {
+      stop_all_sounds()
       setCorrect(1)
       setWrong(0)
       Assets?.intro?.sounds[1]?.play()
       Switch_now()
-    } else {
+    } else if (Correct === 0) {
       stop_all_sounds()
       setWrong(1)
       setCorrect(0)
@@ -102,12 +125,14 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   }
 
   const second_click = () => {
+    if (timer) clearTimeout(timer)
     if (num2 > num1 && num2 > num3) {
+      stop_all_sounds()
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)
       setWrong(0)
       Switch_now()
-    } else {
+    } else if (Correct === 0) {
       stop_all_sounds()
       setWrong(2)
       setCorrect(0)
@@ -116,12 +141,14 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
   }
 
   const third_click = () => {
+    if (timer) clearTimeout(timer)
     if (num3 > num1 && num3 > num2) {
+      stop_all_sounds()
       Assets?.intro?.sounds[1]?.play()
       setCorrect(3)
       setWrong(0)
       Switch_now()
-    } else {
+    } else if (Correct === 0) {
       stop_all_sounds()
       setWrong(3)
       setCorrect(0)
@@ -129,7 +156,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
     }
   }
 
-  console.log(window.innerHeight)
+
   return <Scenes
     Bg={Bg}
     sprites={
