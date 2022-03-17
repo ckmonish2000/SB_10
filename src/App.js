@@ -62,7 +62,6 @@ function App() {
 
   useEffect(() => {
     if (BG_sound !== null && SceneId !== "/" && playing === false) {
-      BG_sound?.play()
       setplaying(true)
     }
   }, [BG_sound, SceneId])
@@ -89,7 +88,7 @@ function App() {
       {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
       <Router sceneId="/">
-        <Home />
+        <Home play={() => { BG_sound?.play() }} />
       </Router>
 
       <Router sceneId="/Scene1">

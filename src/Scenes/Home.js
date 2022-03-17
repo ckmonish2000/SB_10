@@ -9,7 +9,7 @@ import HomeMap from '../iconMap';
 import { BGContext } from '../contexts/Background';
 
 
-export default function Home() {
+export default function Home({ play }) {
   // const { Bg, Loading } = useLoadAsset(HomeMap)
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
@@ -28,7 +28,10 @@ export default function Home() {
         <div style={{ width: "10%" }} className="play_butn">
           <Image
             style={{ width: "100%" }}
-            onClick={() => { setSceneId("/Scene1") }}
+            onClick={() => {
+              setSceneId("/Scene1")
+              play()
+            }}
             src={Assets?.icons?.sprites[0]} />
         </div>
 
