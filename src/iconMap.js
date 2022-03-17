@@ -3,7 +3,7 @@ import { imgUrl, soundUrl, lottieUrl } from "./utils/path"
 const icons = {
   id: "icons",
 
-  Bg: `${imgUrl}intro/Intro_BG.svg`,
+  Bg: `${imgUrl}intro/intro_bg.svg`,
 
   sprites: [
     `${imgUrl}play.svg`,
@@ -11,7 +11,7 @@ const icons = {
 
 
   sounds: [
-    // `${soundUrl}Intro.mp3`
+    // `${soundurl}intro.mp3`
   ],
 
   lottie: [
