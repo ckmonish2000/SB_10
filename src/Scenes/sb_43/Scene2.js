@@ -143,7 +143,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
     if (!playing) {
       timer = setTimeout(() => {
         setplaying(true)
-        const sound = Assets?.intro?.sounds[snd]
+        const sound = Assets?.intro?.sounds[3]
         sound?.play()
         sound?.on("end", () => {
           setplaying(false)
