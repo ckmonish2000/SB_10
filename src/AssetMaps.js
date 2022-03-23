@@ -74,7 +74,8 @@ const AllAssetMap = {
   Scene2: {
     id: "intro",
 
-    Bg: `${imgUrl}sb_42_bg_02.svg`,
+    // Bg: `${imgUrl}sb_42_bg_02.svg`,
+    Bg: ``,
 
     sprites: [
 

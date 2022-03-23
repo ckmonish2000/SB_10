@@ -54,9 +54,9 @@ function App() {
 
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("internal/sounds/bg_sound.mp3"))
-    seticon1(await LoadImage("internal/images/sound.svg"))
-    seticon2(await LoadImage("internal/images/nosound.svg"))
+    setBG_sound(await AudioPlayer2("ee03_nt_1to10_btn/sounds/bg_sound.mp3"))
+    seticon1(await LoadImage("ee03_nt_1to10_btn/images/sound.svg"))
+    seticon2(await LoadImage("ee03_nt_1to10_btn/images/nosound.svg"))
 
   }
 
@@ -100,7 +100,7 @@ function App() {
       <Router sceneId="/Scene2">
         <Scene2
           // number positioning
-          snd={0}
+          snd={3}
           bg={4}
           numbox={0}
           cw={[4, 6]}
@@ -154,7 +154,7 @@ function App() {
         <Scene2
           // number positioning
           cw={[4, 6]}
-          snd={0}
+          snd={3}
           bg={5}
           numbox={2}
           next="/Scene4.5"
@@ -169,7 +169,7 @@ function App() {
         <Scene2
           // number positioning
           cw={[4, 6]}
-          snd={0}
+          snd={3}
           bg={5}
           numbox={2}
           next="/beforeTree"

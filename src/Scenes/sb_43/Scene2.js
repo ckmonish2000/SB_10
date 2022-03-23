@@ -174,7 +174,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
 
   const first_click = () => {
     if (timer) clearTimeout(timer)
-    if (num1 > num2 && num1 > num3) {
+    if (num1 > num2 && num1 > num3 && Correct === 0) {
       stop_all_sounds()
       Assets?.intro?.sounds[1]?.play()
       setCorrect(1)
@@ -190,7 +190,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
 
   const second_click = () => {
     if (timer) clearTimeout(timer)
-    if (num2 > num1 && num2 > num3) {
+    if (num2 > num1 && num2 > num3 && Correct === 0) {
       stop_all_sounds()
       Assets?.intro?.sounds[1]?.play()
       setCorrect(2)

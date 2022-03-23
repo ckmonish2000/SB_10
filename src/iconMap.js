@@ -3,7 +3,7 @@ import { imgUrl, soundUrl, lottieUrl } from "./utils/path"
 const icons = {
   id: "icons",
 
-  Bg: `${imgUrl}intro/intro_bg.svg`,
+  Bg: ``,
 
   sprites: [
     `${imgUrl}play.svg`,
