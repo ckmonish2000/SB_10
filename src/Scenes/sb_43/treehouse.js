@@ -14,11 +14,11 @@ import { gen_nums } from './helper';
 
 
 export default function Treehouse({ num, box, bg, numbox, second }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, count, setcount } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
 
-  const [count, setcount] = useState(0)
+
   const [starCount, setstarCount] = useState(1)
   const [countp1, setcountp1] = useState(0)
   const [Wrong, setWrong] = useState(0)
@@ -162,7 +162,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
     sprites={
       <>
 
-        <Stars
+        {/* <Stars
           board={Assets?.props?.sprites[7]}
           styles={[
             "progress_head",
@@ -175,7 +175,7 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
           color={Assets?.props?.sprites[6]}
           grey={Assets?.props?.sprites[5]}
           count={count}
-        />
+        /> */}
         {count !== 5 && <span>
           {/* numbers */}
           <span className={num[0]}

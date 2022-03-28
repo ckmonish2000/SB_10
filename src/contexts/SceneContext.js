@@ -10,6 +10,7 @@ export default function SceneContextProvider({ children }) {
   const [Assets, setAssets] = useState({})
   const [Starz, setStarz] = useState(0)
   const [height, setheight] = useState("73%")
+  const [count, setcount] = useState(0)
 
   // loading part
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function SceneContextProvider({ children }) {
   }, [isLoading])
 
   return (
-    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height, setheight }}>
+    <SceneContext.Provider value={{ SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height, setheight, count, setcount }}>
       {children}
     </SceneContext.Provider>
   )

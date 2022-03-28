@@ -226,7 +226,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
     sprites={
       <>
 
-        <Stars
+        {/* <Stars
           // height={height}
           s={true}
           board={Assets?.props?.sprites[8]}
@@ -241,7 +241,7 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
           color={Assets?.props?.sprites[10]}
           grey={Assets?.props?.sprites[9]}
           count={Starz}
-        />
+        /> */}
 
         {/* numbers */}
         {show && <span className={num[0]}
