@@ -16,6 +16,8 @@ import Treehouse from "./Scenes/sb_43/treehouse";
 import BeforeTree from "./Scenes/sb_43/BeforeTree";
 import End from "./Scenes/sb_43/End";
 import Stars from './Scenes/sb_43/Stars';
+import useLoadAsset from "./utils/useLoadAsset";
+import introMap from "./maps/introMap";
 
 
 function App() {
@@ -28,8 +30,9 @@ function App() {
   const { SceneId, Assets, height, setheight, Starz, count } = useContext(SceneContext);
 
 
-  const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
-  const Asset = useAllAsset(Map)
+  // const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
+  // const Asset = useAllAsset(Map)
+  const Asset = useLoadAsset(introMap)
 
   const resizer = () => {
     if (window.innerWidth <= 1264) {
@@ -55,9 +58,9 @@ function App() {
 
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("ee03_nt_1to10_btn/sounds/bg_sound.mp3"))
-    seticon1(await LoadImage("ee03_nt_1to10_btn/images/sound.svg"))
-    seticon2(await LoadImage("ee03_nt_1to10_btn/images/nosound.svg"))
+    setBG_sound(await AudioPlayer2("ee03_nt_1to100_btn/sounds/bg_sound.mp3"))
+    seticon1(await LoadImage("ee03_nt_1to100_btn/images/sound.svg"))
+    seticon2(await LoadImage("ee03_nt_1to100_btn/images/nosound.svg"))
 
   }
 
@@ -148,6 +151,22 @@ function App() {
             box={["first_box", "second_box", "third_box"]}
             ani={['yellow_lottie', 'paint_pos_1']}
             second={["23%", "48%", "73%"]}
+            third={[{
+              left: "21.8%",
+              fontSize: "780%",
+              bottom: "48%"
+            },
+            {
+              left: "46.8%",
+              fontSize: "780%",
+              bottom: "48%"
+            },
+            {
+              left: "71.8%",
+              fontSize: "780%",
+              bottom: "48%"
+            },
+            ]}
           />
         </Router>
 
@@ -163,6 +182,19 @@ function App() {
             box={["bus_box_1", "bus_box_2", "bus_box_3"]}
             ani={['yellow_lottie', 'paint_pos_1']}
             second={["21.5%", "37%", "52.5%"]}
+            third={[{
+              left: "19.8%",
+              fontSize: "780%",
+            },
+            {
+              left: "35.8%",
+              fontSize: "780%",
+            },
+            {
+              left: "51.5%",
+              fontSize: "780%",
+            },
+            ]}
             extra={<div>
               <Image src={Assets?.props?.sprites[1]} className="bus_pos" />
             </div>}
@@ -181,6 +213,19 @@ function App() {
             box={["bus_box_1", "bus_box_2", "bus_box_3"]}
             ani={['yellow_lottie', 'paint_pos_1']}
             second={["21.5%", "37%", "52.5%"]}
+            third={[{
+              left: "19.8%",
+              fontSize: "780%",
+            },
+            {
+              left: "35.8%",
+              fontSize: "780%",
+            },
+            {
+              left: "51.5%",
+              fontSize: "780%",
+            },
+            ]}
             extra={<div>
               <Image src={Assets?.props?.sprites[1]} className="bus_pos" />
             </div>}
@@ -201,6 +246,22 @@ function App() {
             box={["gar_box_1", "gar_box_2", "gar_box_3"]}
             ani={['yellow_lottie', 'paint_pos_1']}
             second={["31%", "44%", "58.5%"]}
+            third={[{
+              left: "29.85%",
+              bottom: "47.5%",
+              fontSize: "780%",
+            },
+            {
+              left: "43%",
+              bottom: "47.5%",
+              fontSize: "780%",
+            },
+            {
+              left: "57.4%",
+              bottom: "47.5%",
+              fontSize: "780%",
+            },
+            ]}
           />
         </Router>
 
@@ -216,6 +277,22 @@ function App() {
             box={["gar_box_1", "gar_box_2", "gar_box_3"]}
             ani={['yellow_lottie', 'paint_pos_1']}
             second={["31%", "44%", "58.5%"]}
+            third={[{
+              left: "29.85%",
+              bottom: "47.5%",
+              fontSize: "780%",
+            },
+            {
+              left: "43%",
+              bottom: "47.5%",
+              fontSize: "780%",
+            },
+            {
+              left: "57.4%",
+              bottom: "47.5%",
+              fontSize: "780%",
+            },
+            ]}
           />
         </Router>
 
@@ -230,7 +307,7 @@ function App() {
             numbox={3}
             num={['wood_num_1', 'wood_num_2', 'wood_num_3']}
             box={["gar_box_1", "gar_box_2", "gar_box_3"]}
-            second={["31.5%", "45.5%", "58.7%"]}
+            second={["31.5%", "46%", "58.7%"]}
           />
         </Router>
 

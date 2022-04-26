@@ -179,17 +179,44 @@ export default function Treehouse({ num, box, bg, numbox, second }) {
         {count !== 5 && <span>
           {/* numbers */}
           <span className={num[0]}
-            style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: 3 }}
+            style={
+              `${num1}`.length !== 3 ?
+                { left: `${num1}`.length === 2 ? second[0] : "", zIndex: 3 } :
+                {
+                  zIndex: "3",
+                  left: "31%",
+                  fontSize: "600%",
+                  bottom: "7%"
+                }
+            }
             onClick={first_click}
           >{num1}</span>
 
           <span
-            style={{ left: `${num2}`.length === 2 ? second[1] : "48%", zIndex: 3 }}
+            style={
+              `${num2}`.length !== 3 ?
+                { left: `${num2}`.length === 2 ? second[1] : "48%", zIndex: 3 } :
+                {
+                  zIndex: "3",
+                  left: "45%",
+                  fontSize: "600%",
+                  bottom: "7%"
+                }
+            }
             onClick={second_click}
             className={num[1]}>{num2}</span>
 
           <span
-            style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: 3 }}
+            style={
+              `${num3}`.length !== 3 ?
+                { left: `${num3}`.length === 2 ? second[2] : "", zIndex: 3 } :
+                {
+                  zIndex: "3",
+                  left: "58.7%",
+                  fontSize: "600%",
+                  bottom: "7%"
+                }
+            }
             onClick={third_click}
             className={num[2]}>{num3}</span>
 

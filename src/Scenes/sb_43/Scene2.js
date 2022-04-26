@@ -13,7 +13,7 @@ import { BGContext } from '../../contexts/Background';
 import { gen_nums } from './helper';
 
 
-export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, second, snd }) {
+export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, second, snd, third }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
@@ -245,17 +245,29 @@ export default function Scene2({ cw, num, box, ani, extra, bg, next, numbox, sec
 
         {/* numbers */}
         {show && <span className={num[0]}
-          style={{ left: `${num1}`.length === 2 ? second[0] : "", zIndex: final ? 999999 : "" }}
+          style={
+            `${num1}`.length !== 3 ?
+              { left: `${num1}`.length === 2 ? second[0] : "", zIndex: final ? 999999 : "" } :
+              { ...third[0], zIndex: final ? 999999 : "" }
+          }
           onClick={first_click}
         >{num1}</span>}
 
         {show && <span
-          style={{ left: `${num2}`.length === 2 ? second[1] : "", zIndex: final ? 999999 : "" }}
+          style={
+            `${num2}`.length !== 3 ?
+              { left: `${num2}`.length === 2 ? second[1] : "", zIndex: final ? 999999 : "" } :
+              { ...third[1], zIndex: final ? 999999 : "" }
+          }
           onClick={second_click}
           className={num[1]}>{num2}</span>}
 
         {show && <span
-          style={{ left: `${num3}`.length === 2 ? second[2] : "", zIndex: final ? 999999 : "" }}
+          style={
+            `${num3}`.length !== 3 ?
+              { left: `${num3}`.length === 2 ? second[2] : "", zIndex: final ? 999999 : "" } :
+              { ...third[2], zIndex: final ? 999999 : "" }
+          }
           onClick={third_click}
           className={num[2]}>{num3}</span>}
 

@@ -1,6 +1,6 @@
 @font-face {
   font-family: myFirstFont;
-  src: url(/public/ee03_nt_1to10_btn/sassoonsansusbold.ttf);
+  src: url(/public/ee03_nt_1to100_btn/sassoonsansusbold.ttf);
 }
 
 
@@ -368,14 +368,27 @@ font-family: myFirstFont !important;
 
 /* wanted part */
 
+.intro_fg{
+  position: fixed;
+  bottom: -1%;
+  width: 82%;
+  left: 8%;
+}
 
 
 
 .title {
-  position: absolute;
-  width: 50%;
-  bottom: 22%;
-  left: 29%;
+  position: fixed;
+  width: 32%;
+  bottom: 0%;
+  left: 36%;
+}
+
+.title_font{
+  position: fixed;
+  width: 55%;
+  left: 23%;
+  bottom: 4%;
 }
 
 .play_butn{

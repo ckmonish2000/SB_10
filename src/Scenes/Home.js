@@ -25,6 +25,12 @@ export default function Home({ play }) {
         <Image
           src={Assets?.Backgrounds?.sprites[1]} className="title" />
 
+        <Image
+          src={Assets?.Backgrounds?.sprites[2]} className="intro_fg" />
+
+        <Image
+          src={Assets?.Backgrounds?.sprites[3]} className="title_font" />
+
         <div style={{ width: "10%" }} className="play_butn">
           <Image
             style={{ width: "100%" }}
