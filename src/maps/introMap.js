@@ -10,6 +10,7 @@ const introMap = {
     `${imgUrl}sb_43/intro/intro_charecter.svg`,
     `${imgUrl}sb_43/intro/intro_FG.svg`,
     `${imgUrl}sb_43/intro/intro_font.svg`,
+    `${imgUrl}play.svg`,
   ],
 
 

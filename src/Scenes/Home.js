@@ -31,7 +31,10 @@ export default function Home({ play }) {
         <Image
           src={Assets?.Backgrounds?.sprites[3]} className="title_font" />
 
-        <div style={{ width: "10%" }} className="play_butn">
+        <Image
+          src={Assets?.Backgrounds?.sprites[4]} className="play_btn" />
+
+        {/* <div style={{ width: "10%" }} className="play_butn">
           <Image
             style={{ width: "100%" }}
             onClick={() => {
@@ -39,7 +42,7 @@ export default function Home({ play }) {
               play()
             }}
             src={Assets?.icons?.sprites[0]} />
-        </div>
+        </div> */}
 
 
       </>
