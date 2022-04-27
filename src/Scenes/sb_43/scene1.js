@@ -5,17 +5,16 @@ import Image from '../../utils/elements/Image';
 import lottie from "lottie-web"
 import { BGContext } from '../../contexts/Background';
 import "../../styles/Scene1.css"
-import useLoadAsset from './../../utils/useLoadAsset';
 import Scene2Map from '../../maps/SceneTwoMap';
+import useCustomLoadAsset from '../../utils/useCustomLoadAsset';
 
 
 export default function Scene1() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
-  const Scene2 = useLoadAsset(Scene2Map)
+  const Scene2 = useCustomLoadAsset(Scene2Map)
 
-  console.log(Scene2Map)
   const Ref1 = useRef(null)
 
   useEffect(() => {

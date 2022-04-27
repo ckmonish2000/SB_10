@@ -4,6 +4,24 @@ import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
 const url = `${imgUrl}sb_43/fruits/`
 const url2 = `${imgUrl}sb_43/vegies/`
 
+function shuffle(array) {
+  let currentIndex = array.length, randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
 
 const FoodMap = {
   fruits: [
@@ -35,7 +53,7 @@ const FoodMap = {
     `${url2}Spinach.svg`,
     `${url2}Tomato.svg`,
   ],
-  all: [
+  all: shuffle([
     `${url2}Cabbage.svg`,
     `${url2}Carrot.svg`,
     `${url2}Corn.svg`,
@@ -60,7 +78,7 @@ const FoodMap = {
     `${url}Plum.svg`,
     `${url}Strawberry.svg`,
     `${url}Watermelon.svg`
-  ]
+  ])
 }
 
 
