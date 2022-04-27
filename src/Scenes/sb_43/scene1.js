@@ -5,15 +5,19 @@ import Image from '../../utils/elements/Image';
 import lottie from "lottie-web"
 import { BGContext } from '../../contexts/Background';
 import "../../styles/Scene1.css"
+import useLoadAsset from './../../utils/useLoadAsset';
+import Scene2Map from '../../maps/SceneTwoMap';
 
 
 export default function Scene1() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
+  const [Loading, setLoading] = useState(true);
+  const Scene2 = useLoadAsset(Scene2Map)
 
+  console.log(Scene2Map)
   const Ref1 = useRef(null)
 
-  console.log(Assets?.Scene1)
   useEffect(() => {
     setBg(Assets["Scene1"]?.Bg)
     if (Ref1.current) {
@@ -28,11 +32,18 @@ export default function Scene1() {
 
       const audio = Assets["Scene1"]?.sounds[0]
       audio?.play()
-      audio.on("end", () => { setSceneId("/Scene2") })
+
+      audio.on("end", () => { setLoading(false) })
     }
 
 
   }, [])
+
+  useEffect(() => {
+    if (!Loading && !Scene2.Loading) {
+      setSceneId("/Scene2")
+    }
+  }, [Scene2.Loading, Loading]);
 
   return <Scenes
     Bg={Bg}
