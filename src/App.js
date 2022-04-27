@@ -83,7 +83,7 @@ function App() {
   const toggleMute = () => { setmute(!mute) }
 
 
-  if (Load || Asset?.Loading) return <div className="intro_Loading_screen">Loading....</div>
+  if (Load && !Asset.Loading) return <div className="intro_Loading_screen">Loading....</div>
 
 
   return (

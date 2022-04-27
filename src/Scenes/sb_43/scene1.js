@@ -13,30 +13,31 @@ export default function Scene1() {
   const Ref1 = useRef(null)
   const Ref2 = useRef(null)
 
+  console.log(Assets?.Scene1)
   useEffect(() => {
-    setBg(Assets["Backgrounds"]?.sprites[4])
+    setBg(Assets["Scene1"]?.Bg)
     if (Ref1.current) {
-      const ch = lottie.loadAnimation({
-        name: "ch1",
-        container: Ref1.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        animationData: Assets["Backgrounds"]?.lottie[0],
-      })
+      // const ch = lottie.loadAnimation({
+      //   name: "ch1",
+      //   container: Ref1.current,
+      //   renderer: "svg",
+      //   loop: true,
+      //   autoplay: true,
+      //   animationData: Assets["Backgrounds"]?.lottie[0],
+      // })
 
-      const ch2 = lottie.loadAnimation({
-        name: "ch2",
-        container: Ref2.current,
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        animationData: Assets["Backgrounds"]?.lottie[1],
-      })
+      // const ch2 = lottie.loadAnimation({
+      //   name: "ch2",
+      //   container: Ref2.current,
+      //   renderer: "svg",
+      //   loop: true,
+      //   autoplay: true,
+      //   animationData: Assets["Backgrounds"]?.lottie[1],
+      // })
 
-      const audio = Assets["Backgrounds"]?.sounds[0]
-      audio?.play()
-      audio.on("end", () => { setSceneId("/Scene2") })
+      // const audio = Assets["Backgrounds"]?.sounds[0]
+      // audio?.play()
+      // audio.on("end", () => { setSceneId("/Scene2") })
     }
 
 
@@ -48,7 +49,7 @@ export default function Scene1() {
       <>
 
 
-        <Image src={Assets?.props?.sprites[0]} className="paint_bucket" id="vision" />
+        {/* <Image src={Assets?.props?.sprites[0]} className="paint_bucket" id="vision" /> */}
 
         <div ref={Ref1} className="scene1_blue_char_pos"></div>
         <div ref={Ref2} className="scene1_yellow_char_pos"></div>
