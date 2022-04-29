@@ -15,6 +15,7 @@ import Image from "./utils/elements/Image";
 import Stars from './Scenes/sb_43/Stars';
 import useLoadAsset from "./utils/useLoadAsset";
 import introMap from "./maps/introMap";
+import Scene3 from './Scenes/sb_43/Scene3';
 
 
 function App() {
@@ -139,9 +140,9 @@ function App() {
           <Scene2 />
         </Router>
 
-        {/* <Router sceneId="/Scene2">
+        <Router sceneId="/Scene3">
           <Scene3 />
-        </Router> */}
+        </Router>
 
 
       </GameContainer>

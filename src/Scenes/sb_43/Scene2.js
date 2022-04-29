@@ -28,7 +28,7 @@ export default function Scene2() {
 
   useEffect(() => {
     if (Starz === 12) {
-      setSceneId("/")
+      setSceneId("/Scene3")
     }
   }, [Starz])
 

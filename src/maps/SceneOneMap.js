@@ -15,7 +15,8 @@ const Scene1Map = {
   ],
 
   lottie: [
-    `${lottieUrl}Scene_01.json`
+    `${lottieUrl}Scene_01.json`,
+    `${lottieUrl}excel_text.json`,
   ]
 }
 
