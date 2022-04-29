@@ -139,6 +139,10 @@ function App() {
           <Scene2 />
         </Router>
 
+        {/* <Router sceneId="/Scene2">
+          <Scene3 />
+        </Router> */}
+
 
       </GameContainer>
     </>
