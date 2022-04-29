@@ -50,3 +50,19 @@
   justify-content: center;
   align-items: center;
 }
+
+.basket_name_1{
+  position: fixed;
+  bottom: 31.3%;
+  left: 39%;
+  z-index: 99999;
+  font-size: 25px;
+}
+
+.basket_name_2{
+  position: fixed;
+  bottom: 31.5%;
+  left: 56.5%;
+  z-index: 99999;
+  font-size: 24.5px;
+}

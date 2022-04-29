@@ -37,6 +37,9 @@ export default function Scene2() {
     Bg={Bg}
     sprites={
       <>
+        {/* basket names */}
+        <h1 className="basket_name_1">Fruits</h1>
+        <h1 className="basket_name_2">Vegetables</h1>
 
         {/* baskets */}
         <Image src={remainingSprites[1].img} className="basket1" />
