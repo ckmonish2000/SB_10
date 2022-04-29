@@ -16,6 +16,7 @@ import Stars from './Scenes/sb_43/Stars';
 import useLoadAsset from "./utils/useLoadAsset";
 import introMap from "./maps/introMap";
 import Scene3 from './Scenes/sb_43/Scene3';
+import Scene4 from "./Scenes/sb_43/Scene4";
 
 
 function App() {
@@ -142,6 +143,10 @@ function App() {
 
         <Router sceneId="/Scene3">
           <Scene3 />
+        </Router>
+
+        <Router sceneId="/Scene4">
+          <Scene4 />
         </Router>
 
 

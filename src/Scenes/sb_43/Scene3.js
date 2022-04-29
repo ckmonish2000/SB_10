@@ -8,13 +8,15 @@ import "../../styles/Scene1.css"
 import Scene2Map from '../../maps/SceneTwoMap';
 import useCustomLoadAsset from '../../utils/useCustomLoadAsset';
 import "../../styles/Scene3.css"
+import useLoadAsset from '../../utils/useLoadAsset';
+import Scene4Map from '../../maps/SceneFourMap';
 
 
 export default function Scene3() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
-  const Scene2 = useCustomLoadAsset(Scene2Map)
+  const Scene2 = useLoadAsset(Scene4Map)
 
   const Ref1 = useRef(null)
   const Ref2 = useRef(null)
@@ -55,7 +57,7 @@ export default function Scene3() {
 
   useEffect(() => {
     if (!Loading && !Scene2.Loading) {
-      // setSceneId("/Scene2")
+      setSceneId("/Scene4")
     }
   }, [Scene2.Loading, Loading]);
 
