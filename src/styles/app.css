@@ -1,4 +1,9 @@
-*{
+/* *{
+  -webkit-user-select:none  !important;
+  -webkit-user-drag: none !important;
+} */
+
+.Bg_Image{
   -webkit-user-select:none  !important;
   -webkit-user-drag: none !important;
 }

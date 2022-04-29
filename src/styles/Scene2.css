@@ -31,3 +31,8 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
 }
+
+.fruitsnveg{
+  -webkit-user-select: auto;
+  -webkit-user-drag: auto;
+}

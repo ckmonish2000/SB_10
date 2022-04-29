@@ -9,6 +9,7 @@ import { BGContext } from '../../contexts/Background';
 
 export default function Scene2() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
+  const [Name, setName] = useState("")
   const { Bg, setBg } = useContext(BGContext)
 
   const sprites = Assets?.Scene2?.sprites?.slice(0, 12)
@@ -19,8 +20,13 @@ export default function Scene2() {
     setBg(Assets["Scene2"]?.Bg)
   }, [])
 
+  const getStyles = (url) => {
+    console.log(url.split("/")[4].split(".")[0])
 
+    return {}
+  }
 
+  console.log(Name)
   return <Scenes
     Bg={Bg}
     sprites={
@@ -42,8 +48,17 @@ export default function Scene2() {
           className="basket2" />
 
         {sprites?.map((v, idx) => {
-          return <div>
+          return <div
+            className="fruitsnveg"
+            draggable
+            onMouseDown={(e) => setName(e.currentTarget.id)}
+            onDragStart={(e) => {
+              e.dataTransfer.setData("text", e.currentTarget.id)
+            }}
+            onDragEnd={() => setName("")}
+          >
             <Image
+              // style={getStyles(v?.url)}
               id={v?.url}
               style={{ left: idx >= 6 ? `${30 + idx % 6 * 7.5}%` : `${30 + idx * 7.5}%` }}
               className={idx <= 5 ? "pos_1" : "pos_2"}
