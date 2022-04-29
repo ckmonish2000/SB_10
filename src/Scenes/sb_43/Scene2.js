@@ -39,7 +39,7 @@ export default function Scene2() {
     const fruits = FoodMap?.fruits?.map(v => getname(v))
     const fruitName = e.dataTransfer.getData("text")
 
-    if (fruits.includes(fruitName)) {
+    if (fruits.includes(fruitName) && !Selected_fruits.includes(fruitName)) {
       setSelected_fruits([...Selected_fruits, fruitName])
     }
 
@@ -49,12 +49,13 @@ export default function Scene2() {
     const vegies = FoodMap?.veg?.map(v => getname(v))
     const vegiesName = e.dataTransfer.getData("text")
 
-    if (vegies.includes(vegiesName)) {
+    if (vegies.includes(vegiesName) && !Selected_vegies.includes(vegiesName)) {
       setSelected_vegies([...Selected_vegies, vegiesName])
     }
 
   }
 
+  console.log(Selected_vegies, Selected_fruits)
 
   return <Scenes
     Bg={Bg}
