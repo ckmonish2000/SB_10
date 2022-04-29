@@ -24,7 +24,7 @@ export default function Home({ play }) {
 
   useEffect(() => {
     if (!Loading && !Scene1.Loading) {
-      setSceneId("/Scene3")
+      setSceneId("/Scene1")
     }
   }, [Loading, Scene1.Loading])
 

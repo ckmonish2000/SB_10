@@ -44,7 +44,7 @@ export default function Scene3() {
         })
       }
 
-      const audio = Assets["Scene1"]?.sounds[0]
+      const audio = Assets["Scene1"]?.sounds[1]
       audio?.play()
 
       audio.on("end", () => { setLoading(false) })

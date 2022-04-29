@@ -28,7 +28,10 @@ export default function Scene2() {
 
   useEffect(() => {
     if (Starz === 12) {
-      setSceneId("/Scene3")
+      setTimeout(() => {
+        setSceneId("/Scene3")
+        setStarz(0)
+      }, 2000)
     }
   }, [Starz])
 
