@@ -7,6 +7,7 @@ import "../../styles/Scene2.css"
 import { BGContext } from '../../contexts/Background';
 import fruits_size_scene1 from '../../styles/customstyles';
 import FoodMap from './../../maps/FruitsAndVeg';
+import { imgUrl } from "../../utils/path"
 
 
 export default function Scene2() {
@@ -84,6 +85,41 @@ export default function Scene2() {
           src={remainingSprites[0].img}
           className="basket2" />
 
+        {/* fruits and vegies in the basket */}
+
+        {/* fruits */}
+        <div className="basket_fruits">
+          {Selected_fruits?.map((v, idx) => {
+            const url = `${imgUrl}sb_43/fruits/${v}.svg`
+            const img = sprites?.filter(va => va.url === url)
+            console.log(img)
+            return <Image
+              src={img[0].img}
+              style={{
+                ...getStyles(url),
+                marginLeft: idx > 0 ? "-40px" : "",
+                marginBottom: v === "Banana" ? "-22px" : ""
+              }}
+            />
+          })}
+        </div>
+
+        {/* vegies */}
+        <div className="basket_vegies">
+          {Selected_vegies?.map((v, idx) => {
+            const url = `${imgUrl}sb_43/vegies/${v}.svg`
+            const img = sprites?.filter(va => va.url === url)
+            return <Image
+              src={img[0].img}
+              style={{
+                ...getStyles(url),
+                marginLeft: idx > 0 ? "-35px" : "",
+              }}
+            />
+          })}
+        </div>
+
+        {/* name of fruits and vegies */}
         <div
           className="item_name"
         >{Name}</div>

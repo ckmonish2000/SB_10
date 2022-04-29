@@ -104,3 +104,23 @@
     -webkit-user-select: none;
     width: 48.7%;
 }
+
+
+.basket_fruits{
+  position: fixed;
+  bottom: 35%;
+  left: 36%;
+  /* border: 1px solid; */
+  width: 150px;
+  display: flex;
+}
+
+
+.basket_vegies{
+  position: fixed;
+  bottom: 34%;
+  left: 55%;
+  /* border: 1px solid; */
+  width: 159px;
+  display: flex;
+}
