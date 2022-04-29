@@ -25,6 +25,14 @@ export default function Scene2() {
     setBg(Assets["Scene2"]?.Bg)
   }, [])
 
+
+  useEffect(() => {
+    if (Starz === 12) {
+      setSceneId("/")
+    }
+  }, [Starz])
+
+
   const getname = (url) => url.split("/")[4].split(".")[0]
   const getStyles = (url) => {
     const key = getname(url)
@@ -42,6 +50,7 @@ export default function Scene2() {
     const fruitName = e.dataTransfer.getData("text")
 
     if (fruits.includes(fruitName) && !Selected_fruits.includes(fruitName)) {
+      setStarz(Starz + 1)
       setSelected_fruits([...Selected_fruits, fruitName])
     }
 
@@ -52,6 +61,7 @@ export default function Scene2() {
     const vegiesName = e.dataTransfer.getData("text")
 
     if (vegies.includes(vegiesName) && !Selected_vegies.includes(vegiesName)) {
+      setStarz(Starz + 1)
       setSelected_vegies([...Selected_vegies, vegiesName])
     }
 
