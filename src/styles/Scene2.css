@@ -9,3 +9,25 @@
   bottom: 16%;
   width: 50px;
 }
+
+
+.basket2{
+  position: fixed;
+  bottom: 31%;
+  left: 54.5%;
+  width: 10%;
+  z-index: 0;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}
+
+
+.basket1{
+  position: fixed;
+  bottom: 31%;
+  left: 36%;
+  width: 10%;
+  z-index: 0;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+}

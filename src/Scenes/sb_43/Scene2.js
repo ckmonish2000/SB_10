@@ -12,21 +12,37 @@ export default function Scene2() {
   const { Bg, setBg } = useContext(BGContext)
 
   const sprites = Assets?.Scene2?.sprites?.slice(0, 12)
-  console.log(Assets?.Scene2?.sprites?.slice(1, sprites.length))
+  const remainingSprites = Assets["Scene2"].sprites.slice(24)
+
   // loading animation
   useEffect(() => {
     setBg(Assets["Scene2"]?.Bg)
   }, [])
 
-  console.log(Assets)
 
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
+
+        {/* baskets */}
+        <Image src={remainingSprites[1].img} className="basket1" />
+        <Image src={remainingSprites[1].img} className="basket2" />
+
+        {/* basket cover */}
+        <Image
+          style={{ bottom: "31.5%", zIndex: "999" }}
+          src={remainingSprites[0].img}
+          className="basket1" />
+
+        <Image
+          style={{ bottom: "31.5%", zIndex: "999" }}
+          src={remainingSprites[0].img}
+          className="basket2" />
+
         {sprites?.map((v, idx) => {
-          return <div onClick>
+          return <div>
             <Image
               id={v?.url}
               style={{ left: idx >= 6 ? `${30 + idx % 6 * 7.5}%` : `${30 + idx * 7.5}%` }}
