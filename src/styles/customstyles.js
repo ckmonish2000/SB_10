@@ -34,7 +34,7 @@ const fruits_size_scene1 = {
     width: "60px"
   },
   Raddish: {
-    width: "70px"
+    width: "75px"
   },
   Peach: {
     width: "60px"

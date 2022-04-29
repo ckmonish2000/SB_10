@@ -6,12 +6,15 @@ import Image from '../../utils/elements/Image';
 import "../../styles/Scene2.css"
 import { BGContext } from '../../contexts/Background';
 import fruits_size_scene1 from '../../styles/customstyles';
+import FoodMap from './../../maps/FruitsAndVeg';
 
 
 export default function Scene2() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
-  const [Name, setName] = useState("")
   const { Bg, setBg } = useContext(BGContext)
+  const [Name, setName] = useState("")
+  const [Selected_fruits, setSelected_fruits] = useState([])
+  const [Selected_vegies, setSelected_vegies] = useState([])
 
   const sprites = Assets?.Scene2?.sprites?.slice(0, 12)
   const remainingSprites = Assets["Scene2"].sprites.slice(24)
@@ -32,7 +35,27 @@ export default function Scene2() {
     return {}
   }
 
-  console.log(Name)
+  const onFruitDrop = (e) => {
+    const fruits = FoodMap?.fruits?.map(v => getname(v))
+    const fruitName = e.dataTransfer.getData("text")
+
+    if (fruits.includes(fruitName)) {
+      setSelected_fruits([...Selected_fruits, fruitName])
+    }
+
+  }
+
+  const onVegiesDrop = (e) => {
+    const vegies = FoodMap?.veg?.map(v => getname(v))
+    const vegiesName = e.dataTransfer.getData("text")
+
+    if (vegies.includes(vegiesName)) {
+      setSelected_vegies([...Selected_vegies, vegiesName])
+    }
+
+  }
+
+
   return <Scenes
     Bg={Bg}
     sprites={
@@ -40,6 +63,9 @@ export default function Scene2() {
         {/* basket names */}
         <h1 className="basket_name_1">Fruits</h1>
         <h1 className="basket_name_2">Vegetables</h1>
+
+        {/* waste elements for look */}
+        <Image src={remainingSprites[2].img} className="useless_board" />
 
         {/* baskets */}
         <Image src={remainingSprites[1].img} className="basket1" />
@@ -59,6 +85,19 @@ export default function Scene2() {
         <div
           className="item_name"
         >{Name}</div>
+
+        {/* drop container */}
+        <div
+          className="drop_container_1"
+          onDrop={onFruitDrop}
+          onDragOver={e => e.preventDefault()}
+        >.</div>
+
+        <div
+          className="drop_container_2"
+          onDrop={onVegiesDrop}
+          onDragOver={e => e.preventDefault()}
+        >.</div>
 
         {/* fruits and vegies part */}
         {sprites?.map((v, idx) => {

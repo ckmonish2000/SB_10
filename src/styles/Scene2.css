@@ -69,3 +69,38 @@
   font-size: 24.5px; 
   color: black !important;
 }
+
+.drop_container_1{
+  position: fixed;
+  width: 11%;
+  height: 15%;
+  /* border: 1px solid white; */
+  bottom: 31%;
+  left: 35.35%;
+  z-index: 1000000;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  color:transparent !important;
+}
+
+.drop_container_2{
+  position: fixed;
+  width: 11%;
+  height: 15%;
+  bottom: 31%;
+  left: 53.9%;
+  z-index: 1000000;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  color:transparent !important;
+}
+
+.useless_board{
+  position: fixed;
+    bottom: 1%;
+    left: 26.2%;
+    z-index: 1000;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    width: 48.7%;
+}

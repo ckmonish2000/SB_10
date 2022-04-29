@@ -9,7 +9,8 @@ const Scene2Map = {
   sprites: [
     ...FoodMap.all,
     `${imgUrl}sb_43/scene3/Basket_Front.svg`,
-    `${imgUrl}sb_43/scene3/Basket.svg`
+    `${imgUrl}sb_43/scene3/Basket.svg`,
+    `${imgUrl}sb_43/scene3/front_block.svg`,
   ],
 
 
