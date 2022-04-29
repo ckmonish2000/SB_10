@@ -41,11 +41,9 @@ const fruits_size_scene1 = {
   },
   Mango: {
     width: "60px",
-    marginLeft: "15px"
   },
   Pineapple: {
     width: "55px",
-    marginLeft: "15px"
   },
   Cabbage: {
     width: "70px"

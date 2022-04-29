@@ -21,8 +21,9 @@ export default function Scene2() {
     setBg(Assets["Scene2"]?.Bg)
   }, [])
 
+  const getname = (url) => url.split("/")[4].split(".")[0]
   const getStyles = (url) => {
-    const key = url.split("/")[4].split(".")[0]
+    const key = getname(url)
 
     if (fruits_size_scene1[key]) {
       return fruits_size_scene1[key]
@@ -52,14 +53,21 @@ export default function Scene2() {
           src={remainingSprites[0].img}
           className="basket2" />
 
+        <div
+          className="item_name"
+        >{Name}</div>
+
+        {/* fruits and vegies part */}
         {sprites?.map((v, idx) => {
           return <div
+            id={getname(v?.url)}
             className="fruitsnveg"
             draggable
             onMouseDown={(e) => setName(e.currentTarget.id)}
             onDragStart={(e) => {
               e.dataTransfer.setData("text", e.currentTarget.id)
             }}
+            onMouseUp={(e) => setName("")}
             onDragEnd={() => setName("")}
           >
             <Image

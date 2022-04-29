@@ -36,3 +36,17 @@
   -webkit-user-select: auto;
   -webkit-user-drag: auto;
 }
+
+.item_name{
+  position: fixed;
+  left: 45.1%;
+  bottom: 58.2%;
+  /* border: 1px solid; */
+  width: 186px;
+  height: 47px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
