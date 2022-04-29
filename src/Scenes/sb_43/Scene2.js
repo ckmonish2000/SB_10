@@ -113,7 +113,7 @@ export default function Scene2() {
               src={img[0].img}
               style={{
                 ...getStyles(url),
-                marginLeft: idx > 0 ? "-35px" : "",
+                marginLeft: idx > 0 ? "-28px" : "",
               }}
             />
           })}

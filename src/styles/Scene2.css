@@ -108,7 +108,7 @@
 
 .basket_fruits{
   position: fixed;
-  bottom: 35%;
+  bottom: 33.5%;
   left: 36%;
   /* border: 1px solid; */
   width: 150px;
@@ -118,7 +118,7 @@
 
 .basket_vegies{
   position: fixed;
-  bottom: 34%;
+  bottom: 33.5%;
   left: 55%;
   /* border: 1px solid; */
   width: 159px;
