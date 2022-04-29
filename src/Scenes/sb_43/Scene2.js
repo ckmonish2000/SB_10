@@ -103,6 +103,12 @@ export default function Scene2() {
         {/* fruits and vegies part */}
         {sprites?.map((v, idx) => {
           return <div
+            style={{
+              opacity: (
+                (Selected_fruits?.includes(getname(v?.url)) || Selected_vegies?.includes(getname(v?.url))) ?
+                  0 : 1
+              )
+            }}
             id={getname(v?.url)}
             className="fruitsnveg"
             draggable
