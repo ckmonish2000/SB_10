@@ -5,6 +5,7 @@ import "../../styles/intro.css"
 import Image from '../../utils/elements/Image';
 import "../../styles/Scene2.css"
 import { BGContext } from '../../contexts/Background';
+import fruits_size_scene1 from '../../styles/customstyles';
 
 
 export default function Scene2() {
@@ -21,7 +22,11 @@ export default function Scene2() {
   }, [])
 
   const getStyles = (url) => {
-    console.log(url.split("/")[4].split(".")[0])
+    const key = url.split("/")[4].split(".")[0]
+
+    if (fruits_size_scene1[key]) {
+      return fruits_size_scene1[key]
+    }
 
     return {}
   }
@@ -58,9 +63,12 @@ export default function Scene2() {
             onDragEnd={() => setName("")}
           >
             <Image
-              // style={getStyles(v?.url)}
               id={v?.url}
-              style={{ left: idx >= 6 ? `${30 + idx % 6 * 7.5}%` : `${30 + idx * 7.5}%` }}
+              style={{
+                left: idx >= 6 ? `${30 + idx % 6 * 7.5}%` : `${30 + idx * 7.5}%`,
+                zIndex: idx >= 6 ? 9 : 7,
+                ...getStyles(v?.url)
+              }}
               className={idx <= 5 ? "pos_1" : "pos_2"}
               src={v.img} />
           </div>
