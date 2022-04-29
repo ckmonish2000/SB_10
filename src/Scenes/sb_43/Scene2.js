@@ -34,6 +34,7 @@ export default function Scene2() {
 
     return {}
   }
+  const check = (v) => (Selected_fruits?.includes(getname(v?.url)) || Selected_vegies?.includes(getname(v?.url)))
 
   const onFruitDrop = (e) => {
     const fruits = FoodMap?.fruits?.map(v => getname(v))
@@ -104,10 +105,7 @@ export default function Scene2() {
         {sprites?.map((v, idx) => {
           return <div
             style={{
-              opacity: (
-                (Selected_fruits?.includes(getname(v?.url)) || Selected_vegies?.includes(getname(v?.url))) ?
-                  0 : 1
-              )
+              opacity: check(v) ? 0 : 1
             }}
             id={getname(v?.url)}
             className="fruitsnveg"
