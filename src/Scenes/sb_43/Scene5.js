@@ -20,6 +20,8 @@ export default function Scene5({ type = "fruits" }) {
   const [Data, setData] = useState({})
   const [TheChoosenOnes, setTheChoosenOnes] = useState([]);
   const [Item, setItem] = useState([])
+  const [Chopped, setChopped] = useState([])
+  const [showChopped, setshowChopped] = useState(false);
 
   const [Selected, setSelected] = useState([]);
   const [ShowCloud, setShowCloud] = useState(false)
@@ -59,16 +61,27 @@ export default function Scene5({ type = "fruits" }) {
 
   useEffect(() => {
     setData(get_objects())
-    const item = get_objects().item?.slice(0, 6)
+    const obj = get_objects()
+    const item = obj.item?.slice(0, 6)
     setItem(item)
+
     let sel = get_nums()
     sel = sel.map(v => item[v])
-    setTheChoosenOnes(sel)
+    const selected_names = sel?.map(v => get_name(v.url))
+    let chopped = obj?.cutitems?.filter(v => selected_names.includes(get_name(v.url)))
+
+    setTheChoosenOnes(sel) // the fruits on the name board
+    setChopped(chopped) // chopped version of the fruits on the name board
 
   }, [])
 
-  const get_name = (url) => url.split("/")[4].split(".")[0]
+  const get_name = (url) => {
+    let x = url.split("/")
+    x = x[x.length - 1].split(".")[0]
+    return x
+  }
 
+  console.log(showChopped)
   useEffect(() => {
     setBg(Assets["Scene5"]?.Bg)
 
@@ -95,9 +108,15 @@ export default function Scene5({ type = "fruits" }) {
     if (ShowCloud) {
       setTimeout(() => {
         setShowCloud(false)
-      }, 1500)
+      }, 1200)
     }
-  }, [ShowCloud])
+
+    if (showChopped) {
+      setTimeout(() => {
+        setshowChopped(false)
+      }, 2500)
+    }
+  }, [ShowCloud, showChopped])
   // useEffect(() => {
   //   if (!Loading && !Scene2.Loading) {
   //     // setSceneId("/Scene2")
@@ -138,6 +157,10 @@ export default function Scene5({ type = "fruits" }) {
                     setShowCloud(true)
                   }, 2800)
 
+                  setTimeout(() => {
+                    setshowChopped(true)
+                  }, 2980)
+
                   // wait until the item appears on the board
                   setTimeout(() => {
                     setSelected([...Selected, item_name])
@@ -158,17 +181,34 @@ export default function Scene5({ type = "fruits" }) {
           })}
         </div>
 
+        {/* cubboard names */}
+        {Item.map((v, idx) => {
+          return <h1 className={name_position[idx]}>{get_name(v.url)}</h1>
+        })}
+
         {/* cuttingboard */}
         <Image
           src={Assets["Scene5"]?.sprites[1]?.img}
           className="cutting_board"
         />
 
+
         {/* cloud */}
         <div
           style={{ opacity: ShowCloud ? 1 : 0 }}
           ref={Ref}
           className="cloud"></div>
+
+
+        {/* chopped Display */}
+        {Chopped?.map(v => {
+          return <Image
+            id={get_name(v.url)}
+            style={{ opacity: Selected[Selected.length - 1] === get_name(v.url) && showChopped ? 1 : 0 }}
+            className="chopped_fruits"
+            src={v.img}
+          />
+        })}
       </>
     }
   />;
@@ -207,4 +247,14 @@ const positions = {
     left: "70.5%"
   }
 
+}
+
+
+const name_position = {
+  0: "pos_name_1",
+  1: "pos_name_2",
+  2: "pos_name_3",
+  3: "pos_name_4",
+  4: "pos_name_5",
+  5: "pos_name_6",
 }
