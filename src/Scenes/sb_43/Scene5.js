@@ -129,18 +129,22 @@ export default function Scene5({ type = "fruits" }) {
           {Item.map((v, idx) => {
             const item_name = v.url.split("/")[4].split(".")[0]
             return <Image
+              id={item_name}
               onClick={(e) => {
-                // show magic
-                setTimeout(() => {
-                  setShowCloud(true)
-                }, 2800)
+                const answers = TheChoosenOnes?.map(v => get_name(v.url))
+                if (answers.includes(item_name)) {
+                  // show magic
+                  setTimeout(() => {
+                    setShowCloud(true)
+                  }, 2800)
 
-                // wait until the item appears on the board
-                setTimeout(() => {
-                  setSelected([...Selected, item_name])
-                }, 3000)
+                  // wait until the item appears on the board
+                  setTimeout(() => {
+                    setSelected([...Selected, item_name])
+                  }, 3000)
 
-                e.target.className = "move_to_board"
+                  e.target.className = "move_to_board"
+                }
               }}
               src={v.img}
               style={{
