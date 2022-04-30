@@ -22,9 +22,12 @@ export default function Scene5({ type = "fruits" }) {
   const [Item, setItem] = useState([])
   const [Chopped, setChopped] = useState([])
   const [showChopped, setshowChopped] = useState(false);
+  const [clicked, setclicked] = useState(false);
 
   const [Selected, setSelected] = useState([]);
   const [ShowCloud, setShowCloud] = useState(false)
+
+  const [star, setstar] = useState(0)
 
   const Ref = useRef(null)
 
@@ -35,6 +38,13 @@ export default function Scene5({ type = "fruits" }) {
 
   const vegies = Assets["Scene5"].sprites?.slice(33, 41)
   const cut_vegies = Assets["Scene5"].sprites?.slice(42)
+
+  const bowls = Assets["Scene5"].sprites?.slice(51)
+  const empty_bowl = bowls[0]
+  const fruit_bowls = bowls.slice(1, 4)
+  const veg_bowls = bowls.slice(4)
+  console.log(fruit_bowls, veg_bowls)
+
 
   const get_objects = () => {
     if (type === "fruits") return { item: fruits, cutitems: cut_fruits }
@@ -115,21 +125,60 @@ export default function Scene5({ type = "fruits" }) {
         setshowChopped(false)
       }, 2500)
     }
-  }, [ShowCloud, showChopped])
+
+    if (setclicked) {
+      setTimeout(() => {
+        setclicked(false)
+      }, 3100)
+    }
+  }, [ShowCloud, showChopped, clicked])
+
   // useEffect(() => {
   //   if (!Loading && !Scene2.Loading) {
   //     // setSceneId("/Scene2")
   //   }
   // }, [Scene2.Loading, Loading]);
 
+  const get_bowl_type = () => {
+    if (type === "fruits") {
+      return fruit_bowls
+    } else {
+      return veg_bowls
+    }
+  }
+
+  console.log(get_bowl_type(), star)
+
   return <Scenes
     Bg={Bg}
     sprites={
       <>
+        {/* bowls */}
+
+        {star === 0 && <Image
+          src={empty_bowl.img}
+          className="bowl_pos"
+        />}
+
+        {star === 1 && <Image
+          src={get_bowl_type()[0]?.img}
+          className="bowl_pos"
+        />}
+
+        {star === 2 && <Image
+          src={get_bowl_type()[1]?.img}
+          className="bowl_pos"
+        />}
+
+        {star === 3 && <Image
+          src={get_bowl_type()[2]?.img}
+          className="bowl_pos"
+        />}
+
         {/* name Board */}
         <Image
           className="NameBoard"
-          src={Assets["Scene5"]?.sprites[2].img}
+          src={Assets["Scene5"]?.sprites[2]?.img}
         />
 
         {/* nameBoard names */}
@@ -149,27 +198,31 @@ export default function Scene5({ type = "fruits" }) {
             return <Image
               id={item_name}
               onClick={(e) => {
-                const answers = TheChoosenOnes?.map(v => get_name(v.url))
-                if (answers.includes(item_name)) {
-                  // show magic
-                  setTimeout(() => {
-                    setShowCloud(true)
-                  }, 2800)
+                if (!clicked) {
+                  setclicked(true)
+                  const answers = TheChoosenOnes?.map(v => get_name(v.url))
+                  if (answers.includes(item_name)) {
+                    // show magic
+                    setTimeout(() => {
+                      setShowCloud(true)
+                    }, 2800)
 
-                  setTimeout(() => {
-                    setshowChopped(true)
-                  }, 2980)
+                    setTimeout(() => {
+                      setshowChopped(true)
+                      setstar(star + 1)
+                    }, 2980)
 
-                  // wait until the item appears on the board
-                  setTimeout(() => {
-                    setSelected([...Selected, item_name])
-                  }, 3000)
+                    // wait until the item appears on the board
+                    setTimeout(() => {
+                      setSelected([...Selected, item_name])
+                    }, 3000)
 
-                  e.target.className = "move_to_board"
+                    e.target.className = "move_to_board"
 
-                  Assets["Scene5"]?.sounds[2]?.play()
-                } else {
-                  Assets["Scene5"]?.sounds[3]?.play()
+                    Assets["Scene5"]?.sounds[2]?.play()
+                  } else {
+                    Assets["Scene5"]?.sounds[3]?.play()
+                  }
                 }
               }}
               src={v.img}

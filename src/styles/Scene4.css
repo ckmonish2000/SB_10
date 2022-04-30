@@ -80,8 +80,8 @@
   font-size: 13px;
   align-items: center;
   height: 216px;
-  animation: showname 3s linear forwards;
-  animation-delay: 15s;
+  animation: showname   5s linear forwards;
+  /* animation-delay: 15s; */
 }
 
 .name_indi{
@@ -182,4 +182,11 @@
   font-size: 17px;
   width: 119px;
   text-align: center;
+}
+
+.bowl_pos{
+  position: fixed;
+  bottom: 15%;
+  left: 22%;
+  width: 12%;
 }
