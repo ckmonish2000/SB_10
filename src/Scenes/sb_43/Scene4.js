@@ -36,9 +36,8 @@ export default function Scene4() {
     if (!Loading && !Scene2.Loading && NavTo !== "") {
       setSceneId(NavTo)
     }
-  }, [Scene2.Loading, Loading]);
+  }, [Scene2.Loading, Loading, NavTo]);
 
-  console.log(SceneId, NavTo)
   return <Scenes
     Bg={Bg}
     sprites={

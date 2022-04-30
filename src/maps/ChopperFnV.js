@@ -1,30 +1,13 @@
 
 import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
 
-const url = `${imgUrl}sb_43/cut/fruits`
+const url = `${imgUrl}sb_43/cut/fruits/`
 const url2 = `${imgUrl}sb_43/cut/vegies/`
 
-function shuffle(array) {
-  let currentIndex = array.length, randomIndex;
-
-  // While there remain elements to shuffle.
-  while (currentIndex != 0) {
-
-    // Pick a remaining element.
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
-
-  return array;
-}
 
 
 const ChoppersMap = {
-  fruits: shuffle([
+  fruits: [
     `${url}Apple.svg`,
     `${url}Banana.svg`,
     `${url}Cherry.svg`,
@@ -40,9 +23,8 @@ const ChoppersMap = {
     `${url}Strawberry.svg`,
     `${url}Watermelon.svg`,
     `${url}Sweetlime.svg`,
-  ]),
-  veg: shuffle([
-
+  ],
+  veg: [
     `${url2}Cabbage.svg`,
     `${url2}Carrot.svg`,
     `${url2}Corn.svg`,
@@ -52,8 +34,8 @@ const ChoppersMap = {
     `${url2}Raddish.svg`,
     `${url2}Spinach.svg`,
     `${url2}Tomato.svg`,
-  ]),
-  all: shuffle([
+  ],
+  all: [
     `${url2}Cabbage.svg`,
     `${url2}Carrot.svg`,
     `${url2}Corn.svg`,
@@ -78,7 +60,7 @@ const ChoppersMap = {
     `${url}Plum.svg`,
     `${url}Strawberry.svg`,
     `${url}Watermelon.svg`
-  ])
+  ]
 }
 
 

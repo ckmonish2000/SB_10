@@ -24,7 +24,7 @@ function shuffle(array) {
 
 
 const FoodMap = {
-  fruits: [
+  fruits: shuffle([
     `${url}Apple.svg`,
     `${url}Banana.svg`,
     `${url}Cherry.svg`,
@@ -40,8 +40,8 @@ const FoodMap = {
     `${url}Strawberry.svg`,
     `${url}Watermelon.svg`,
     `${url}Sweetlime.svg`,
-  ],
-  veg: [
+  ]),
+  veg: shuffle([
 
     `${url2}Cabbage.svg`,
     `${url2}Carrot.svg`,
@@ -52,7 +52,7 @@ const FoodMap = {
     `${url2}Raddish.svg`,
     `${url2}Spinach.svg`,
     `${url2}Tomato.svg`,
-  ],
+  ]),
   all: shuffle([
     `${url2}Cabbage.svg`,
     `${url2}Carrot.svg`,
