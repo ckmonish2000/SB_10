@@ -11,54 +11,40 @@ import "../../styles/Scene4.css"
 import ChopperMap from '../../maps/ChopperMap';
 
 
-export default function Scene4() {
+export default function Scene5() {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
-  const [NavTo, setNavTo] = useState("")
   const Scene2 = useCustomLoadAsset(ChopperMap)
-
-  const Ref1 = useRef(null)
-  const Ref2 = useRef(null)
 
 
   useEffect(() => {
-    setBg(Assets["Scene4"]?.Bg)
-    const audio = Assets["Scene4"]?.sounds[0]
-    audio?.play()
+    setBg(Assets["Scene5"]?.Bg)
+    // const audio = Assets["Scene5"]?.sounds[0]
+    // audio?.play()
 
-    audio.on("end", () => { setLoading(false) })
+    // audio.on("end", () => { setLoading(false) })
 
 
   }, [])
 
   useEffect(() => {
-    if (!Loading && !Scene2.Loading && NavTo !== "") {
-      setSceneId(NavTo)
+    if (!Loading && !Scene2.Loading) {
+      // setSceneId("/Scene2")
     }
   }, [Scene2.Loading, Loading]);
 
-  console.log(SceneId, NavTo)
   return <Scenes
     Bg={Bg}
     sprites={
       <>
 
         <Image
-          onClick={() => {
-
-            setNavTo("/fruit")
-            setLoading(false)
-          }}
           src={Assets["Scene4"]?.sprites[0]}
           className="fruit_bowl"
         />
 
         <Image
-          onClick={() => {
-            setNavTo("/fruit")
-            setLoading(false)
-          }}
           src={Assets["Scene4"]?.sprites[1]}
           className="vegi_bowl"
         />
