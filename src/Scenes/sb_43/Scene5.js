@@ -67,8 +67,8 @@ export default function Scene5({ type = "fruits" }) {
 
   }, [])
 
+  const get_name = (url) => url.split("/")[4].split(".")[0]
 
-  console.log(TheChoosenOnes, ".")
   useEffect(() => {
     setBg(Assets["Scene5"]?.Bg)
 
@@ -104,11 +104,25 @@ export default function Scene5({ type = "fruits" }) {
   //   }
   // }, [Scene2.Loading, Loading]);
 
-
   return <Scenes
     Bg={Bg}
     sprites={
       <>
+        {/* name Board */}
+        <Image
+          className="NameBoard"
+          src={Assets["Scene5"]?.sprites[2].img}
+        />
+
+        {/* nameBoard names */}
+        <div className="NameBoardNames">
+          {TheChoosenOnes?.map(val => {
+            return <h1 className="name_indi">
+              <Image src={val.img} style={{ width: "30px", marginRight: "10px" }} />
+              {get_name(val.url)}
+            </h1>
+          })}
+        </div>
 
         {/* shelf */}
         <div>

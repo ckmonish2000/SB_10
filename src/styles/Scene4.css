@@ -53,3 +53,55 @@
     margin: 0px;
     z-index: 9;
 }
+
+.NameBoard{
+  position: fixed;
+    bottom: 50%;
+    width: 15%;
+    left: 0%;
+    animation: moveBoard 1.5s linear forwards;
+}
+
+@keyframes moveBoard {
+  to{
+    left: 18%;
+  }
+}
+
+.NameBoardNames{
+  position: fixed;
+  bottom: 53%;
+  width: 13%;
+  left: 19%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 13px;
+  align-items: center;
+  height: 216px;
+  animation-delay: 1.6s;
+  animation: showname 1s linear forwards;
+}
+
+.name_indi{
+  /* color: black !important;
+    z-index: 10;
+    width: 80%;
+    margin: 10px 0px;
+    display: flex;
+    justify-content: space-between; */
+    color: black !important;
+    z-index: 10;
+    width: 80%;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+@keyframes showname {
+  from { opacity: 0}
+  to{ opacity:1}
+}
