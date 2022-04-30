@@ -54,7 +54,10 @@ export default function Scene2() {
 
     if (fruits.includes(fruitName) && !Selected_fruits.includes(fruitName)) {
       setStarz(Starz + 1)
+      Assets["Scene2"]?.sounds[0]?.play()
       setSelected_fruits([...Selected_fruits, fruitName])
+    } else {
+      Assets["Scene2"]?.sounds[1]?.play()
     }
 
   }
@@ -65,7 +68,10 @@ export default function Scene2() {
 
     if (vegies.includes(vegiesName) && !Selected_vegies.includes(vegiesName)) {
       setStarz(Starz + 1)
+      Assets["Scene2"]?.sounds[0]?.play()
       setSelected_vegies([...Selected_vegies, vegiesName])
+    } else {
+      Assets["Scene2"]?.sounds[1]?.play()
     }
 
   }
