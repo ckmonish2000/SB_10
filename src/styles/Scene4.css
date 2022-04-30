@@ -43,4 +43,13 @@
     margin: 0px;
     z-index: 9;
   }
+  
+}
+
+.cloud{
+  position: fixed;
+    bottom: 14%;
+    left: 37%;
+    margin: 0px;
+    z-index: 9;
 }

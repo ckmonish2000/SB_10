@@ -22,6 +22,7 @@ const ChopperMap = {
   ],
 
   lottie: [
+    `${lottieUrl}Burst.json`
   ]
 }
 

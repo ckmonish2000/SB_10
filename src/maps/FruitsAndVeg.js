@@ -4,7 +4,7 @@ import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
 const url = `${imgUrl}sb_43/fruits/`
 const url2 = `${imgUrl}sb_43/vegies/`
 
-function shuffle(array) {
+export function shuffle(array) {
   let currentIndex = array.length, randomIndex;
 
   // While there remain elements to shuffle.
@@ -21,6 +21,7 @@ function shuffle(array) {
 
   return array;
 }
+
 
 
 const FoodMap = {
