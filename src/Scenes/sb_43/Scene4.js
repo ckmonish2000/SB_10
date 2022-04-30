@@ -55,7 +55,7 @@ export default function Scene4() {
 
         <Image
           onClick={() => {
-            setNavTo("/fruit")
+            setNavTo("/veg")
             setLoading(false)
           }}
           src={Assets["Scene4"]?.sprites[1]}

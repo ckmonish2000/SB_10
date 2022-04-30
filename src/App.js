@@ -154,6 +154,10 @@ function App() {
           <Scene5 />
         </Router>
 
+        <Router sceneId="/veg">
+          <Scene5 type="vegies" />
+        </Router>
+
 
       </GameContainer>
     </>

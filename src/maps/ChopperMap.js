@@ -19,6 +19,11 @@ const ChopperMap = {
 
 
   sounds: [
+    `${soundUrl}selveg.mp3`,
+    `${soundUrl}selfruits.mp3`,
+    `${soundUrl}correct.mp3`,
+    `${soundUrl}incorrect.mp3`,
+
   ],
 
   lottie: [

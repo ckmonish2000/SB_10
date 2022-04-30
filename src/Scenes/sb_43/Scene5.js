@@ -81,7 +81,6 @@ export default function Scene5({ type = "fruits" }) {
     return x
   }
 
-  console.log(showChopped)
   useEffect(() => {
     setBg(Assets["Scene5"]?.Bg)
 
@@ -95,8 +94,8 @@ export default function Scene5({ type = "fruits" }) {
         animationData: Assets["Scene5"]?.lottie[0],
       })
     }
-    // const audio = Assets["Scene5"]?.sounds[0]
-    // audio?.play()
+    const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1] : Assets["Scene5"]?.sounds[0]
+    audio?.play()
 
     // audio.on("end", () => { setLoading(false) })
 
@@ -167,6 +166,10 @@ export default function Scene5({ type = "fruits" }) {
                   }, 3000)
 
                   e.target.className = "move_to_board"
+
+                  Assets["Scene5"]?.sounds[2]?.play()
+                } else {
+                  Assets["Scene5"]?.sounds[3]?.play()
                 }
               }}
               src={v.img}
