@@ -133,6 +133,12 @@ export default function Scene5({ type = "fruits" }) {
     }
   }, [ShowCloud, showChopped, clicked])
 
+  useEffect(() => {
+    if (star === 3) {
+      console.log("screen complete")
+    }
+  }, [star]);
+
   // useEffect(() => {
   //   if (!Loading && !Scene2.Loading) {
   //     // setSceneId("/Scene2")
