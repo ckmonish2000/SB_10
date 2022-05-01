@@ -9,7 +9,7 @@ import Scene2Map from '../../maps/SceneTwoMap';
 import useCustomLoadAsset from '../../utils/useCustomLoadAsset';
 
 
-export default function GoodJob(type = "fruits") {
+export default function GoodJob({ type = "fruits" }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ export default function GoodJob(type = "fruits") {
         })
       }
 
-      const audio = type === "fruits" ? Assets["Scene1"]?.sounds[3] : Assets["Scene1"]?.sounds[2]
+      const audio = type === "fruits" ? Assets["Scene1"]?.sounds[2] : Assets["Scene1"]?.sounds[3]
       audio?.play()
 
       audio.on("end", () => { setLoading(false) })
