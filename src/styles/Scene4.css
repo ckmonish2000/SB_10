@@ -193,11 +193,29 @@
 
 .grid_item_display{
   position: fixed;
-    bottom: 20%;
-    left: 23%;
+    bottom: 10%;
+    left: 30%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 120px;
+    gap: 80px 120px;
     cursor: pointer;
+    justify-content:center;
+    align-items:center;
 }
 
+
+.name_card_sounf{
+  text-align: center;
+    background: white;
+    color: black !important;
+    padding: 5px;
+    border-radius: 10px;
+    border: 5px solid #00a99d;
+    font-weight: bold;
+    width: 150px;
+    height: 40px;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

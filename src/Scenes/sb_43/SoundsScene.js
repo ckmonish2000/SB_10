@@ -29,7 +29,12 @@ export default function SoundScene({ type = "fruits" }) {
   //   }
   // }, [Scene2.Loading, Loading]);
 
-  console.log(Data, Assets["sounds"])
+  const get_name = (url) => {
+    let x = url.split("/")
+    x = x[x.length - 1].split(".")[0]
+    return x
+  }
+
   return <Scenes
     Bg={Bg}
     sprites={
@@ -39,11 +44,16 @@ export default function SoundScene({ type = "fruits" }) {
         <div className="blue_shade">.</div>
         <div className="grid_item_display">
           {Data?.map(v => {
-            return <Image
-              style={{ width: "250px", height: "250px" }}
-              src={v.img}
-              className=""
-            />
+            return <div>
+              <Image
+                style={{ width: "150px", height: "150px" }}
+                src={v.img}
+                className=""
+              />
+              <h1
+                className="name_card_sounf"
+                style={{ textAlign: "center" }}>{get_name(v.url)}</h1>
+            </div>
           })}
 
         </div>
