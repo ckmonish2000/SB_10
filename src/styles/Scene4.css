@@ -219,3 +219,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.sel_bro{
+  width: 150px;
+    height: 150px;
+    background: #9eebff;
+    padding: 15px;
+    border-radius: 100%;
+}

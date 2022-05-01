@@ -13,6 +13,7 @@ export default function SoundScene({ type = "fruits" }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Data } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
+  const [Playing, setPlaying] = useState("");
   const Scene2 = useCustomLoadAsset(Scene2Map)
 
   const Ref1 = useRef(null)
@@ -44,11 +45,25 @@ export default function SoundScene({ type = "fruits" }) {
         <div className="blue_shade">.</div>
         <div className="grid_item_display">
           {Data?.map(v => {
-            return <div>
+            return <div
+              style={{ height: "280px" }}
+              onClick={() => {
+                if (Playing === "") {
+                  const sound = Assets["sounds"].sounds?.filter(val => get_name(val.url) === get_name(v.url))
+                  if (sound.length > 0) {
+                    setPlaying(get_name(v.url))
+                    const audio = sound[0]?.sound
+                    audio?.play()
+                    audio.on('end', () => { setPlaying("") })
+
+                  }
+                }
+              }}
+            >
               <Image
                 style={{ width: "150px", height: "150px" }}
                 src={v.img}
-                className=""
+                className={Playing === get_name(v.url) ? "sel_bro" : ""}
               />
               <h1
                 className="name_card_sounf"

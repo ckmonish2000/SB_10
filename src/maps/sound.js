@@ -1,6 +1,6 @@
 import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
-const url = `${soundUrl}/fruit`
-const url2 = `${soundUrl}/veg`
+const url = `${soundUrl}fruit/`
+const url2 = `${soundUrl}veg/`
 
 const SoundMap = {
   fruits: [
