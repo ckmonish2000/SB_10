@@ -11,13 +11,18 @@ import "../../styles/Scene4.css"
 import ChopperMap from '../../maps/ChopperMap';
 import fruits_size_scene1 from './../../styles/customstyles';
 import { shuffle } from './../../maps/FruitsAndVeg';
+import useCustomLoadAsset2 from '../../utils/useCustomLoadAssets2';
+import SoundSceneMap from '../../maps/SoundSceneMap';
 
 
 export default function Scene5({ type = "fruits" }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Data, setData } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
-  const [Data, setData] = useState({})
+
+  const Ref = useRef(null)
+  const AssetsLoad = useCustomLoadAsset2(SoundSceneMap)
+
   const [TheChoosenOnes, setTheChoosenOnes] = useState([]);
   const [Item, setItem] = useState([])
   const [Chopped, setChopped] = useState([])
@@ -28,8 +33,6 @@ export default function Scene5({ type = "fruits" }) {
   const [ShowCloud, setShowCloud] = useState(false)
 
   const [star, setstar] = useState(0)
-
-  const Ref = useRef(null)
 
   const elements_sprites = Assets["Scene5"].sprites?.slice(0, 3)
 
@@ -43,14 +46,13 @@ export default function Scene5({ type = "fruits" }) {
   const empty_bowl = bowls[0]
   const fruit_bowls = bowls.slice(1, 4)
   const veg_bowls = bowls.slice(4)
-  console.log(fruit_bowls, veg_bowls)
-
 
   const get_objects = () => {
     if (type === "fruits") return { item: fruits, cutitems: cut_fruits }
     if (type === "vegies") return { item: vegies, cutitems: cut_vegies }
   }
 
+  // get 3 random numbers
   const get_nums = () => {
     const maximum = 5
     const minimum = 0
@@ -70,10 +72,10 @@ export default function Scene5({ type = "fruits" }) {
   }
 
   useEffect(() => {
-    setData(get_objects())
     const obj = get_objects()
     const item = obj.item?.slice(0, 6)
-    setItem(item)
+    setData(item)
+    setItem(item) // global state
 
     let sel = get_nums()
     sel = sel.map(v => item[v])
@@ -135,10 +137,10 @@ export default function Scene5({ type = "fruits" }) {
   }, [ShowCloud, showChopped, clicked])
 
   useEffect(() => {
-    if (star === 3) {
+    if (star === 3 && AssetsLoad?.Loading === false) {
       setSceneId(type === "fruits" ? "/ahhafruits" : "/ahhaveg")
     }
-  }, [star]);
+  }, [star, AssetsLoad]);
 
   // useEffect(() => {
   //   if (!Loading && !Scene2.Loading) {
@@ -206,9 +208,9 @@ export default function Scene5({ type = "fruits" }) {
               id={item_name}
               onClick={(e) => {
                 if (!clicked) {
-                  setclicked(true)
                   const answers = TheChoosenOnes?.map(v => get_name(v.url))
                   if (answers.includes(item_name)) {
+                    setclicked(true)
                     // show magic
                     setTimeout(() => {
                       setShowCloud(true)

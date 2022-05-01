@@ -190,3 +190,14 @@
   left: 22%;
   width: 12%;
 }
+
+.grid_item_display{
+  position: fixed;
+    bottom: 20%;
+    left: 23%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 120px;
+    cursor: pointer;
+}
+

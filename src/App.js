@@ -19,6 +19,7 @@ import Scene3 from './Scenes/sb_43/Scene3';
 import Scene4 from "./Scenes/sb_43/Scene4";
 import Scene5 from "./Scenes/sb_43/Scene5";
 import GoodJob from "./Scenes/sb_43/Scene6";
+import SoundScene from "./Scenes/sb_43/SoundsScene";
 
 
 function App() {
@@ -165,6 +166,14 @@ function App() {
 
         <Router sceneId="/ahhafruits">
           <GoodJob />
+        </Router>
+
+        <Router sceneId="/soundfruit">
+          <SoundScene />
+        </Router>
+
+        <Router sceneId="/soundveg">
+          <SoundScene />
         </Router>
 
 

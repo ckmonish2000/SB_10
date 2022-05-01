@@ -52,7 +52,7 @@ export default function GoodJob({ type = "fruits" }) {
 
   useEffect(() => {
     if (!Loading && !Scene2.Loading) {
-      setSceneId("/Scene2")
+      setSceneId(type === "fruits" ? "/soundfruit" : "/soundveg")
     }
   }, [Scene2.Loading, Loading]);
 
