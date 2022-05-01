@@ -18,6 +18,7 @@ import introMap from "./maps/introMap";
 import Scene3 from './Scenes/sb_43/Scene3';
 import Scene4 from "./Scenes/sb_43/Scene4";
 import Scene5 from "./Scenes/sb_43/Scene5";
+import GoodJob from "./Scenes/sb_43/Scene6";
 
 
 function App() {
@@ -156,6 +157,14 @@ function App() {
 
         <Router sceneId="/veg">
           <Scene5 type="vegies" />
+        </Router>
+
+        <Router sceneId="/ahhaveg">
+          <GoodJob type="veg" />
+        </Router>
+
+        <Router sceneId="/ahhafruits">
+          <GoodJob />
         </Router>
 
 

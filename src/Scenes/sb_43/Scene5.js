@@ -123,19 +123,20 @@ export default function Scene5({ type = "fruits" }) {
     if (showChopped) {
       setTimeout(() => {
         setshowChopped(false)
+        setstar(star + 1)
       }, 2500)
     }
 
-    if (setclicked) {
+    if (clicked) {
       setTimeout(() => {
         setclicked(false)
-      }, 3100)
+      }, 6000)
     }
   }, [ShowCloud, showChopped, clicked])
 
   useEffect(() => {
     if (star === 3) {
-      console.log("screen complete")
+      setSceneId(type === "fruits" ? "/ahhafruits" : "/ahhaveg")
     }
   }, [star]);
 
@@ -215,7 +216,6 @@ export default function Scene5({ type = "fruits" }) {
 
                     setTimeout(() => {
                       setshowChopped(true)
-                      setstar(star + 1)
                     }, 2980)
 
                     // wait until the item appears on the board
