@@ -53,6 +53,11 @@ export default function Scene4() {
           className="fruit_bowl"
         />
 
+        <div className="fruits_name_bowl">
+          Fruits
+        </div>
+        <div className="veg_name_bowl">Vegetables</div>
+
         <Image
           onClick={() => {
             setNavTo("/veg")

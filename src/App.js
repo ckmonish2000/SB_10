@@ -20,6 +20,7 @@ import Scene4 from "./Scenes/sb_43/Scene4";
 import Scene5 from "./Scenes/sb_43/Scene5";
 import GoodJob from "./Scenes/sb_43/Scene6";
 import SoundScene from "./Scenes/sb_43/SoundsScene";
+import { imgUrl } from "./utils/path";
 
 
 function App() {
@@ -29,6 +30,11 @@ function App() {
   const [icon2, seticon2] = useState("")
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
+  const [stars, setstars] = useState({
+    progress: null,
+    grey: null,
+    star: null
+  })
   const { SceneId, Assets, height, setheight, Starz, count } = useContext(SceneContext);
 
 
@@ -63,7 +69,15 @@ function App() {
     setBG_sound(await AudioPlayer2("ee03_nt_1to100_btn/sounds/bg_sound.mp3"))
     seticon1(await LoadImage("ee03_nt_1to100_btn/images/sound.svg"))
     seticon2(await LoadImage("ee03_nt_1to100_btn/images/nosound.svg"))
+    const progress_bar = await LoadImage(`${imgUrl}sb_43/stars/Progress_bar.svg`)
+    const grey = await LoadImage(`${imgUrl}sb_43/stars/Grey_star.svg`)
+    const star = await LoadImage(`${imgUrl}sb_43/stars/Star.svg`)
 
+    setstars({
+      progress: progress_bar,
+      grey,
+      star
+    })
   }
 
   useEffect(() => {
@@ -90,29 +104,29 @@ function App() {
 
   return (
     <>
-
       {/* game one stars */}
-      {(SceneId === "/Scene2" || SceneId === "/Scene3" || SceneId === "/Scene3.5" || SceneId === "/Scene4" || SceneId === "/Scene4.5") && <Stars
+      {SceneId === "/Scene2" && <Stars
         // height={height}
         s={true}
-        board={Assets?.props?.sprites[8]}
+        board={stars?.progress}
         styles={[
-          "progress_head_2",
+          "progress_head",
           "star2",
           "star2",
           "star2",
           "star2",
           "star2",
         ]}
-        color={Assets?.props?.sprites[10]}
-        grey={Assets?.props?.sprites[9]}
+        color={stars?.star}
+        grey={stars?.grey}
         count={Starz}
+        total={12}
       />}
 
 
       {/* second star */}
 
-      {SceneId === "/Scene5" && <Stars
+      {/* {SceneId === "/Scene5" && <Stars
         board={Assets?.props?.sprites[7]}
         styles={[
           "progress_head",
@@ -125,7 +139,7 @@ function App() {
         color={Assets?.props?.sprites[6]}
         grey={Assets?.props?.sprites[5]}
         count={count}
-      />}
+      />} */}
 
       <GameContainer>
         {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
