@@ -47,6 +47,10 @@ export default function Scene5({ type = "fruits" }) {
   const fruit_bowls = bowls.slice(1, 4)
   const veg_bowls = bowls.slice(4)
 
+  const stop_sound = () => {
+    Assets["Scene5"]?.sounds?.forEach(v => { v.stop() })
+  }
+
   const get_objects = () => {
     if (type === "fruits") return { item: fruits, cutitems: cut_fruits }
     if (type === "vegies") return { item: vegies, cutitems: cut_vegies }
@@ -121,23 +125,29 @@ export default function Scene5({ type = "fruits" }) {
         setShowCloud(false)
       }, 1200)
     }
+  }, [ShowCloud])
 
+  useEffect(() => {
     if (showChopped) {
       setTimeout(() => {
         setshowChopped(false)
         setstar(star + 1)
       }, 2500)
     }
+  }, [showChopped]);
 
+  useEffect(() => {
     if (clicked) {
       setTimeout(() => {
         setclicked(false)
-      }, 6000)
+      }, 6500)
     }
-  }, [ShowCloud, showChopped, clicked])
+  }, [clicked]);
+
 
   useEffect(() => {
     if (star === 3 && AssetsLoad?.Loading === false) {
+      stop_sound()
       setSceneId(type === "fruits" ? "/ahhafruits" : "/ahhaveg")
     }
   }, [star, AssetsLoad]);
@@ -156,7 +166,7 @@ export default function Scene5({ type = "fruits" }) {
     }
   }
 
-  console.log(get_bowl_type(), star)
+  console.log(clicked, "clicked")
 
   return <Scenes
     Bg={Bg}
@@ -208,6 +218,7 @@ export default function Scene5({ type = "fruits" }) {
               id={item_name}
               onClick={(e) => {
                 if (!clicked) {
+                  stop_sound()
                   const answers = TheChoosenOnes?.map(v => get_name(v.url))
                   if (answers.includes(item_name)) {
                     setclicked(true)

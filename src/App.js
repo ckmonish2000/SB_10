@@ -30,6 +30,7 @@ function App() {
   const [icon2, seticon2] = useState("")
   const [playing, setplaying] = useState(false)
   const [mute, setmute] = useState(false)
+  const [LandScape, setLandScape] = useState(false)
   const [stars, setstars] = useState({
     progress: null,
     grey: null,
@@ -43,6 +44,7 @@ function App() {
   const Asset = useLoadAsset(introMap)
 
   const resizer = () => {
+    setLandScape(window.innerWidth / window.innerHeight < 1.0)
     if (window.innerWidth <= 1264) {
       setheight("87%")
     } else {
@@ -98,8 +100,16 @@ function App() {
 
   const toggleMute = () => { setmute(!mute) }
 
+  if (LandScape) {
+    return <h1 id="landscapeMode">Rotate your device</h1>
+  }
 
-  if (Load && !Asset.Loading) return <div className="intro_Loading_screen">Loading....</div>
+  if (Load && !Asset.Loading) return <div className="loadingIndicator">
+    <div className="vendorWrapper"></div>
+    <div className="playerPreloader">
+      <div className="playerPreloadCircle"></div>
+    </div>
+  </div>
 
 
   return (
@@ -141,7 +151,7 @@ function App() {
         count={count}
       />} */}
 
-      <GameContainer>
+      <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
         {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
         {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}

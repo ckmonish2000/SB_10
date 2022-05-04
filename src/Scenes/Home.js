@@ -16,6 +16,7 @@ export default function Home({ play }) {
   const { Bg, setBg } = useContext(BGContext)
 
   const [Loading, setLoading] = useState(true);
+  const [plays, setplay] = useState(true)
   const Scene1 = useLoadAsset(Scene1Map)
 
   useEffect(() => {
@@ -43,16 +44,17 @@ export default function Home({ play }) {
         <Image
           src={Assets?.Backgrounds?.sprites[3]} className="title_font" />
 
-        <div onClick={() => {
+        {plays && <div onClick={() => {
           const sound = Assets?.Backgrounds?.sounds[0]
           sound.play()
+          setplay(false)
           sound.on('end', () => {
             setLoading(false)
           })
         }}>
           <Image
             src={Assets?.Backgrounds?.sprites[4]} className="play_btn" />
-        </div>
+        </div>}
       </>
     }
   />;

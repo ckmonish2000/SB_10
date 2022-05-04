@@ -29,9 +29,10 @@ export default function Scene2() {
   useEffect(() => {
     if (Starz === 12) {
       setTimeout(() => {
+        stop_sound()
         setSceneId("/Scene3")
         setStarz(0)
-      }, 2000)
+      }, 1500)
     }
   }, [Starz])
 
@@ -76,7 +77,9 @@ export default function Scene2() {
 
   }
 
-  console.log(Selected_vegies, Selected_fruits)
+  const stop_sound = () => {
+    Assets["Scene2"]?.sounds?.forEach(v => v.stop())
+  }
 
   return <Scenes
     Bg={Bg}
@@ -115,9 +118,11 @@ export default function Scene2() {
             return <Image
               src={img[0].img}
               style={{
+                display: idx > 5 ? "none" : "",
+                width: "50px",
                 ...getStyles(url),
-                marginLeft: idx > 0 ? "-40px" : "",
-                marginBottom: v === "Banana" ? "-22px" : ""
+                marginLeft: idx > 0 ? "-38px" : "",
+                marginBottom: "-23px"
               }}
             />
           })}
@@ -131,6 +136,8 @@ export default function Scene2() {
             return <Image
               src={img[0].img}
               style={{
+                display: idx > 5 ? "none" : "",
+                width: "50px",
                 ...getStyles(url),
                 marginLeft: idx > 0 ? "-28px" : "",
               }}

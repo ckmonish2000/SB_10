@@ -15,6 +15,7 @@ export default function SoundScene({ type = "fruits" }) {
   const [Loading, setLoading] = useState(true);
   const [Playing, setPlaying] = useState("");
   const Scene2 = useCustomLoadAsset(Scene2Map)
+  const [count, setcount] = useState(0)
 
   const Ref1 = useRef(null)
   const Ref2 = useRef(null)
@@ -25,10 +26,10 @@ export default function SoundScene({ type = "fruits" }) {
   }, [])
 
   // useEffect(() => {
-  //   if (!Loading && !Scene2.Loading) {
-  //     setSceneId("/Scene2")
+  //   if (count === 6) {
+  //     setSceneId("/")
   //   }
-  // }, [Scene2.Loading, Loading]);
+  // }, [count]);
 
   const get_name = (url) => {
     let x = url.split("/")
@@ -54,7 +55,10 @@ export default function SoundScene({ type = "fruits" }) {
                     setPlaying(get_name(v.url))
                     const audio = sound[0]?.sound
                     audio?.play()
-                    audio.on('end', () => { setPlaying("") })
+                    audio.on('end', () => {
+                      setPlaying("")
+                      setcount(count + 1)
+                    })
 
                   }
                 }
@@ -70,8 +74,13 @@ export default function SoundScene({ type = "fruits" }) {
                 style={{ textAlign: "center" }}>{get_name(v.url)}</h1>
             </div>
           })}
-
         </div>
+
+        {count === 6 && <Image
+          src={Assets["sounds"]?.sprites[0]?.img}
+          className="home_btn"
+          onClick={() => { setSceneId("/") }}
+        />}
       </>
     }
   />;

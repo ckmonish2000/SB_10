@@ -8,7 +8,9 @@ const SoundSceneMap = {
 
   Bg: `${imgUrl}sb_43/scene5/bg.svg`,
 
-  sprites: [],
+  sprites: [
+    `${imgUrl}sb_43/HomeIcon.svg`
+  ],
 
 
   sounds: [

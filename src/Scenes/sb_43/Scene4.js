@@ -34,6 +34,7 @@ export default function Scene4() {
 
   useEffect(() => {
     if (!Loading && !Scene2.Loading && NavTo !== "") {
+      Assets["Scene4"]?.sounds?.forEach(v => v.stop())
       setSceneId(NavTo)
     }
   }, [Scene2.Loading, Loading, NavTo]);
