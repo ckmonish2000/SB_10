@@ -1,5 +1,6 @@
 import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
 import FoodMap from "./FruitsAndVeg"
+import FVNAMEMap from "./FVNAMEMAP"
 
 const Scene2Map = {
   id: "Scene2",
@@ -18,6 +19,8 @@ const Scene2Map = {
     `${soundUrl}correct.mp3`,
     `${soundUrl}incorrect.mp3`,
     `${soundUrl}03.mp3`,
+    ...FVNAMEMap.fruits,
+    ...FVNAMEMap.veg
   ],
 
   lottie: [

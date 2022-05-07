@@ -28,6 +28,7 @@ export default function Scene2({ star }) {
     Sound?.play()
   }, [])
 
+  const fruit_names = Assets["Scene2"].sounds.slice(3)
 
   useEffect(() => {
     if (Starz === 12) {
@@ -43,7 +44,11 @@ export default function Scene2({ star }) {
 
   console.log(Starz)
 
-  const getname = (url) => url.split("/")[4].split(".")[0]
+  const getname = (url) => {
+    const URL = url.split("/")
+    return URL[URL.length - 1].split(".")[0]
+  }
+
   const getStyles = (url) => {
     const key = getname(url)
 
@@ -60,8 +65,12 @@ export default function Scene2({ star }) {
     const fruitName = e.dataTransfer.getData("text")
 
     if (fruits.includes(fruitName) && !Selected_fruits.includes(fruitName)) {
+      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === fruitName + "_B")
+      if (get_name_sound.length > 0) {
+        get_name_sound[0]?.sound?.play()
+      }
       setStarz(Starz + 1)
-      Assets["Scene2"]?.sounds[0]?.sound?.play()
+      // Assets["Scene2"]?.sounds[0]?.sound?.play()
       setSelected_fruits([...Selected_fruits, fruitName])
     } else {
       Assets["Scene2"]?.sounds[1]?.sound?.play()
@@ -74,8 +83,12 @@ export default function Scene2({ star }) {
     const vegiesName = e.dataTransfer.getData("text")
 
     if (vegies.includes(vegiesName) && !Selected_vegies.includes(vegiesName)) {
+      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === vegiesName + "_B")
+      if (get_name_sound.length > 0) {
+        get_name_sound[0]?.sound?.play()
+      }
       setStarz(Starz + 1)
-      Assets["Scene2"]?.sounds[0]?.sound?.play()
+      // Assets["Scene2"]?.sounds[0]?.sound?.play()
       setSelected_vegies([...Selected_vegies, vegiesName])
     } else {
       Assets["Scene2"]?.sounds[1]?.sound?.play()
@@ -122,7 +135,6 @@ export default function Scene2({ star }) {
           {Selected_fruits?.map((v, idx) => {
             const url = `${imgUrl}sb_43/fruits/${v}.svg`
             const img = sprites?.filter(va => va.url === url)
-            console.log(img)
             return <Image
               src={img[0].img}
               style={{
@@ -180,18 +192,19 @@ export default function Scene2({ star }) {
             id={getname(v?.url)}
             className="fruitsnveg"
             draggable
-            onMouseDown={(e) => setName(e.currentTarget.id)}
+            onMouseDown={(e) => {
+              stop_sound()
+              setName(e.currentTarget.id)
+            }}
             onDragStart={(e) => {
               e.dataTransfer.setData("text", e.currentTarget.id)
             }}
             onMouseUp={(e) =>
-              setTimeout(() => {
-                setName("")
-              }, 1000)
-            }
-            onDragEnd={() => setTimeout(() => {
+              // setTimeout(() => {
               setName("")
-            }, 1000)}
+              // }, 1000)
+            }
+            onDragEnd={() => setName("")}
           >
             <Image
               id={v?.url}

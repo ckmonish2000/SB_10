@@ -1,8 +1,8 @@
 
 import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
 
-const url = `${soundUrl}name/cut/fruits/`
-const url2 = `${soundUrl}name/cut/veg/`
+const url = `${soundUrl}names/fruits/`
+const url2 = `${soundUrl}names/veg/`
 
 
 
