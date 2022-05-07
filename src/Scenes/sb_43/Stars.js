@@ -11,8 +11,8 @@ const get_array = (count) => {
 
 export default function Stars({ board, grey, color, styles, count, s = false, height = "", total }) {
   return (
-    <div className={styles[0]} style={{ bottom: height }}>
-      <Image src={board} />
+    <div className="progress_head" style={{ bottom: height }}>
+      <Image src={board} style={{ width: "100%", height: "100%" }} />
 
       <div className={"leaves"}>
         {get_array(total).map((v, idx) => {

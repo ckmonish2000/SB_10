@@ -32,8 +32,8 @@ export default function GameContainer({ children, LandScape, setLandScape }) {
       transform: `scale(${scale})`,
       overflow: "hidden"
     }}>
-      {!LandScape && children}
-
+      {/* {!LandScape && children} */}
+      {children}
     </div>
   </div>
 }

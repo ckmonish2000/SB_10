@@ -44,6 +44,7 @@ function App() {
   const Asset = useLoadAsset(introMap)
 
   const resizer = () => {
+    console.log(window.innerWidth / window.innerHeight)
     setLandScape(window.innerWidth / window.innerHeight < 1.0)
     if (window.innerWidth <= 1264) {
       setheight("87%")
@@ -100,9 +101,9 @@ function App() {
 
   const toggleMute = () => { setmute(!mute) }
 
-  if (LandScape) {
-    return <h1 id="landscapeMode">Rotate your device</h1>
-  }
+  // if (LandScape) {
+  //   return <h1 id="landscapeMode">Rotate your device</h1>
+  // }
 
   if (Load && !Asset.Loading) return <div className="loadingIndicator">
     <div className="vendorWrapper"></div>
@@ -119,89 +120,67 @@ function App() {
         // height={height}
         s={true}
         board={stars?.progress}
-        styles={[
-          "progress_head",
-          "star2",
-          "star2",
-          "star2",
-          "star2",
-          "star2",
-        ]}
         color={stars?.star}
         grey={stars?.grey}
         count={Starz}
         total={12}
       />}
 
+      {/* <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">Rotate your device</h1> */}
 
-      {/* second star */}
+      <div style={{ opacity: LandScape ? 1 : 1 }}>
+        <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
+          {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
-      {/* {SceneId === "/Scene5" && <Stars
-        board={Assets?.props?.sprites[7]}
-        styles={[
-          "progress_head",
-          "star",
-          "star",
-          "star",
-          "star",
-          "star",
-        ]}
-        color={Assets?.props?.sprites[6]}
-        grey={Assets?.props?.sprites[5]}
-        count={count}
-      />} */}
+          {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
-      <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
-        {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+          <Router sceneId="/">
+            <Home play={() => { BG_sound?.play() }} />
+          </Router>
 
-        {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+          <Router sceneId="/Scene1">
+            <Scene1 />
+          </Router>
 
-        <Router sceneId="/">
-          <Home play={() => { BG_sound?.play() }} />
-        </Router>
+          <Router sceneId="/Scene2">
+            <Scene2 />
+          </Router>
 
-        <Router sceneId="/Scene1">
-          <Scene1 />
-        </Router>
+          <Router sceneId="/Scene3">
+            <Scene3 />
+          </Router>
 
-        <Router sceneId="/Scene2">
-          <Scene2 />
-        </Router>
+          <Router sceneId="/Scene4">
+            <Scene4 />
+          </Router>
 
-        <Router sceneId="/Scene3">
-          <Scene3 />
-        </Router>
+          <Router sceneId="/fruit">
+            <Scene5 />
+          </Router>
 
-        <Router sceneId="/Scene4">
-          <Scene4 />
-        </Router>
+          <Router sceneId="/veg">
+            <Scene5 type="vegies" />
+          </Router>
 
-        <Router sceneId="/fruit">
-          <Scene5 />
-        </Router>
+          <Router sceneId="/ahhaveg">
+            <GoodJob type="veg" />
+          </Router>
 
-        <Router sceneId="/veg">
-          <Scene5 type="vegies" />
-        </Router>
+          <Router sceneId="/ahhafruits">
+            <GoodJob />
+          </Router>
 
-        <Router sceneId="/ahhaveg">
-          <GoodJob type="veg" />
-        </Router>
+          <Router sceneId="/soundfruit">
+            <SoundScene />
+          </Router>
 
-        <Router sceneId="/ahhafruits">
-          <GoodJob />
-        </Router>
-
-        <Router sceneId="/soundfruit">
-          <SoundScene />
-        </Router>
-
-        <Router sceneId="/soundveg">
-          <SoundScene />
-        </Router>
+          <Router sceneId="/soundveg">
+            <SoundScene />
+          </Router>
 
 
-      </GameContainer>
+        </GameContainer>
+      </div>
     </>
   );
 }
