@@ -116,7 +116,7 @@ function App() {
   return (
     <>
       {/* game one stars */}
-      {SceneId === "/Scene2" && <Stars
+      {/* {SceneId === "/Scene2" && <Stars
         // height={height}
         s={true}
         board={stars?.progress}
@@ -124,7 +124,7 @@ function App() {
         grey={stars?.grey}
         count={Starz}
         total={12}
-      />}
+      />} */}
 
       {/* <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">Rotate your device</h1> */}
 
@@ -143,7 +143,17 @@ function App() {
           </Router>
 
           <Router sceneId="/Scene2">
-            <Scene2 />
+            <Scene2
+              star={<Stars
+                // height={height}
+                s={true}
+                board={stars?.progress}
+                color={stars?.star}
+                grey={stars?.grey}
+                count={Starz}
+                total={12}
+              />}
+            />
           </Router>
 
           <Router sceneId="/Scene3">

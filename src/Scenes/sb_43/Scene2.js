@@ -10,7 +10,7 @@ import FoodMap from './../../maps/FruitsAndVeg';
 import { imgUrl } from "../../utils/path"
 
 
-export default function Scene2() {
+export default function Scene2({ star }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Name, setName] = useState("")
@@ -23,6 +23,9 @@ export default function Scene2() {
   // loading animation
   useEffect(() => {
     setBg(Assets["Scene2"]?.Bg)
+
+    const Sound = Assets["Scene2"].sounds[2]
+    Sound?.play()
   }, [])
 
 
@@ -85,6 +88,8 @@ export default function Scene2() {
     Bg={Bg}
     sprites={
       <>
+        {star}
+
         {/* basket names */}
         <h1 className="basket_name_1">Fruits</h1>
         <h1 className="basket_name_2">Vegetables</h1>
@@ -148,7 +153,7 @@ export default function Scene2() {
         {/* name of fruits and vegies */}
         <div
           className="item_name"
-        >{Name}</div>
+        >{Name.toLocaleLowerCase()}</div>
 
         {/* drop container */}
         <div
@@ -176,8 +181,14 @@ export default function Scene2() {
             onDragStart={(e) => {
               e.dataTransfer.setData("text", e.currentTarget.id)
             }}
-            onMouseUp={(e) => setName("")}
-            onDragEnd={() => setName("")}
+            onMouseUp={(e) =>
+              setTimeout(() => {
+                setName("")
+              }, 1000)
+            }
+            onDragEnd={() => setTimeout(() => {
+              setName("")
+            }, 1000)}
           >
             <Image
               id={v?.url}

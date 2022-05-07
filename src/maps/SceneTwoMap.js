@@ -17,6 +17,7 @@ const Scene2Map = {
   sounds: [
     `${soundUrl}correct.mp3`,
     `${soundUrl}incorrect.mp3`,
+    `${soundUrl}03.mp3`,
   ],
 
   lottie: [

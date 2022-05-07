@@ -7,7 +7,7 @@ const fruits_size_scene1 = {
   Watermelon: {
     width: "75px",
   },
-  ["Green-Grapes"]: {
+  ["Grapes"]: {
     width: "40px"
   },
   Cucumber: {
@@ -17,7 +17,7 @@ const fruits_size_scene1 = {
     width: "70px",
     marginLeft: "-10px"
   },
-  Lattuce: {
+  Lettuce: {
     width: "45px"
   },
   Papaya: {
