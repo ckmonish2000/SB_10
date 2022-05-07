@@ -13,7 +13,6 @@ export default function GoodJob({ type = "fruits" }) {
   const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
-  const Scene2 = useCustomLoadAsset(Scene2Map)
 
   const Ref1 = useRef(null)
   const Ref2 = useRef(null)
@@ -51,10 +50,10 @@ export default function GoodJob({ type = "fruits" }) {
   }, [])
 
   useEffect(() => {
-    if (!Loading && !Scene2.Loading) {
+    if (!Loading) {
       setSceneId(type === "fruits" ? "/soundfruit" : "/soundveg")
     }
-  }, [Scene2.Loading, Loading]);
+  }, [Loading]);
 
   return <Scenes
     Bg={Bg}

@@ -48,7 +48,7 @@ export default function Scene5({ type = "fruits" }) {
   const veg_bowls = bowls.slice(4)
 
   const stop_sound = () => {
-    Assets["Scene5"]?.sounds?.forEach(v => { v.stop() })
+    Assets["Scene5"]?.sounds?.forEach(v => { v?.sound.stop() })
   }
 
   const get_objects = () => {
@@ -110,7 +110,7 @@ export default function Scene5({ type = "fruits" }) {
         animationData: Assets["Scene5"]?.lottie[0],
       })
     }
-    const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1] : Assets["Scene5"]?.sounds[0]
+    const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1]?.sound : Assets["Scene5"]?.sounds[0]?.sound
     audio?.play()
 
     // audio.on("end", () => { setLoading(false) })
@@ -238,9 +238,9 @@ export default function Scene5({ type = "fruits" }) {
 
                     e.target.className = "move_to_board"
 
-                    Assets["Scene5"]?.sounds[2]?.play()
+                    Assets["Scene5"]?.sounds[2]?.sound?.play()
                   } else {
-                    Assets["Scene5"]?.sounds[3]?.play()
+                    Assets["Scene5"]?.sounds[3]?.sound?.play()
                   }
                 }
               }}

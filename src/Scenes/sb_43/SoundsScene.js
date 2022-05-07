@@ -14,7 +14,7 @@ export default function SoundScene({ type = "fruits" }) {
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
   const [Playing, setPlaying] = useState("");
-  const Scene2 = useCustomLoadAsset(Scene2Map)
+
   const [count, setcount] = useState(0)
 
   const Ref1 = useRef(null)

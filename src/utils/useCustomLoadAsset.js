@@ -38,7 +38,7 @@ export default function useCustomLoadAsset(Map) {
     }))
 
     loadAudio
-      .then(v => { newSceneData["sounds"] = v })
+      .then(v => { newSceneData["sounds"] = v?.map((val, idx) => { return { sound: val, url: Map.sounds[idx] } }) })
       .catch(err => { console.log(err) })
 
     const loadSprites = Promise.all(Map.sprites.map(v => {

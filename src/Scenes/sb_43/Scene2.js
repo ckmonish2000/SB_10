@@ -24,21 +24,24 @@ export default function Scene2({ star }) {
   useEffect(() => {
     setBg(Assets["Scene2"]?.Bg)
 
-    const Sound = Assets["Scene2"].sounds[2]
+    const Sound = Assets["Scene2"].sounds[2]?.sound
     Sound?.play()
   }, [])
 
 
   useEffect(() => {
     if (Starz === 12) {
-      setTimeout(() => {
-        stop_sound()
-        setSceneId("/Scene3")
-        setStarz(0)
-      }, 1500)
+      // setTimeout(() => {
+      console.log("switch")
+      stop_sound()
+      setSceneId("/Scene3")
+      setStarz(0)
+      // }, 1500)
     }
   }, [Starz])
 
+
+  console.log(Starz)
 
   const getname = (url) => url.split("/")[4].split(".")[0]
   const getStyles = (url) => {
@@ -58,10 +61,10 @@ export default function Scene2({ star }) {
 
     if (fruits.includes(fruitName) && !Selected_fruits.includes(fruitName)) {
       setStarz(Starz + 1)
-      Assets["Scene2"]?.sounds[0]?.play()
+      Assets["Scene2"]?.sounds[0]?.sound?.play()
       setSelected_fruits([...Selected_fruits, fruitName])
     } else {
-      Assets["Scene2"]?.sounds[1]?.play()
+      Assets["Scene2"]?.sounds[1]?.sound?.play()
     }
 
   }
@@ -72,16 +75,16 @@ export default function Scene2({ star }) {
 
     if (vegies.includes(vegiesName) && !Selected_vegies.includes(vegiesName)) {
       setStarz(Starz + 1)
-      Assets["Scene2"]?.sounds[0]?.play()
+      Assets["Scene2"]?.sounds[0]?.sound?.play()
       setSelected_vegies([...Selected_vegies, vegiesName])
     } else {
-      Assets["Scene2"]?.sounds[1]?.play()
+      Assets["Scene2"]?.sounds[1]?.sound?.play()
     }
 
   }
 
   const stop_sound = () => {
-    Assets["Scene2"]?.sounds?.forEach(v => v.stop())
+    Assets["Scene2"]?.sounds?.forEach(v => v?.sound?.stop())
   }
 
   return <Scenes
