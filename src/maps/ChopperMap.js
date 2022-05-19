@@ -1,4 +1,5 @@
 import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
+import ChoppedMap from "./bowlFnV"
 import ChoppersMap from "./ChopperFnV"
 import FoodMap from "./FruitsAndVeg"
 
@@ -22,6 +23,8 @@ const ChopperMap = {
     `${imgUrl}sb_43/Veg-Bowl_1.svg`,
     `${imgUrl}sb_43/Veg-Bowl_2.svg`,
     `${imgUrl}sb_43/Veg-Bowl_3.svg`,
+    ...ChoppedMap.fruits,
+    ...ChoppedMap.veg,
   ],
 
 

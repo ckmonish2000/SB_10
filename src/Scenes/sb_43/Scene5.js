@@ -24,6 +24,7 @@ export default function Scene5({ type = "fruits" }) {
   const AssetsLoad = useCustomLoadAsset2(SoundSceneMap)
 
   const [TheChoosenOnes, setTheChoosenOnes] = useState([]);
+  const [BowlChoosen, setBowlChoosen] = useState([]);
   const [Item, setItem] = useState([])
   const [Chopped, setChopped] = useState([])
   const [showChopped, setshowChopped] = useState(false);
@@ -45,15 +46,22 @@ export default function Scene5({ type = "fruits" }) {
   const bowls = Assets["Scene5"].sprites?.slice(51)
   const empty_bowl = bowls[0]
   const fruit_bowls = bowls.slice(1, 4)
-  const veg_bowls = bowls.slice(4)
+  const veg_bowls = bowls.slice(4, 7)
+  // cut elements
+  const cut_bowls_fruits = bowls.slice(7, 22)
+  const cut_bowl_vegies = bowls.slice(22)
+
+  console.log(setTheChoosenOnes)
+
+
 
   const stop_sound = () => {
     Assets["Scene5"]?.sounds?.forEach(v => { v?.sound.stop() })
   }
 
   const get_objects = () => {
-    if (type === "fruits") return { item: fruits, cutitems: cut_fruits }
-    if (type === "vegies") return { item: vegies, cutitems: cut_vegies }
+    if (type === "fruits") return { item: fruits, cutitems: cut_fruits, bowls: cut_bowls_fruits }
+    if (type === "vegies") return { item: vegies, cutitems: cut_vegies, bowls: cut_bowl_vegies }
   }
 
   // get 3 random numbers
@@ -85,9 +93,12 @@ export default function Scene5({ type = "fruits" }) {
     sel = sel.map(v => item[v])
     const selected_names = sel?.map(v => get_name(v.url))
     let chopped = obj?.cutitems?.filter(v => selected_names.includes(get_name(v.url)))
+    let bowl = obj?.bowls?.filter(v => selected_names.includes(get_name(v.url)))
 
     setTheChoosenOnes(sel) // the fruits on the name board
     setChopped(chopped) // chopped version of the fruits on the name board
+    setBowlChoosen(bowl)
+
 
   }, [])
 
@@ -166,13 +177,12 @@ export default function Scene5({ type = "fruits" }) {
     }
   }
 
-  console.log(FGs, "clicked")
+  console.log(BowlChoosen, "clicked")
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
-        <h1>hello</h1>
         <Image
           src={FGs.fg_2}
           className="kitchen_stall"
