@@ -36,7 +36,7 @@ function App() {
     grey: null,
     star: null
   })
-  const { SceneId, Assets, height, setheight, Starz, count } = useContext(SceneContext);
+  const { SceneId, Assets, height, setheight, Starz, count, FGs, setFGs } = useContext(SceneContext);
 
 
   // const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
@@ -75,7 +75,9 @@ function App() {
     const progress_bar = await LoadImage(`${imgUrl}sb_43/stars/Progress_bar.svg`)
     const grey = await LoadImage(`${imgUrl}sb_43/stars/Grey_star.svg`)
     const star = await LoadImage(`${imgUrl}sb_43/stars/Star.svg`)
-
+    const fg_1 = await LoadImage(`${imgUrl}sb_43/scene2/scene2_fg.svg`)
+    const fg_2 = await LoadImage(`${imgUrl}sb_43/scene5/fg.svg`)
+    setFGs({ fg_1, fg_2 })
     setstars({
       progress: progress_bar,
       grey,

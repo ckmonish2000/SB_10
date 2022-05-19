@@ -11,7 +11,7 @@ import { imgUrl } from "../../utils/path"
 
 
 export default function Scene2({ star }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
+  const { FGs, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Name, setName] = useState("")
   const [Selected_fruits, setSelected_fruits] = useState([])
@@ -42,7 +42,7 @@ export default function Scene2({ star }) {
   }, [Starz])
 
 
-  console.log(Starz)
+  console.log(FGs)
 
   const getname = (url) => {
     const URL = url.split("/")
@@ -104,6 +104,12 @@ export default function Scene2({ star }) {
     Bg={Bg}
     sprites={
       <>
+        {/* stand */}
+        <Image
+          src={FGs.fg_1}
+          className="fruits_stall"
+        />
+
         {star}
 
         {/* basket names */}

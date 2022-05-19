@@ -10,7 +10,7 @@ import useCustomLoadAsset from '../../utils/useCustomLoadAsset';
 
 
 export default function Scene1() {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, FGs } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
   const Scene2 = useCustomLoadAsset(Scene2Map)
@@ -48,7 +48,10 @@ export default function Scene1() {
     Bg={Bg}
     sprites={
       <>
-
+        <Image
+          src={FGs.fg_1}
+          className="fruits_stall"
+        />
 
         <div className="blue_shade">.</div>
 
