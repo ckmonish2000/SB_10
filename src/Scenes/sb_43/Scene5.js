@@ -16,7 +16,7 @@ import SoundSceneMap from '../../maps/SoundSceneMap';
 
 
 export default function Scene5({ type = "fruits" }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Data, setData } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Data, setData, FGs } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
 
@@ -166,12 +166,20 @@ export default function Scene5({ type = "fruits" }) {
     }
   }
 
-  console.log(clicked, "clicked")
+  console.log(FGs, "clicked")
 
   return <Scenes
     Bg={Bg}
     sprites={
       <>
+        <h1>hello</h1>
+        <Image
+          src={FGs.fg_2}
+          className="kitchen_stall"
+        />
+
+
+
         {/* bowls */}
 
         {star === 0 && <Image

@@ -13,7 +13,7 @@ import Scene4Map from '../../maps/SceneFourMap';
 
 
 export default function Scene3() {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, FGs } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
   const Scene2 = useLoadAsset(Scene4Map)
@@ -41,7 +41,7 @@ export default function Scene3() {
           container: Ref2.current,
           renderer: "svg",
           loop: true,
-          autoplay: true,
+          autoplay: false,
           animationData: Assets["Scene1"]?.lottie[1],
         })
       }
@@ -65,7 +65,10 @@ export default function Scene3() {
     Bg={Bg}
     sprites={
       <>
-
+        <Image
+          src={FGs.fg_1}
+          className="fruits_stall"
+        />
 
         <div className="blue_shade">.</div>
 

@@ -144,3 +144,11 @@
     height: 100%;
     left: 0%;
 }
+
+.kitchen_stall{
+  position: fixed;
+  width: 100%;
+  left: 0%;
+  height: 100%;
+  bottom: 0.2%;
+}
