@@ -192,12 +192,25 @@ export default function Scene5({ type = "fruits" }) {
 
         {/* bowls */}
 
-        {star === 0 && <Image
+        <Image
           src={empty_bowl.img}
           className="bowl_pos"
-        />}
+        />
+        <div>
+          <Image
+            src={BowlChoosen[0]?.img}
+          />
 
-        {star === 1 && <Image
+          <Image
+            src={BowlChoosen[1]?.img}
+          />
+
+          <Image
+            src={BowlChoosen[2]?.img}
+          />
+        </div>
+
+        {/* {star === 1 && <Image
           src={get_bowl_type()[0]?.img}
           className="bowl_pos"
         />}
@@ -210,7 +223,7 @@ export default function Scene5({ type = "fruits" }) {
         {star === 3 && <Image
           src={get_bowl_type()[2]?.img}
           className="bowl_pos"
-        />}
+        />} */}
 
         {/* name Board */}
         <Image

@@ -31,23 +31,23 @@ export default function Scene2({ star }) {
   const fruit_names = Assets["Scene2"].sounds.slice(3)
 
   // this is main
-  // useEffect(() => {
-  //   if (Starz === 12) {
-  //     // setTimeout(() => {
-  //     console.log("switch")
-  //     stop_sound()
-  //     setSceneId("/Scene3")
-  //     setStarz(0)
-  //     // }, 1500)
-  //   }
-  // }, [Starz])
+  useEffect(() => {
+    if (Starz === 12) {
+      // setTimeout(() => {
+      console.log("switch")
+      stop_sound()
+      setSceneId("/Scene3")
+      setStarz(0)
+      // }, 1500)
+    }
+  }, [Starz])
 
 
   // this is for testing
-  useEffect(() => {
-    stop_sound()
-    setSceneId("/Scene3")
-  }, [])
+  // useEffect(() => {
+  //   stop_sound()
+  //   setSceneId("/Scene3")
+  // }, [])
 
   console.log(FGs)
 

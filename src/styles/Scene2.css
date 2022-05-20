@@ -152,3 +152,10 @@
   height: 100%;
   bottom: 0.2%;
 }
+
+.chopped_img_1{
+  position: fixed;
+  left: 22.3%;
+  width: 11%;
+  bottom: 19%;
+}
