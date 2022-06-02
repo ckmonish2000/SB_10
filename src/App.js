@@ -77,7 +77,8 @@ function App() {
     const star = await LoadImage(`${imgUrl}sb_43/stars/Star.svg`)
     const fg_1 = await LoadImage(`${imgUrl}sb_43/scene2/scene2_fg.svg`)
     const fg_2 = await LoadImage(`${imgUrl}sb_43/scene5/fg.svg`)
-    setFGs({ fg_1, fg_2 })
+    const bowl_cover = await LoadImage(`${imgUrl}sb_43/Bowl_Frunt.svg`)
+    setFGs({ fg_1, fg_2, bowl_cover })
     setstars({
       progress: progress_bar,
       grey,
@@ -187,7 +188,7 @@ function App() {
           </Router>
 
           <Router sceneId="/soundveg">
-            <SoundScene />
+            <SoundScene type="veg" />
           </Router>
 
 

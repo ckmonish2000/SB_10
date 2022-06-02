@@ -376,10 +376,12 @@ font-family: myFirstFont !important;
 }
 
 .play_btn{
+  
   position: fixed;
-    width: 10%;
-    left: 77%;
-    bottom: 3%;
+  width: 7%;
+  left: 80%;
+  bottom: 3%;
+
 }
 
 .title {

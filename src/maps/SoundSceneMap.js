@@ -16,6 +16,8 @@ const SoundSceneMap = {
   sounds: [
     ...SoundMap.fruits,
     ...SoundMap.veg,
+    `${soundUrl}fru_snd.mp3`,
+    `${soundUrl}veg_snd.mp3`,
   ],
 
   lottie: [

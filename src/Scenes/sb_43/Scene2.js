@@ -16,9 +16,31 @@ export default function Scene2({ star }) {
   const [Name, setName] = useState("")
   const [Selected_fruits, setSelected_fruits] = useState([])
   const [Selected_vegies, setSelected_vegies] = useState([])
+  const [playing, setplaying] = useState(true);
 
   const sprites = Assets?.Scene2?.sprites?.slice(0, 12)
   const remainingSprites = Assets["Scene2"].sprites.slice(24)
+
+  let timer = null
+
+  console.log(playing)
+  useEffect(() => {
+    if (!playing) {
+      console.log("bro")
+      timer = setTimeout(() => {
+        setplaying(true)
+        const Sound = Assets["Scene2"].sounds[2]?.sound
+        Sound?.play()
+        Sound?.on("end", () => {
+          setplaying(false)
+        })
+      }, 2000)
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer)
+    }
+  }, [playing])
 
   // loading animation
   useEffect(() => {
@@ -26,21 +48,23 @@ export default function Scene2({ star }) {
 
     const Sound = Assets["Scene2"].sounds[2]?.sound
     Sound?.play()
+    Sound.on("end", () => {
+      setplaying(false)
+    })
   }, [])
 
   const fruit_names = Assets["Scene2"].sounds.slice(3)
 
   // this is main
   useEffect(() => {
-    if (Starz === 12) {
+    if (Starz === 12 && !playing) {
       // setTimeout(() => {
-      console.log("switch")
       stop_sound()
       setSceneId("/Scene3")
       setStarz(0)
       // }, 1500)
     }
-  }, [Starz])
+  }, [Starz, playing])
 
 
   // this is for testing
@@ -48,8 +72,6 @@ export default function Scene2({ star }) {
   //   stop_sound()
   //   setSceneId("/Scene3")
   // }, [])
-
-  console.log(FGs)
 
   const getname = (url) => {
     const URL = url.split("/")
@@ -74,7 +96,13 @@ export default function Scene2({ star }) {
     if (fruits.includes(fruitName) && !Selected_fruits.includes(fruitName)) {
       const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === fruitName + "_B")
       if (get_name_sound.length > 0) {
-        get_name_sound[0]?.sound?.play()
+        const Sound = get_name_sound[0]?.sound
+        setplaying(true)
+        Sound?.play()
+        Sound.on("end", () => {
+          setplaying(false)
+        })
+
       }
       setStarz(Starz + 1)
       // Assets["Scene2"]?.sounds[0]?.sound?.play()
@@ -92,7 +120,12 @@ export default function Scene2({ star }) {
     if (vegies.includes(vegiesName) && !Selected_vegies.includes(vegiesName)) {
       const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === vegiesName + "_B")
       if (get_name_sound.length > 0) {
-        get_name_sound[0]?.sound?.play()
+        const Sound = get_name_sound[0]?.sound
+        setplaying(true)
+        Sound?.play()
+        Sound.on("end", () => {
+          setplaying(false)
+        })
       }
       setStarz(Starz + 1)
       // Assets["Scene2"]?.sounds[0]?.sound?.play()
@@ -151,10 +184,10 @@ export default function Scene2({ star }) {
             return <Image
               src={img[0].img}
               style={{
-                display: idx > 5 ? "none" : "",
+                // display: idx > 5 ? "none" : "",
                 width: "50px",
                 ...getStyles(url),
-                marginLeft: idx > 0 ? "-38px" : "",
+                marginLeft: idx > 0 ? "-41px" : "",
                 marginBottom: "-23px"
               }}
             />
@@ -169,10 +202,10 @@ export default function Scene2({ star }) {
             return <Image
               src={img[0].img}
               style={{
-                display: idx > 5 ? "none" : "",
+                // display: idx > 5 ? "none" : "",
                 width: "50px",
                 ...getStyles(url),
-                marginLeft: idx > 0 ? "-28px" : "",
+                marginLeft: idx > 0 ? "-34px" : "",
               }}
             />
           })}
@@ -206,6 +239,7 @@ export default function Scene2({ star }) {
             className="fruitsnveg"
             draggable
             onMouseDown={(e) => {
+              if (timer) clearTimeout(timer)
               stop_sound()
               setName(e.currentTarget.id)
             }}
@@ -213,11 +247,13 @@ export default function Scene2({ star }) {
               e.dataTransfer.setData("text", e.currentTarget.id)
             }}
             onMouseUp={(e) =>
-              // setTimeout(() => {
-              setName("")
-              // }, 1000)
+              setTimeout(() => {
+                setName("")
+              }, 1200)
             }
-            onDragEnd={() => setName("")}
+            onDragEnd={() => setTimeout(() => {
+              setName("")
+            }, 1200)}
           >
             <Image
               id={v?.url}

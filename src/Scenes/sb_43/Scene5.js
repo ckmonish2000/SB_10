@@ -31,7 +31,11 @@ export default function Scene5({ type = "fruits" }) {
   const [clicked, setclicked] = useState(false);
 
   const [Selected, setSelected] = useState([]);
+  const [Selected2, setSelected2] = useState([]);
   const [ShowCloud, setShowCloud] = useState(false)
+  const [showName, setshowName] = useState(false);
+  const [show_Board_effect, setshow_Board_effect] = useState(false);
+  const [playing, setplaying] = useState(true);
 
   const [star, setstar] = useState(0)
 
@@ -51,8 +55,7 @@ export default function Scene5({ type = "fruits" }) {
   const cut_bowls_fruits = bowls.slice(7, 22)
   const cut_bowl_vegies = bowls.slice(22)
 
-  console.log(setTheChoosenOnes)
-
+  let timer = null
 
 
   const stop_sound = () => {
@@ -84,6 +87,22 @@ export default function Scene5({ type = "fruits" }) {
   }
 
   useEffect(() => {
+    if (!playing) {
+      console.log("bro")
+      timer = setTimeout(() => {
+        setplaying(true)
+        const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1]?.sound : Assets["Scene5"]?.sounds[0]?.sound
+        audio?.play()
+        audio.on("end", () => { setplaying(false) })
+      }, 10000)
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer)
+    }
+  }, [playing])
+
+  useEffect(() => {
     const obj = get_objects()
     const item = obj.item?.slice(0, 6)
     setData(item)
@@ -92,20 +111,25 @@ export default function Scene5({ type = "fruits" }) {
     let sel = get_nums()
     sel = sel.map(v => item[v])
     const selected_names = sel?.map(v => get_name(v.url))
-    let chopped = obj?.cutitems?.filter(v => selected_names.includes(get_name(v.url)))
+    let chopped = obj?.cutitems?.filter(v => selected_names.includes(get_name(v.url)) && v?.url?.includes("/cut/"))
     let bowl = obj?.bowls?.filter(v => selected_names.includes(get_name(v.url)))
 
     setTheChoosenOnes(sel) // the fruits on the name board
     setChopped(chopped) // chopped version of the fruits on the name board
     setBowlChoosen(bowl)
 
+    setTimeout(() => {
+      setshowName(true)
+    }, 500)
 
   }, [])
 
   const get_name = (url) => {
-    let x = url.split("/")
-    x = x[x.length - 1].split(".")[0]
-    return x
+    if (url) {
+      let x = url?.split("/")
+      x = x[x?.length - 1]?.split(".")[0]
+      return x
+    }
   }
 
   useEffect(() => {
@@ -124,8 +148,15 @@ export default function Scene5({ type = "fruits" }) {
     const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1]?.sound : Assets["Scene5"]?.sounds[0]?.sound
     audio?.play()
 
-    // audio.on("end", () => { setLoading(false) })
+    audio.on("end", () => { setplaying(false) })
 
+    setTimeout(() => {
+      setshow_Board_effect(true)
+    }, 2000)
+
+    setTimeout(() => {
+      setshow_Board_effect(false)
+    }, 5000)
 
   }, [])
 
@@ -157,11 +188,13 @@ export default function Scene5({ type = "fruits" }) {
 
 
   useEffect(() => {
-    if (star === 3 && AssetsLoad?.Loading === false) {
-      stop_sound()
-      setSceneId(type === "fruits" ? "/ahhafruits" : "/ahhaveg")
+    if (Selected2.length === 3 && AssetsLoad?.Loading === false) {
+      setTimeout(() => {
+        stop_sound()
+        setSceneId(type === "fruits" ? "/ahhafruits" : "/ahhaveg")
+      }, 1200)
     }
-  }, [star, AssetsLoad]);
+  }, [Selected2, AssetsLoad]);
 
   // useEffect(() => {
   //   if (!Loading && !Scene2.Loading) {
@@ -177,7 +210,7 @@ export default function Scene5({ type = "fruits" }) {
     }
   }
 
-  console.log(BowlChoosen, "clicked")
+  // console.log(BowlChoosen, "clicked")
 
   return <Scenes
     Bg={Bg}
@@ -191,23 +224,30 @@ export default function Scene5({ type = "fruits" }) {
 
 
         {/* bowls */}
-
+        <Image
+          src={FGs?.bowl_cover}
+          className="bowl_cover"
+        />
         <Image
           src={empty_bowl.img}
           className="bowl_pos"
         />
         <div>
-          <Image
+
+          {Selected2.includes(get_name(BowlChoosen[0]?.url)) && <Image
             src={BowlChoosen[0]?.img}
-          />
+            className={`bowl_pos_${Selected2?.indexOf(get_name(BowlChoosen[0]?.url))}`}
+          />}
 
-          <Image
+          {Selected2.includes(get_name(BowlChoosen[1]?.url)) && <Image
             src={BowlChoosen[1]?.img}
-          />
+            className={`bowl_pos_${Selected2?.indexOf(get_name(BowlChoosen[1]?.url))}`}
+          />}
 
-          <Image
+          {Selected2.includes(get_name(BowlChoosen[2]?.url)) && <Image
             src={BowlChoosen[2]?.img}
-          />
+            className={`bowl_pos_${Selected2?.indexOf(get_name(BowlChoosen[2]?.url))}`}
+          />}
         </div>
 
         {/* {star === 1 && <Image
@@ -227,19 +267,20 @@ export default function Scene5({ type = "fruits" }) {
 
         {/* name Board */}
         <Image
+          style={{ filter: show_Board_effect ? "drop-shadow(2px 6px 25px yellow)" : "" }}
           className="NameBoard"
           src={Assets["Scene5"]?.sprites[2]?.img}
         />
 
         {/* nameBoard names */}
-        <div className="NameBoardNames">
+        {showName && <div className="NameBoardNames">
           {TheChoosenOnes?.map(val => {
             return <h1 className="name_indi">
               <Image src={val.img} style={{ width: "30px", marginRight: "10px" }} />
-              {get_name(val.url)}
+              {get_name(val.url)?.toLocaleLowerCase()}
             </h1>
           })}
-        </div>
+        </div>}
 
         {/* shelf */}
         <div>
@@ -249,6 +290,7 @@ export default function Scene5({ type = "fruits" }) {
               id={item_name}
               onClick={(e) => {
                 if (!clicked) {
+                  setplaying(true)
                   stop_sound()
                   const answers = TheChoosenOnes?.map(v => get_name(v.url))
                   if (answers.includes(item_name)) {
@@ -267,6 +309,11 @@ export default function Scene5({ type = "fruits" }) {
                       setSelected([...Selected, item_name])
                     }, 3000)
 
+                    setTimeout(() => {
+                      setSelected2([...Selected, item_name])
+                      setplaying(false)
+                    }, 5500)
+
                     e.target.className = "move_to_board"
 
                     Assets["Scene5"]?.sounds[2]?.sound?.play()
@@ -281,7 +328,8 @@ export default function Scene5({ type = "fruits" }) {
                 ...fruits_size_scene1[item_name],
                 ...positions[idx],
                 margin: "0px",
-                opacity: Selected.includes(item_name) ? 0 : 1
+                opacity: Selected.includes(item_name) ? 0 : 1,
+                cursor: Selected.includes(item_name) ? "" : "pointer"
               }}
             />
           })}
@@ -289,7 +337,7 @@ export default function Scene5({ type = "fruits" }) {
 
         {/* cubboard names */}
         {Item.map((v, idx) => {
-          return <h1 className={name_position[idx]}>{get_name(v.url)}</h1>
+          return <h1 className={name_position[idx]}>{get_name(v.url)?.toLocaleLowerCase()}</h1>
         })}
 
         {/* cuttingboard */}
@@ -310,7 +358,11 @@ export default function Scene5({ type = "fruits" }) {
         {Chopped?.map(v => {
           return <Image
             id={get_name(v.url)}
-            style={{ opacity: Selected[Selected.length - 1] === get_name(v.url) && showChopped ? 1 : 0 }}
+            style={{
+              opacity: Selected[Selected.length - 1] === get_name(v.url) && showChopped ? 1 : 0,
+              width: get_name(v.url) === "Cabbage" ? "5%" : "",
+              left: get_name(v.url) === "Cabbage" ? "38%" : ""
+            }}
             className="chopped_fruits"
             src={v.img}
           />

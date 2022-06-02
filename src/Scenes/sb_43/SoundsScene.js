@@ -23,6 +23,16 @@ export default function SoundScene({ type = "fruits" }) {
   useEffect(() => {
     setBg(Assets["sounds"]?.Bg)
 
+    const sounds_count = Assets["sounds"]?.sounds?.length
+    const Sound1 = Assets["sounds"]?.sounds[sounds_count - 2]?.sound
+    const Sound2 = Assets["sounds"]?.sounds[sounds_count - 1]?.sound
+
+
+    if (type === "fruits") {
+      Sound1?.play()
+    } else {
+      Sound2?.play()
+    }
   }, [])
 
   // useEffect(() => {
@@ -33,9 +43,14 @@ export default function SoundScene({ type = "fruits" }) {
 
   const get_name = (url) => {
     let x = url.split("/")
-    x = x[x.length - 1].split(".")[0]
+    x = x[x.length - 1]?.split(".")[0]
     return x
   }
+
+  const stop_sound = () => {
+    Assets["sounds"]?.sounds?.forEach(v => v?.sound?.stop())
+  }
+
 
   return <Scenes
     Bg={Bg}
@@ -49,29 +64,26 @@ export default function SoundScene({ type = "fruits" }) {
             return <div
               style={{ height: "280px" }}
               onClick={() => {
-                if (Playing === "") {
-                  const sound = Assets["sounds"].sounds?.filter(val => get_name(val.url) === get_name(v.url))
-                  if (sound.length > 0) {
-                    setPlaying(get_name(v.url))
-                    const audio = sound[0]?.sound
-                    audio?.play()
-                    audio.on('end', () => {
-                      setPlaying("")
-                      setcount(count + 1)
-                    })
+                const sound = Assets["sounds"].sounds?.filter(val => get_name(val?.url) === get_name(v?.url))
+                if (sound.length > 0) {
+                  stop_sound()
+                  // setPlaying("")
+                  setcount(count + 1)
 
-                  }
+                  setPlaying(get_name(v.url))
+                  const audio = sound[0]?.sound
+                  audio?.play()
                 }
               }}
             >
               <Image
                 style={{ width: "150px", height: "150px" }}
                 src={v.img}
-                className={Playing === get_name(v.url) ? "sel_bro" : ""}
+                className={Playing === get_name(v?.url) ? "sel_bro" : ""}
               />
               <h1
                 className="name_card_sounf"
-                style={{ textAlign: "center" }}>{get_name(v.url)}</h1>
+                style={{ textAlign: "center" }}>{get_name(v?.url)?.toLocaleLowerCase()}</h1>
             </div>
           })}
         </div>
@@ -79,7 +91,10 @@ export default function SoundScene({ type = "fruits" }) {
         {count === 6 && <Image
           src={Assets["sounds"]?.sprites[0]?.img}
           className="home_btn"
-          onClick={() => { setSceneId("/") }}
+          onClick={() => {
+            stop_sound()
+            setSceneId("/")
+          }}
         />}
       </>
     }

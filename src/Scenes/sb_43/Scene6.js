@@ -18,7 +18,7 @@ export default function GoodJob({ type = "fruits" }) {
   const Ref2 = useRef(null)
 
   useEffect(() => {
-    setBg(Assets["Scene1"]?.Bg)
+    setBg(Assets["Scene4"]?.Bg)
     if (Ref1.current) {
       const ch = lottie.loadAnimation({
         name: "ch1",
@@ -35,7 +35,7 @@ export default function GoodJob({ type = "fruits" }) {
           container: Ref2.current,
           renderer: "svg",
           loop: true,
-          autoplay: true,
+          autoplay: false,
           animationData: Assets["Scene1"]?.lottie[1],
         })
       }
@@ -61,15 +61,25 @@ export default function GoodJob({ type = "fruits" }) {
       <>
 
 
-        <div className="blue_shade">.</div>
+        {/* <div className="blue_shade">.</div> */}
 
         <div
           ref={Ref1}
           style={{ bottom: "-5px" }}
           className="scene1_blue_char_pos"></div>
 
+        {type !== "fruits" ? <Image
+          src={Assets["Scene4"]?.sprites[1]}
+          className="ahha_bowl"
+        /> : <Image
+          src={Assets["Scene4"]?.sprites[0]}
+          className="ahha_bowl"
+        />}
+
+
         <div
           ref={Ref2}
+          style={{ bottom: "46%", width: "15%" }}
           className="verygood">
         </div>
       </>

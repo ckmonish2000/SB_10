@@ -60,7 +60,7 @@
     bottom: 50%;
     width: 15%;
     left: 0%;
-    animation: moveBoard 1s linear forwards;
+    animation: moveBoard 0.8s linear forwards;
 }
 
 @keyframes moveBoard {
@@ -80,7 +80,7 @@
   font-size: 13px;
   align-items: center;
   height: 216px;
-  animation: showname   5s linear forwards;
+  animation: showname  1s linear forwards;
   /* animation-delay: 15s; */
 }
 
@@ -109,9 +109,9 @@
 
 .chopped_fruits{
   position: fixed;
-    bottom: 20%;
-    width: 9%;
-    left: 36%;
+  bottom: 20%;
+  width: 7.5%;
+  left: 37%;
 }
 
 
@@ -193,7 +193,7 @@
 
 .grid_item_display{
   position: fixed;
-    bottom: 5%;
+    bottom: 2%;
     left: 30%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -208,13 +208,13 @@
   text-align: center;
     background: white;
     color: black !important;
-    padding: 5px;
+    padding: 5px 15px;
     border-radius: 10px;
     border: 5px solid #00a99d;
     font-weight: bold;
     width: 150px;
     height: 40px;
-    font-size: 22px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -224,6 +224,45 @@
   width: 150px;
     height: 150px;
     background: #9eebff;
-    padding: 15px;
+    /* padding: 15px; */
     border-radius: 100%;
+}
+
+
+.bowl_pos_0{
+  position: absolute;
+  left: 22%;
+  bottom: 25%;
+  width: 6%;
+}
+
+.bowl_pos_1{
+  position: absolute;
+    left: 24%;
+    bottom: 25%;
+    width: 7%;
+}
+
+.bowl_pos_2{
+  position: absolute;
+  left: 28%;
+  bottom: 25%;
+  width: 6%;
+}
+
+.bowl_cover{
+  position: absolute;
+    bottom: 17.5%;
+    left: 22%;
+    width: 12%;
+    z-index: 10;
+}
+
+
+.ahha_bowl{
+  position: fixed;
+  bottom: 16%;
+  left: 26.5%;
+  width: 13%;
+  cursor: pointer;
 }
