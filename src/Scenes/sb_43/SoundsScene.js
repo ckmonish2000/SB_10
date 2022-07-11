@@ -28,19 +28,29 @@ export default function SoundScene({ type = "fruits" }) {
     const Sound1 = Assets["sounds"]?.sounds[sounds_count - 2]?.sound
     const Sound2 = Assets["sounds"]?.sounds[sounds_count - 1]?.sound
 
+    const sound_1 = Assets["sounds"]?.sounds[sounds_count - 4]?.sound
+    const sound_2 = Assets["sounds"]?.sounds[sounds_count - 3]?.sound
 
     if (type === "fruits") {
       Sound1?.play()
+      Sound1?.on("end", () => { sound_1.play() })
     } else {
       Sound2?.play()
+      Sound2?.on("end", () => { sound_2.play() })
     }
   }, [])
 
-  // useEffect(() => {
-  //   if (count === 6) {
-  //     setSceneId("/")
-  //   }
-  // }, [count]);
+
+
+  useEffect(() => {
+    if (Played.length === 6 && Playing === "") {
+      const sounds_count = Assets["sounds"]?.sounds?.length
+      const Sound1 = Assets["sounds"]?.sounds[sounds_count - 5]?.sound
+      Sound1?.play()
+      // Sound1?.on("end",()=>{})
+
+    }
+  }, [Played, Playing]);
 
   const get_name = (url) => {
     let x = url.split("/")
@@ -63,6 +73,8 @@ export default function SoundScene({ type = "fruits" }) {
       setPlaying(get_name(v.url))
       const audio = sound[0]?.sound
       audio?.play()
+
+      audio?.on("end", () => { setPlaying("") })
 
       if (!Played?.includes(v)) {
         const played = [...Played]

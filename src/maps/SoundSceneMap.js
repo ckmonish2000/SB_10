@@ -16,6 +16,9 @@ const SoundSceneMap = {
   sounds: [
     ...SoundMap.fruits,
     ...SoundMap.veg,
+    `${soundUrl}replayaudio.mp3`,
+    `${soundUrl}tap_learn_fruit.mp3`,
+    `${soundUrl}tap_learn_vegie.mp3`,
     `${soundUrl}fru_snd.mp3`,
     `${soundUrl}veg_snd.mp3`,
   ],
