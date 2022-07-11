@@ -93,13 +93,15 @@ export default function SoundScene({ type = "fruits" }) {
         <div className="blue_shade">.</div>
         <div className="grid_item_display" style={{ cursor: "default" }}>
           {Data?.map(v => {
-            return <div style={{ height: "280px", cursor: "default" }}>
+            return <div style={{ height: "280px", cursor: "default", position: "relative" }}>
               <Image
                 onClick={() => Click(v)}
-                style={{ width: "150px", height: "150px", cursor: "pointer" }}
+                style={{ width: "150px", height: "150px", cursor: "pointer", zIndex: "9999" }}
                 src={v.img}
-                className={Playing === get_name(v?.url) ? "sel_bro" : ""}
+              // className={Playing === get_name(v?.url) ? "sel_bro" : "sel_bro"}
               />
+
+              {Playing === get_name(v?.url) && <div className="sels_bro">.</div>}
               <h1
                 onClick={() => Click(v)}
                 className="name_card_sounf"

@@ -223,11 +223,22 @@
 .sel_bro{
   width: 150px;
     height: 150px;
-    background: #9eebff;
+    /* background: #9eebff; */
     /* padding: 15px; */
     border-radius: 100%;
 }
 
+.sels_bro{
+  width: 200px;
+    height: 200px;
+    position: absolute;
+    background: #9eebff;
+    border-radius: 100%;
+    color: transparent !important;
+    top: -12%;
+    left: -10%;
+    z-index: -1;
+}
 
 .bowl_pos_0{
   position: absolute;
