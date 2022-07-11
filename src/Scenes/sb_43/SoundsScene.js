@@ -14,6 +14,7 @@ export default function SoundScene({ type = "fruits" }) {
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
   const [Playing, setPlaying] = useState("");
+  const [Played, setPlayed] = useState([])
 
   const [count, setcount] = useState(0)
 
@@ -52,6 +53,25 @@ export default function SoundScene({ type = "fruits" }) {
   }
 
 
+  const Click = (v) => {
+    const sound = Assets["sounds"].sounds?.filter(val => get_name(val?.url) === get_name(v?.url))
+    if (sound.length > 0) {
+      stop_sound()
+      // setPlaying("")
+      setcount(count + 1)
+
+      setPlaying(get_name(v.url))
+      const audio = sound[0]?.sound
+      audio?.play()
+
+      if (!Played?.includes(v)) {
+        const played = [...Played]
+        played.push(v)
+        setPlayed(played)
+      }
+    }
+  }
+
   return <Scenes
     Bg={Bg}
     sprites={
@@ -59,36 +79,24 @@ export default function SoundScene({ type = "fruits" }) {
 
 
         <div className="blue_shade">.</div>
-        <div className="grid_item_display">
+        <div className="grid_item_display" style={{ cursor: "default" }}>
           {Data?.map(v => {
-            return <div
-              style={{ height: "280px" }}
-              onClick={() => {
-                const sound = Assets["sounds"].sounds?.filter(val => get_name(val?.url) === get_name(v?.url))
-                if (sound.length > 0) {
-                  stop_sound()
-                  // setPlaying("")
-                  setcount(count + 1)
-
-                  setPlaying(get_name(v.url))
-                  const audio = sound[0]?.sound
-                  audio?.play()
-                }
-              }}
-            >
+            return <div style={{ height: "280px", cursor: "default" }}>
               <Image
-                style={{ width: "150px", height: "150px" }}
+                onClick={() => Click(v)}
+                style={{ width: "150px", height: "150px", cursor: "pointer" }}
                 src={v.img}
                 className={Playing === get_name(v?.url) ? "sel_bro" : ""}
               />
               <h1
+                onClick={() => Click(v)}
                 className="name_card_sounf"
-                style={{ textAlign: "center" }}>{get_name(v?.url)?.toLocaleLowerCase()}</h1>
+                style={{ textAlign: "center", cursor: "pointer" }}>{get_name(v?.url)?.toLocaleLowerCase()}</h1>
             </div>
           })}
         </div>
 
-        {count === 6 && <Image
+        {Played.length === 6 && <Image
           src={Assets["sounds"]?.sprites[0]?.img}
           className="home_btn"
           onClick={() => {

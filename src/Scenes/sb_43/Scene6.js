@@ -10,9 +10,12 @@ import useCustomLoadAsset from '../../utils/useCustomLoadAsset';
 
 
 export default function GoodJob({ type = "fruits" }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, FGs, BowlChoosen, setBowlChoosen } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
+
+  const bowls = Assets["Scene5"].sprites?.slice(51)
+  const empty_bowl = bowls[0]
 
   const Ref1 = useRef(null)
   const Ref2 = useRef(null)
@@ -68,13 +71,26 @@ export default function GoodJob({ type = "fruits" }) {
           style={{ bottom: "-5px" }}
           className="scene1_blue_char_pos"></div>
 
-        {type !== "fruits" ? <Image
-          src={Assets["Scene4"]?.sprites[1]}
-          className="ahha_bowl"
-        /> : <Image
-          src={Assets["Scene4"]?.sprites[0]}
-          className="ahha_bowl"
-        />}
+        {/* bowl */}
+        <Image
+          src={FGs?.bowl_cover}
+          className="bowl_cover"
+        />
+        <Image
+          src={empty_bowl.img}
+          className="bowl_pos"
+        />
+
+        {/* selected */}
+        {
+          BowlChoosen?.map((v, idx) => {
+            return <Image
+              src={BowlChoosen[idx]?.img}
+              style={{ marginLeft: idx === 2 ? "-10px" : "" }}
+              className={`bowl_pos_${idx}`}
+            />
+          })
+        }
 
 
         <div

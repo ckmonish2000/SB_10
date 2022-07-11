@@ -16,7 +16,7 @@ import SoundSceneMap from '../../maps/SoundSceneMap';
 
 
 export default function Scene5({ type = "fruits" }) {
-  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Data, setData, FGs } = useContext(SceneContext);
+  const { SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Data, setData, FGs, BowlChoosen, setBowlChoosen } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
   const [Loading, setLoading] = useState(true);
 
@@ -24,7 +24,7 @@ export default function Scene5({ type = "fruits" }) {
   const AssetsLoad = useCustomLoadAsset2(SoundSceneMap)
 
   const [TheChoosenOnes, setTheChoosenOnes] = useState([]);
-  const [BowlChoosen, setBowlChoosen] = useState([]);
+
   const [Item, setItem] = useState([])
   const [Chopped, setChopped] = useState([])
   const [showChopped, setshowChopped] = useState(false);
@@ -253,6 +253,7 @@ export default function Scene5({ type = "fruits" }) {
 
           {Selected2.includes(get_name(BowlChoosen[2]?.url)) && <Image
             src={BowlChoosen[2]?.img}
+            style={{ marginLeft: "-10px" }}
             className={`bowl_pos_${Selected2?.indexOf(get_name(BowlChoosen[2]?.url))}`}
           />}
         </div>
