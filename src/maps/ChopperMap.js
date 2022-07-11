@@ -33,7 +33,8 @@ const ChopperMap = {
     `${soundUrl}selfruits.mp3`,
     `${soundUrl}correct.mp3`,
     `${soundUrl}incorrect.mp3`,
-
+    `${soundUrl}tap_fruit.mp3`,
+    `${soundUrl}tap_vegies.mp3`,
   ],
 
   lottie: [

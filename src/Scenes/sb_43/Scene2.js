@@ -68,10 +68,10 @@ export default function Scene2({ star }) {
 
 
   // this is for testing
-  // useEffect(() => {
-  //   stop_sound()
-  //   setSceneId("/Scene3")
-  // }, [])
+  useEffect(() => {
+    stop_sound()
+    setSceneId("/Scene3")
+  }, [])
 
   const getname = (url) => {
     const URL = url.split("/")

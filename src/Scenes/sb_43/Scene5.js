@@ -88,12 +88,14 @@ export default function Scene5({ type = "fruits" }) {
 
   useEffect(() => {
     if (!playing) {
-      console.log("bro")
       timer = setTimeout(() => {
         setplaying(true)
+        const length = Assets["Scene5"]?.sounds?.length
         const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1]?.sound : Assets["Scene5"]?.sounds[0]?.sound
+        const audio2 = type === "fruits" ? Assets["Scene5"]?.sounds[length - 2]?.sound : Assets["Scene5"]?.sounds[length - 1]?.sound
         audio?.play()
-        audio.on("end", () => { setplaying(false) })
+        audio.on("end", () => { audio2?.play() })
+        audio2.on("end", () => { setplaying(false) })
       }, 10000)
     }
 
@@ -145,10 +147,15 @@ export default function Scene5({ type = "fruits" }) {
         animationData: Assets["Scene5"]?.lottie[0],
       })
     }
+
+    const length = Assets["Scene5"]?.sounds?.length
+
     const audio = type === "fruits" ? Assets["Scene5"]?.sounds[1]?.sound : Assets["Scene5"]?.sounds[0]?.sound
     audio?.play()
 
-    audio.on("end", () => { setplaying(false) })
+    const audio2 = type === "fruits" ? Assets["Scene5"]?.sounds[length - 2]?.sound : Assets["Scene5"]?.sounds[length - 1]?.sound
+    audio.on("end", () => { audio2?.play() })
+    audio2.on("end", () => { setplaying(false) })
 
     setTimeout(() => {
       setshow_Board_effect(true)
