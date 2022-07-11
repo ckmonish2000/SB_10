@@ -19,14 +19,14 @@ export default function Scene2({ star }) {
   const [playing, setplaying] = useState(true);
 
   const sprites = Assets?.Scene2?.sprites?.slice(0, 12)
-  const remainingSprites = Assets["Scene2"].sprites.slice(24)
+  const remainingSprites = Assets["Scene2"].sprites.slice(12)
+
+  // console.log(Assets?.Scene2?.sprites)
 
   let timer = null
 
-  console.log(playing)
   useEffect(() => {
     if (!playing) {
-      console.log("bro")
       timer = setTimeout(() => {
         setplaying(true)
         const Sound = Assets["Scene2"].sounds[2]?.sound
@@ -165,12 +165,12 @@ export default function Scene2({ star }) {
 
         {/* basket cover */}
         <Image
-          style={{ bottom: "31.5%", zIndex: "999" }}
+          style={{ bottom: "31%", zIndex: "999" }}
           src={remainingSprites[0].img}
           className="basket1" />
 
         <Image
-          style={{ bottom: "31.5%", zIndex: "999" }}
+          style={{ bottom: "31%", zIndex: "999" }}
           src={remainingSprites[0].img}
           className="basket2" />
 
@@ -187,7 +187,7 @@ export default function Scene2({ star }) {
                 // display: idx > 5 ? "none" : "",
                 width: "50px",
                 ...getStyles(url),
-                marginLeft: idx > 0 ? "-41px" : "",
+                marginLeft: idx > 0 ? "-31px" : "",
                 marginBottom: "-23px"
               }}
             />
@@ -206,6 +206,7 @@ export default function Scene2({ star }) {
                 width: "50px",
                 ...getStyles(url),
                 marginLeft: idx > 0 ? "-34px" : "",
+                marginBottom: "10px"
               }}
             />
           })}

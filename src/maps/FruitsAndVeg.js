@@ -43,7 +43,7 @@ const FoodMap = {
     `${url}Sweetlime.svg`,
   ]),
   veg: shuffle([
-
+    // 9
     `${url2}Cabbage.svg`,
     `${url2}Carrot.svg`,
     `${url2}Corn.svg`,
