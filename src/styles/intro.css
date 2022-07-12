@@ -372,30 +372,30 @@ font-family: myFirstFont !important;
   position: fixed;
   bottom: -1%;
   width: 82%;
-  left: 8%;
+  left: 3%;
 }
 
 .play_btn{
-  
+ 
   position: fixed;
   width: 7%;
-  left: 80%;
+  left: 68%;
   bottom: 3%;
 
 }
 
 .title {
   position: fixed;
-  width: 32%;
-  bottom: 0%;
-  left: 36%;
+  width: 23%;
+  bottom: 5.5%;
+  left: 35%;
 }
 
 .title_font{
   position: fixed;
   width: 55%;
-  left: 23%;
-  bottom: 4%;
+  left: 20%;
+  bottom: 5%;
 }
 
 .play_butn{
