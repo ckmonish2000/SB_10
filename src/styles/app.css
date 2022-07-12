@@ -27,8 +27,8 @@
 
 .progress_head{
   position: fixed;
-  top: 12%;
-  left: 17.5%;
+  top: 25%;
+  left: 13.5%;
   width: 70%;
   /* height: 200px; */
   z-index: 1;
@@ -37,8 +37,8 @@
 .leaves{
   display: flex;
   position: fixed;
-  top: 21.2%;
-  left: 10%;
+  top: 34.2%;
+  left: 6.8%;
   width: 80%;
   justify-content: center;
   align-items: center;
@@ -57,7 +57,7 @@
 .fruits_name_bowl{
   position: fixed;
   bottom: 18%;
-  left: 27.7%;
+  left: 22.7%;
   font-size: 35px;
   background: #f7f0df;
   color: black !important;
@@ -72,19 +72,19 @@
 
 .veg_name_bowl{
   position: fixed;
-    bottom: 18%;
-    left: 63.5%;
-    font-size: 35px;
-    background: #f7f0df;
-    color: black !important;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid #bc7d0d;
-    width: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
+  bottom: 18%;
+  left: 52.5%;
+  font-size: 35px;
+  background: #f7f0df;
+  color: black !important;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #bc7d0d;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
 }
 
 .home_btn{
@@ -174,37 +174,70 @@
 
 @media (max-width: 1470px){
   .progress_head{
-    top: 9%;
+    top: 22%;
   }
   .leaves{
-    top: 18.2%;
+    top: 31.5%;
   }
 }
 
 
 @media (max-width: 1400px){
   .progress_head{
-    top: 2%;
+    top: 18%;
   }
   .leaves{
-    top: 11.2%;
+    top: 27.2%;
   }
 }
 
 @media (max-width: 1100px){
   .progress_head{
-    top: -5%;
+    top: 11%;
   }
   .leaves{
-    top: 4.5%;
+    top: 20.5%;
   }
+
+}
+
+
+@media (max-width: 1400px){
+  .progress_head{
+    top: 20%;
+  }
+  .leaves{
+    top: 29.5%;
+  }
+
+}
+
+
+@media (max-width: 740px){
+  .progress_head{
+    top: 25%;
+  }
+  .leaves{
+    top: 34.5%;
+  }
+}
+
+
+@media (max-width: 655px){
+  .progress_head{
+    top: 11%;
+  }
+  .leaves{
+    top: 20.5%;
+  }
+
 }
 
 @media (max-width: 668px){
   .progress_head{
-    top: 0%;
+    top: 15%;
   }
   .leaves{
-    top: 9.5%;
+    top: 24.5%;
   }
 }

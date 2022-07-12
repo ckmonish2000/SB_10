@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export default function GameContainer({ children, LandScape, setLandScape }) {
-  const [scale, setscale] = useState(window.innerWidth * 0.8 / 1000);
+  const [scale, setscale] = useState(window.innerWidth * 0.85 / 1000);
 
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function GameContainer({ children, LandScape, setLandScape }) {
   }, [])
 
   const onResize = () => {
-    const scale = (window.innerWidth * 0.8 / 1000)
+    const scale = (window.innerWidth * 0.85 / 1000)
     setscale(scale)
     setLandScape(window.innerWidth / window.innerHeight < 1.0)
   }
@@ -27,10 +27,10 @@ export default function GameContainer({ children, LandScape, setLandScape }) {
       width: "1920px",
       height: "900px",
       transformOrigin: "210px 900px",
-      left: "-210px",
+      left: "-280px",
       bottom: "0px",
       transform: `scale(${scale})`,
-      // overflow: "hidden"
+      overflow: "hidden"
     }}>
       {/* {!LandScape && children} */}
       {children}

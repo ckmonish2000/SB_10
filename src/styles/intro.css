@@ -393,9 +393,9 @@ font-family: myFirstFont !important;
 
 .title_font{
   position: fixed;
-  width: 55%;
-  left: 20%;
-  bottom: 5%;
+    width: 55%;
+    left: 18.5%;
+    bottom: 5%;
 }
 
 .play_butn{
@@ -421,7 +421,7 @@ font-family: myFirstFont !important;
 
 .mute_btn{
   position: absolute;
-  left: 12%;
+  left: 14.5%;
   bottom: 40%;
   width: 3%;
   z-index: 999;
@@ -437,7 +437,7 @@ font-family: myFirstFont !important;
   position: absolute;
   left: 49%;
   bottom: 0%;
-  width: 35%;
+  width: 25%;
 }
 
 .scene1_yellow_char_pos{

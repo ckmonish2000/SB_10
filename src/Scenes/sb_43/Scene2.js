@@ -60,7 +60,7 @@ export default function Scene2({ star }) {
     if (Starz === 12 && !playing) {
       // setTimeout(() => {
       stop_sound()
-      setSceneId("/Scene3")
+      // setSceneId("/Scene3")
       setStarz(0)
       // }, 1500)
     }
@@ -165,12 +165,12 @@ export default function Scene2({ star }) {
 
         {/* basket cover */}
         <Image
-          style={{ bottom: "31%", zIndex: "999" }}
+          style={{ bottom: "22.5%", zIndex: "999" }}
           src={remainingSprites[0].img}
           className="basket1" />
 
         <Image
-          style={{ bottom: "31%", zIndex: "999" }}
+          style={{ bottom: "22.5%", zIndex: "999" }}
           src={remainingSprites[0].img}
           className="basket2" />
 
@@ -259,7 +259,7 @@ export default function Scene2({ star }) {
             <Image
               id={v?.url}
               style={{
-                left: idx >= 6 ? `${30 + idx % 6 * 7.5}%` : `${30 + idx * 7.5}%`,
+                left: idx >= 6 ? `${26.5 + idx % 6 * 7}%` : `${27.5 + idx * 6.65}%`,
                 zIndex: idx >= 6 ? 9 : 7,
                 ...getStyles(v?.url)
               }}

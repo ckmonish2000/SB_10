@@ -1,17 +1,17 @@
 .fruit_bowl{
   position: fixed;
-  bottom: 14%;
-  left: 24%;
-  width: 19%;
+  bottom: 16%;
+  left: 21%;
+  width: 15%;
   cursor: pointer;
 }
 
 .vegi_bowl{
-      position: fixed;
-      bottom: 14%;
-      left: 59.5%;
-      width: 19%;
-      cursor: pointer;
+  position: fixed;
+  bottom: 16%;
+  left: 50.5%;
+  width: 15%;
+  cursor: pointer;
 }
 
 
