@@ -36,7 +36,7 @@ function App() {
     grey: null,
     star: null
   })
-  const { SceneId, Assets, height, setheight, Starz, count, FGs, setFGs } = useContext(SceneContext);
+  const { SceneId, Assets, height, setheight, Starz, count, FGs, setFGs, Ipad, setIpad } = useContext(SceneContext);
 
 
   // const Map = [AllAssetMap.Bg, HomeMap, AllAssetMap.Props, AllAssetMap.Scene2]
@@ -51,6 +51,8 @@ function App() {
     } else {
       setheight("73%")
     }
+
+    setIpad(window.innerWidth / window.innerHeight >= 1.3 && window.innerWidth / window.innerHeight <= 1.44)
   }
 
   useEffect(() => {
@@ -60,6 +62,7 @@ function App() {
 
     loadAudio()
 
+    setIpad(window.innerWidth / window.innerHeight >= 1.3 && window.innerWidth / window.innerHeight <= 1.44)
     window.addEventListener("resize", resizer)
 
     return () => {

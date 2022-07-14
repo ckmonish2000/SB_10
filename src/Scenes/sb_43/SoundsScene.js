@@ -92,20 +92,31 @@ export default function SoundScene({ type = "fruits" }) {
 
         <div className="blue_shade">.</div>
         <div className="grid_item_display" style={{ cursor: "default" }}>
-          {Data?.map(v => {
-            return <div style={{ height: "280px", cursor: "default", position: "relative" }}>
+          {Data?.map((v, idx) => {
+            return <div
+              className="test_box"
+              style={{ height: "50%", cursor: "default" }}>
               <Image
                 onClick={() => Click(v)}
-                style={{ width: "150px", height: "150px", cursor: "pointer", zIndex: "9999" }}
+                style={{
+                  height: "90%",
+                  cursor: "pointer",
+                  zIndex: "9999",
+                  ...fruit_pos[idx]
+                }}
                 src={v.img}
               // className={Playing === get_name(v?.url) ? "sel_bro" : "sel_bro"}
               />
 
-              {Playing === get_name(v?.url) && <div className="sels_bro">.</div>}
+              {Playing === get_name(v?.url) && <div style={sel_pos[idx]} className="sels_bro">.</div>}
               <h1
                 onClick={() => Click(v)}
                 className="name_card_sounf"
-                style={{ textAlign: "center", cursor: "pointer" }}>{get_name(v?.url)?.toLocaleLowerCase()}</h1>
+                style={{
+                  textAlign: "center",
+                  cursor: "pointer",
+                  ...board_pos[idx]
+                }}>{get_name(v?.url)?.toLocaleLowerCase()}</h1>
             </div>
           })}
         </div>
@@ -121,4 +132,118 @@ export default function SoundScene({ type = "fruits" }) {
       </>
     }
   />;
+}
+
+
+const sel_pos = {
+  0: {
+    position: "fixed",
+    left: "27.5%",
+    top: "45%"
+  },
+  1: {
+    position: "fixed",
+    left: "44.5%",
+    top: "45%"
+  },
+  2: {
+    position: "fixed",
+    left: "61.5%",
+    top: "45%"
+  },
+  // 
+  3: {
+    position: "fixed",
+    left: "27%",
+    top: "73%"
+  },
+  4: {
+    position: "fixed",
+    left: "44.5%",
+    top: "73%"
+  },
+  5: {
+    position: "fixed",
+    left: "61.5%",
+    top: "73%"
+  }
+}
+
+const fruit_pos = {
+  0: {
+    position: "fixed",
+    left: "27.5%",
+    top: "47%",
+    width: "7%",
+    height: "12%"
+  },
+  1: {
+    position: "fixed",
+    left: "44.5%",
+    top: "47%",
+    width: "7%",
+    height: "12%"
+  },
+  2: {
+    position: "fixed",
+    left: "61.7%",
+    top: "47%",
+    width: "7%",
+    height: "12%"
+  },
+  3: {
+    position: "fixed",
+    left: "27.5%",
+    top: "76%",
+    width: "7%",
+    height: "12%"
+  },
+  4: {
+    position: "fixed",
+    left: "44.5%",
+    top: "76%",
+    width: "7%",
+    height: "12%"
+  },
+  5: {
+    position: "fixed",
+    left: "61.5%",
+    top: "76%",
+    width: "7%",
+    height: "12%"
+  },
+}
+
+
+const board_pos = {
+  0: {
+    position: "fixed",
+    left: "26.5%",
+    top: "60%"
+  },
+  1: {
+    position: "fixed",
+    left: "43.5%",
+    top: "60%"
+  },
+  2: {
+    position: "fixed",
+    left: "60.5%",
+    top: "60%"
+  },
+  3: {
+    position: "fixed",
+    left: "26%",
+    top: "87%",
+  },
+  4: {
+    position: "fixed",
+    left: "43.5%",
+    top: "87%",
+  },
+  5: {
+    position: "fixed",
+    left: "60.5%",
+    top: "87%",
+  }
 }

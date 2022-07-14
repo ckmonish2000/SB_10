@@ -60,7 +60,7 @@ export default function Scene2({ star }) {
     if (Starz === 12 && !playing) {
       // setTimeout(() => {
       stop_sound()
-      // setSceneId("/Scene3")
+      setSceneId("/Scene3")
       setStarz(0)
       // }, 1500)
     }

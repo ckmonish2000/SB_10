@@ -74,10 +74,12 @@ export default function GoodJob({ type = "fruits" }) {
         {/* bowl */}
         <Image
           src={FGs?.bowl_cover}
+          style={{ bottom: "17%", left: "35%" }}
           className="bowl_cover"
         />
         <Image
           src={empty_bowl.img}
+          style={{ bottom: "15%", left: "35%" }}
           className="bowl_pos"
         />
 
@@ -86,7 +88,11 @@ export default function GoodJob({ type = "fruits" }) {
           BowlChoosen?.map((v, idx) => {
             return <Image
               src={BowlChoosen[idx]?.img}
-              style={{ marginLeft: idx === 2 ? "-10px" : "" }}
+              style={{
+                marginLeft: idx === 2 ? "-10px" : "",
+                bottom: "24%",
+                left: idx === 0 ? "35%" : (idx === 1 ? "37%" : "40%")
+              }}
               className={`bowl_pos_${idx}`}
             />
           })
@@ -95,7 +101,7 @@ export default function GoodJob({ type = "fruits" }) {
 
         <div
           ref={Ref2}
-          style={{ bottom: "46%", width: "15%" }}
+          style={{ bottom: "34%", width: "15%" }}
           className="verygood">
         </div>
       </>

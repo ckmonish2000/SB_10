@@ -253,7 +253,7 @@ export default function Scene5({ type = "fruits" }) {
 
           {Selected2.includes(get_name(BowlChoosen[2]?.url)) && <Image
             src={BowlChoosen[2]?.img}
-            style={{ marginLeft: "-10px" }}
+            // style={{ marginLeft: "-10px" }}
             className={`bowl_pos_${Selected2?.indexOf(get_name(BowlChoosen[2]?.url))}`}
           />}
         </div>
@@ -273,7 +273,11 @@ export default function Scene5({ type = "fruits" }) {
           className="bowl_pos"
         />} */}
 
+        {/* thread */}
+        <div className="thread">.</div>
+
         {/* name Board */}
+
         <Image
           style={{ filter: show_Board_effect ? "drop-shadow(2px 6px 25px yellow)" : "" }}
           className="NameBoard"
@@ -332,7 +336,7 @@ export default function Scene5({ type = "fruits" }) {
               }}
               src={v.img}
               style={{
-                width: "60px",
+                width: "39px",
                 ...fruits_size_scene1[item_name],
                 ...positions[idx],
                 margin: "0px",
@@ -369,7 +373,8 @@ export default function Scene5({ type = "fruits" }) {
             style={{
               opacity: Selected[Selected.length - 1] === get_name(v.url) && showChopped ? 1 : 0,
               width: get_name(v.url) === "Cabbage" ? "5%" : "",
-              left: get_name(v.url) === "Cabbage" ? "38%" : ""
+              left: get_name(v.url) === "Cabbage" ? "41%" : "",
+              bottom: get_name(v.url) === "Cabbage" ? "11%" : ""
             }}
             className="chopped_fruits"
             src={v.img}
@@ -384,33 +389,33 @@ export default function Scene5({ type = "fruits" }) {
 const positions = {
   0: {
     position: "fixed",
-    bottom: "56%",
-    left: "61%"
+    bottom: "40.5%",
+    left: "55.5%"
   },
   1: {
     position: "fixed",
-    bottom: "56%",
-    left: "70%"
+    bottom: "40.5%",
+    left: "61%"
   },
   2: {
     position: "fixed",
-    bottom: "40%",
-    left: "61.5%"
+    bottom: "29%",
+    left: "55.5%"
   },
   3: {
     position: "fixed",
-    bottom: "40%",
-    left: "70.5%"
+    bottom: "29%",
+    left: "61.5%"
   },
   4: {
     position: "fixed",
-    bottom: "25%",
-    left: "61.5%"
+    bottom: "18%",
+    left: "55.5%"
   },
   5: {
     position: "fixed",
-    bottom: "25%",
-    left: "70.5%"
+    bottom: "18%",
+    left: "62%"
   }
 
 }

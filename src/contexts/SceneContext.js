@@ -13,7 +13,9 @@ export default function SceneContextProvider({ children }) {
   const [count, setcount] = useState(0)
   const [Data, setData] = useState({})
   const [FGs, setFGs] = useState({});
+  const [Ipad, setIpad] = useState(false)
 
+  // console.log(Ipad)
   const [BowlChoosen, setBowlChoosen] = useState([]);
 
   // loading part
@@ -25,7 +27,7 @@ export default function SceneContextProvider({ children }) {
   }, [isLoading])
 
   return (
-    <SceneContext.Provider value={{ BowlChoosen, setBowlChoosen, FGs, setFGs, Data, setData, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height, setheight, count, setcount }}>
+    <SceneContext.Provider value={{ Ipad, setIpad, BowlChoosen, setBowlChoosen, FGs, setFGs, Data, setData, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height, setheight, count, setcount }}>
       {children}
     </SceneContext.Provider>
   )

@@ -5,7 +5,7 @@ const fruits_size_scene1 = {
     marginBottom: "4px"
   },
   Watermelon: {
-    width: "75px",
+    width: "70px",
   },
   ["Grapes"]: {
     width: "40px"
@@ -43,7 +43,7 @@ const fruits_size_scene1 = {
     width: "60px",
   },
   Pineapple: {
-    width: "55px",
+    width: "50px",
   },
   Cabbage: {
     width: "70px"
