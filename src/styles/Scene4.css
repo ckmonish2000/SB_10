@@ -72,7 +72,7 @@
     position: fixed;
     bottom: 35%;
     width: 12%;
-    left: 24%;
+    left: 0%;
     animation: moveBoard 0.8s linear forwards;
 }
 

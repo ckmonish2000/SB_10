@@ -421,9 +421,9 @@ font-family: myFirstFont !important;
 
 .mute_btn{
   position: absolute;
-  left: 15.5%;
+  left: 1.5%;
   bottom: 40%;
-  width: 3%;
+  width: 5%;
   z-index: 999;
   cursor: pointer;
 }

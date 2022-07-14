@@ -135,10 +135,11 @@ function App() {
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">Rotate your device</h1>
 
       <div style={{ opacity: LandScape ? 0 : 1 }}>
-        <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
-          {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+        {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
-          {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+        {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+        <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
+
 
           <Router sceneId="/">
             <Home play={() => { BG_sound?.play() }} />
