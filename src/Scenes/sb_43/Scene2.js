@@ -231,32 +231,9 @@ export default function Scene2({ star }) {
         >.</div>
 
         {/* fruits and vegies part */}
-        {sprites?.map((v, idx) => {
-          return <div
-            style={{
-              opacity: check(v) ? 0 : 1
-            }}
-            id={getname(v?.url)}
-            className="fruitsnveg"
-            draggable
-            onMouseDown={(e) => {
-              if (timer) clearTimeout(timer)
-              stop_sound()
-              setName(e.currentTarget.id)
-            }}
-            onDragStart={(e) => {
-              e.dataTransfer.setData("text", e.currentTarget.id)
-            }}
-            onMouseUp={(e) =>
-              setTimeout(() => {
-                setName("")
-              }, 1200)
-            }
-            onDragEnd={() => setTimeout(() => {
-              setName("")
-            }, 1200)}
-          >
-            <Image
+        <div id="f_v_containers">
+          {sprites?.map((v, idx) => {
+            return <Image
               id={v?.url}
               style={{
                 left: idx >= 6 ? `${26.5 + idx % 6 * 7}%` : `${27.5 + idx * 6.65}%`,
@@ -265,9 +242,43 @@ export default function Scene2({ star }) {
               }}
               className={idx <= 5 ? "pos_1" : "pos_2"}
               src={v.img} />
-          </div>
+            // return <div
+            //   style={{
+            //     opacity: check(v) ? 0 : 1
+            //   }}
+            //   id={getname(v?.url)}
+            //   className="fruitsnveg"
+            //   draggable
+            //   onMouseDown={(e) => {
+            //     if (timer) clearTimeout(timer)
+            //     stop_sound()
+            //     setName(e.currentTarget.id)
+            //   }}
+            //   onDragStart={(e) => {
+            //     e.dataTransfer.setData("text", e.currentTarget.id)
+            //   }}
+            //   onMouseUp={(e) =>
+            //     setTimeout(() => {
+            //       setName("")
+            //     }, 1200)
+            //   }
+            //   onDragEnd={() => setTimeout(() => {
+            //     setName("")
+            //   }, 1200)}
+            // >
+            //   <Image
+            //     id={v?.url}
+            //     style={{
+            //       left: idx >= 6 ? `${26.5 + idx % 6 * 7}%` : `${27.5 + idx * 6.65}%`,
+            //       zIndex: idx >= 6 ? 9 : 7,
+            //       ...getStyles(v?.url)
+            //     }}
+            //     className={idx <= 5 ? "pos_1" : "pos_2"}
+            //     src={v.img} />
+            // </div>
 
-        })}
+          })}
+        </div>
       </>
     }
   />;

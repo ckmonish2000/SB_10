@@ -21,6 +21,7 @@ import Scene5 from "./Scenes/sb_43/Scene5";
 import GoodJob from "./Scenes/sb_43/Scene6";
 import SoundScene from "./Scenes/sb_43/SoundsScene";
 import { imgUrl } from "./utils/path";
+import Dnd from "./Dnd";
 
 
 function App() {
@@ -142,9 +143,8 @@ function App() {
           total={12}
         />}
 
-
+        {SceneId === "/Scene2" && Assets["Scene2"] && <Dnd />}
         <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
-
 
           <Router sceneId="/">
             <Home play={() => { BG_sound?.play() }} />
