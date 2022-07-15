@@ -121,23 +121,28 @@ function App() {
 
   return (
     <>
-      {/* game one stars */}
-      {/* {SceneId === "/Scene2" && <Stars
-        // height={height}
-        s={true}
-        board={stars?.progress}
-        color={stars?.star}
-        grey={stars?.grey}
-        count={Starz}
-        total={12}
-      />} */}
 
       <h1 style={{ display: LandScape ? "" : "none" }} id="landscapeMode">Rotate your device</h1>
 
       <div style={{ opacity: LandScape ? 0 : 1 }}>
+
+        {/* mute btn */}
         {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
         {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+
+        {/* game one stars */}
+        {SceneId === "/Scene2" && <Stars
+          // height={height}
+          s={true}
+          board={stars?.progress}
+          color={stars?.star}
+          grey={stars?.grey}
+          count={Starz}
+          total={12}
+        />}
+
+
         <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
 
 

@@ -27,18 +27,19 @@
 
 .progress_head{
   position: fixed;
-  top: 25%;
-  left: 13.5%;
-  width: 70%;
+  top: -8%;
+  left: 15%;
+  width: 80%;
   /* height: 200px; */
   z-index: 1;
 }
 
+
 .leaves{
   display: flex;
   position: fixed;
-  top: 34.2%;
-  left: 6.8%;
+  top: 3%;
+  left: 12.5%;
   width: 80%;
   justify-content: center;
   align-items: center;
@@ -172,26 +173,74 @@
 
 
 
-@media (max-width: 1470px){
+/* @media (max-width: 1470px){
   .progress_head{
     top: 22%;
   }
   .leaves{
     top: 31.5%;
   }
-}
+} */
 
 
 @media (max-width: 1400px){
-  .progress_head{
+  /* .progress_head{
     top: 18%;
-  }
+  } */
   .leaves{
-    top: 27.2%;
+    top: 2.2%;
   }
 }
 
-@media (max-width: 1100px){
+
+@media (max-width: 1300px){
+  .progress_head{
+    top: -5%;
+  }
+  .leaves{
+    top: 4%;
+  }
+}
+
+
+@media (max-width: 1180px){
+  .leaves{
+    top: 2.5%;
+  }
+}
+
+@media (max-width: 1130px){
+ 
+  .leaves{
+    top: 3%;
+  }
+}
+
+@media (max-width: 1040px){
+ 
+  .leaves{
+    top: 2.5%;
+  }
+}
+
+@media (max-width: 1024px){
+  .leaves{
+    top: 3.5%;
+  }
+}
+
+
+
+
+
+@media (max-width: 970px){
+ 
+  .leaves{
+    top: 1.5%;
+  }
+}
+
+/* @media (max-width: 1100px){
   .progress_head{
     top: 11%;
   }
@@ -210,34 +259,31 @@
     top: 29.5%;
   }
 
-}
+} */
 
+@media (max-width: 896px){
+  .leaves{
+    top: 6.5%;
+  }
+
+}
 
 @media (max-width: 740px){
-  .progress_head{
-    top: 25%;
-  }
   .leaves{
-    top: 34.5%;
+    top: 5.5%;
   }
 }
-
 
 @media (max-width: 655px){
-  .progress_head{
-    top: 11%;
-  }
   .leaves{
-    top: 20.5%;
+    top: 5.5%;
   }
 
 }
 
-@media (max-width: 668px){
-  .progress_head{
-    top: 15%;
-  }
+@media (max-width: 640px){
   .leaves{
-    top: 24.5%;
+    top: 3.5%;
   }
+
 }

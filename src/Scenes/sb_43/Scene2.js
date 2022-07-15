@@ -68,10 +68,10 @@ export default function Scene2({ star }) {
 
 
   // this is for testing
-  useEffect(() => {
-    stop_sound()
-    setSceneId("/Scene3")
-  }, [])
+  // useEffect(() => {
+  //   stop_sound()
+  //   setSceneId("/Scene3")
+  // }, [])
 
   const getname = (url) => {
     const URL = url.split("/")
@@ -150,7 +150,7 @@ export default function Scene2({ star }) {
           className="fruits_stall"
         />
 
-        {star}
+        {/* {star} */}
 
         {/* basket names */}
         <h1 className="basket_name_1">Fruits</h1>
