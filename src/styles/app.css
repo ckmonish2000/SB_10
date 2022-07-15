@@ -172,6 +172,10 @@
 }
 
 
+.ddcontainerghost{
+  z-index: 99999999999999999999999 !important;
+}
+
 
 /* @media (max-width: 1470px){
   .progress_head{

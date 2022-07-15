@@ -1,20 +1,19 @@
-import React, { useEffect } from 'react'
-import ReactDOMServer from 'react-dom/server'
+import React, { useEffect, useState } from 'react'
+import ReactDOM from 'react-dom'
 import { DragDropContainer, DropTarget } from 'react-drag-drop-container'
 
 export default function Dnd() {
+  // const childrens = []
+  const [childrens, setchildrens] = useState([])
+  // creating a new wrapper to append childs
+  const new_parent = document.getElementById('root2')
 
   useEffect(() => {
     // Scene2 container
     const container = document.getElementById('f_v_containers')
     const children = [...container?.children]
-    // creating a new wrapper to append childs
-    const new_parent = document.createElement('div')
-    // div in DND
-    const DND_ROOT = document.getElementById('DND')
 
-    children?.map(v => {
-      console.log(v?.children)
+    children?.map((v, idx) => {
       const Rect_Pos_Style = v?.getBoundingClientRect() // styles 
       // reset style
       v.style.display = ""
@@ -30,24 +29,27 @@ export default function Dnd() {
       const height = `${Rect_Pos_Style?.height}px`
 
       const element = React.createElement("img", {
-        style: { top, width, height, left, position: "fixed", zIndex: 9999 },
+        style: { top, width, height, left, position: "absolute", zIndex: 9999 },
         src: v?.src
       })
-      const x = ReactDOMServer.renderToString(<DragDropContainer target="foo">{element}</DragDropContainer>)
+
+      const x = <DragDropContainer
+        onDragStart={(e) => console.log("start", e)}
+        onDrag={() => console.log("dragging")}
+        onDragEnd={() => console.log("end")}
+        onDrop={(e) => console.log(e)}
+        target="foo">{element}</DragDropContainer>
       // new_parent.innerHTML = x
-      new_parent.insertAdjacentHTML('beforeend', x)
+      console.log(x, idx)
+      setchildrens(c => [...c, x])
     })
 
     // append scene2 element here
-    DND_ROOT.appendChild(new_parent)
-
+    // DND_ROOT.appendChild(new_parent)
   }, [])
 
 
-  const title = React.createElement('h1', {}, 'My First React Code');
   return (
-    <div id="DND">
-      Dnd
-    </div>
+    ReactDOM.createPortal(<React.Fragment>{childrens}</React.Fragment>, new_parent)
   )
 }
