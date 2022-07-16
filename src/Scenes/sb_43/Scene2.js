@@ -11,9 +11,9 @@ import { imgUrl } from "../../utils/path"
 
 
 export default function Scene2({ star }) {
-  const { FGs, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
+  const { Name, setName, FGs, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
-  const [Name, setName] = useState("")
+
   const [Selected_fruits, setSelected_fruits] = useState([])
   const [Selected_vegies, setSelected_vegies] = useState([])
   const [playing, setplaying] = useState(true);
@@ -238,7 +238,8 @@ export default function Scene2({ star }) {
               style={{
                 left: idx >= 6 ? `${26.5 + idx % 6 * 7}%` : `${27.5 + idx * 6.65}%`,
                 zIndex: idx >= 6 ? 9 : 7,
-                ...getStyles(v?.url)
+                ...getStyles(v?.url),
+
               }}
               className={idx <= 5 ? "pos_1" : "pos_2"}
               src={v.img} />

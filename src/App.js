@@ -22,6 +22,7 @@ import GoodJob from "./Scenes/sb_43/Scene6";
 import SoundScene from "./Scenes/sb_43/SoundsScene";
 import { imgUrl } from "./utils/path";
 import Dnd from "./Dnd";
+import Main from "./test/main";
 
 
 function App() {
@@ -118,7 +119,6 @@ function App() {
       <div className="playerPreloadCircle"></div>
     </div>
   </div>
-
 
   return (
     <>

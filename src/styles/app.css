@@ -176,6 +176,17 @@
   z-index: 99999999999999999999999 !important;
 }
 
+.droptarget{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 1px solid;
+}
+
+
+.ddcontainerghost{
+  pointer-events:none !important;
+}
 
 /* @media (max-width: 1470px){
   .progress_head{
@@ -185,6 +196,7 @@
     top: 31.5%;
   }
 } */
+
 
 
 @media (max-width: 1400px){
