@@ -122,10 +122,10 @@ export default function Dnd() {
         <DragDropContainer
           targetKey={targetKey}
           dragData={{ label: label, test: "sss" }}
-          // customDragElement={customDragElement}
           onDragStart={onDragStart}
-          // onDrag={() => console.log("dragging")}
           onDragEnd={onDragEnd}
+        // onDrag={() => console.log("dragging")}
+        // customDragElement={customDragElement}
         // onDrop={(e) => console.log("deopped",e)}
         >
           <img src={image} style={style} />
