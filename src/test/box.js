@@ -19,13 +19,7 @@ export default function Box(props) {
   };
 
   return (
-    <div
-      style={{
-        height: "200px",
-        width: "200px",
-        border: "1px solid"
-      }}
-    >
+    <div>
       <DropTarget
         key={Math.random()}
         onHit={() => { console.log("handleDrop") }}

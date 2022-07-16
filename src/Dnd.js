@@ -5,6 +5,7 @@ import Box from './Box'
 import { SceneContext } from './contexts/SceneContext'
 import FoodMap from './maps/FruitsAndVeg'
 
+
 export default function Dnd() {
   const { Name, setName } = useContext(SceneContext)
 
@@ -42,36 +43,29 @@ export default function Dnd() {
       const width = `${Rect_Pos_Style?.width}px`
       const height = `${Rect_Pos_Style?.height}px`
 
-      const element = React.createElement("img", {
-        style: { top, width, height, left, position: "absolute", zIndex: 9999 },
-        src: v?.src
-      })
 
       const item_name = getname(v?.id)
+      console.log(fruits?.includes(item_name))
+
+      const onDragEnd = () => {
+        setTimeout(() => { setName("") }, 1200)
+      }
+
+      const onDragStart = () => {
+        setName(item_name)
+      }
+
       const x = (
-
-        <DragDropContainer
-          dragData={{ label: item_name }}
-          // drag start
-          onDragStart={(e) => {
-            setName(item_name) //set board names
-            // console.log("start", v?.id)
-          }}
-
-          // on drag
-          // onDrag={() => console.log("dragging")}
-
-          // drag end
-          onDragEnd={(e) => {
-            setTimeout(() => {
-              setName("")
-            }, 1200)
-          }}
-          // ondrop
-          onDrop={(e) => console.log(e)}
-          target={fruits?.includes(item_name) ? "fruits" : "vegetables"}>
-          {element}
-        </DragDropContainer>)
+        <Boxable
+          onDragEnd={onDragEnd}
+          onDragStart={onDragStart}
+          label={item_name}
+          targetKey={fruits?.includes(item_name) ? "fruits" : "vegetables"}
+          style={{ width, height }}
+          pos={{ top, left, }}
+          image={v?.src}
+        />
+      )
 
 
       setchildrens(c => [...c, x])
@@ -83,34 +77,61 @@ export default function Dnd() {
 
 
   return (
-    ReactDOM.createPortal(<React.Fragment>
-      {childrens}
+    ReactDOM.createPortal(
+      <>
+        {childrens}
 
-      {/* fruits drop */}
-      <div
-        style={{
-          position: "fixed",
-          top: `${drop_1?.top}px`,
-          left: `${drop_1?.left}px`,
-          width: `${drop_1?.width}px`,
-          height: `${drop_1?.height}px`,
-          border: "1px solid"
-        }}>
+        <Box
+          handleDrop={(e) => {
+            console.log("fruits", e)
+          }}
+          targetKey="fruits"
+          style={{
+            position: "fixed",
+            top: `${drop_1?.top}px`,
+            left: `${drop_1?.left}px`,
+            width: `${drop_1?.width}px`,
+            height: `${drop_1?.height}px`,
+            border: "1px solid"
+          }}
+        />
 
-        <Box targetKey="fruits" />
-      </div>
-
-      <div style={{
-        position: "fixed",
-        top: `${drop_2?.top}px`,
-        left: `${drop_2?.left}px`,
-        width: `${drop_2?.width}px`,
-        height: `${drop_2?.height}px`,
-        border: "1px solid"
-      }}>
-
-        <Box targetKey="vegetables" />
-      </div>
-    </React.Fragment>, new_parent)
+        <Box
+          handleDrop={(e) => {
+            console.log("vegetables", e)
+          }}
+          targetKey="vegetables"
+          style={{
+            position: "fixed",
+            top: `${drop_2?.top}px`,
+            left: `${drop_2?.left}px`,
+            width: `${drop_2?.width}px`,
+            height: `${drop_2?.height}px`,
+            border: "1px solid"
+          }}
+        />
+      </>
+      , new_parent)
   )
+
+
+  function Boxable(props) {
+    const { targetKey, label, image, customDragElement, style, pos, onDragStart, onDragEnd } = props;
+    return (
+      <div className="boxable_component" style={{ display: "inline-block", position: "absolute", ...pos }}>
+        <DragDropContainer
+          targetKey={targetKey}
+          dragData={{ label: label, test: "sss" }}
+          // customDragElement={customDragElement}
+          onDragStart={onDragStart}
+          // onDrag={() => console.log("dragging")}
+          onDragEnd={onDragEnd}
+        // onDrop={(e) => console.log("deopped",e)}
+        >
+          <img src={image} style={style} />
+        </DragDropContainer>
+      </div>
+    );
+  }
+
 }
