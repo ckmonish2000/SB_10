@@ -11,11 +11,9 @@ import { imgUrl } from "../../utils/path"
 
 
 export default function Scene2({ star }) {
-  const { Name, setName, FGs, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height } = useContext(SceneContext);
+  const { Name, setName, FGs, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height, Selected_fruits, setSelected_fruits, Selected_vegies, setSelected_vegies, } = useContext(SceneContext);
   const { Bg, setBg } = useContext(BGContext)
 
-  const [Selected_fruits, setSelected_fruits] = useState([])
-  const [Selected_vegies, setSelected_vegies] = useState([])
   const [playing, setplaying] = useState(true);
 
   const sprites = Assets?.Scene2?.sprites?.slice(0, 12)
@@ -25,22 +23,22 @@ export default function Scene2({ star }) {
 
   let timer = null
 
-  useEffect(() => {
-    if (!playing) {
-      timer = setTimeout(() => {
-        setplaying(true)
-        const Sound = Assets["Scene2"].sounds[2]?.sound
-        Sound?.play()
-        Sound?.on("end", () => {
-          setplaying(false)
-        })
-      }, 2000)
-    }
+  // useEffect(() => {
+  //   if (!playing) {
+  //     timer = setTimeout(() => {
+  //       setplaying(true)
+  //       const Sound = Assets["Scene2"].sounds[2]?.sound
+  //       Sound?.play()
+  //       Sound?.on("end", () => {
+  //         setplaying(false)
+  //       })
+  //     }, 2000)
+  //   }
 
-    return () => {
-      if (timer) clearTimeout(timer)
-    }
-  }, [playing])
+  //   return () => {
+  //     if (timer) clearTimeout(timer)
+  //   }
+  // }, [playing])
 
   // loading animation
   useEffect(() => {
@@ -66,12 +64,6 @@ export default function Scene2({ star }) {
     }
   }, [Starz, playing])
 
-
-  // this is for testing
-  // useEffect(() => {
-  //   stop_sound()
-  //   setSceneId("/Scene3")
-  // }, [])
 
   const getname = (url) => {
     const URL = url.split("/")

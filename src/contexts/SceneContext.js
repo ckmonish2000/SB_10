@@ -18,6 +18,8 @@ export default function SceneContextProvider({ children }) {
 
   // scene2 context
   const [Name, setName] = useState("")
+  const [Selected_fruits, setSelected_fruits] = useState([])
+  const [Selected_vegies, setSelected_vegies] = useState([])
 
   // console.log(Ipad)
   const [BowlChoosen, setBowlChoosen] = useState([]);
@@ -35,6 +37,10 @@ export default function SceneContextProvider({ children }) {
       // scene2 values
       Name,
       setName,
+      Selected_fruits,
+      setSelected_fruits,
+      Selected_vegies,
+      setSelected_vegies,
       // global this and otehrs
       Ipad, setIpad, BowlChoosen, setBowlChoosen, FGs, setFGs, Data, setData, SceneId, setSceneId, isLoading, setisLoading, Assets, setAssets, Starz, setStarz, height, setheight, count, setcount
     }}>

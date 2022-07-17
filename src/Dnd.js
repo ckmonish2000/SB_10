@@ -7,9 +7,19 @@ import FoodMap from './maps/FruitsAndVeg'
 
 
 export default function Dnd() {
-  const { Name, setName } = useContext(SceneContext)
+  const {
+    setName,
+    Assets,
+    setStarz,
+    Starz,
+    Selected_fruits,
+    setSelected_fruits,
+    Selected_vegies,
+    setSelected_vegies,
+  } = useContext(SceneContext)
 
   const [childrens, setchildrens] = useState([])
+  // const [dropped, setdropped] = useState(initialState);
   // creating a new wrapper to append childs
   const new_parent = document.getElementById('root2')
 
@@ -47,7 +57,7 @@ export default function Dnd() {
       const item_name = getname(v?.id)
       console.log(fruits?.includes(item_name))
 
-      const onDragEnd = () => {
+      const onDragEnd = (e) => {
         setTimeout(() => { setName("") }, 1200)
       }
 
@@ -55,14 +65,20 @@ export default function Dnd() {
         setName(item_name)
       }
 
+      const onDrop = () => { }
+
+      // const sel_array = fruits?.includes(item_name) ? Selected_fruits : Selected_vegies
+
       const x = (
         <Boxable
           onDragEnd={onDragEnd}
           onDragStart={onDragStart}
+          onDrop={onDrop}
           label={item_name}
-          targetKey={fruits?.includes(item_name) ? "fruits" : "vegetables"}
+          type={fruits?.includes(item_name) ? "fruits" : "vegetables"}
+          targetKey="fv"
           style={{ width, height }}
-          pos={{ top, left, }}
+          pos={{ top, left }}
           image={v?.src}
         />
       )
@@ -75,6 +91,51 @@ export default function Dnd() {
     container.style.display = "none"
   }, [])
 
+  const on_Dropdown_fruits = (e) => {
+    console.log(e?.dragData)
+    const item_name = e?.dragData?.label
+    const types = fruits?.includes(item_name)
+
+    if (fruits?.includes(item_name)) {
+      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_B")
+      if (get_name_sound.length > 0) {
+        const Sound = get_name_sound[0]?.sound
+        Sound?.play()
+        setSelected_fruits([...Selected_fruits, item_name])
+        // setplaying(true)
+        // Sound.on("end", () => {
+        //   setplaying(false)
+        // })
+      }
+      setStarz(Starz + 1)
+    } else {
+      Assets["Scene2"]?.sounds[1]?.sound?.play()
+    }
+  }
+
+  const on_Dropdown_vegies = (e) => {
+    console.log(e?.dragData)
+    const item_name = e?.dragData?.label
+
+
+    if (vegetables?.includes(item_name)) {
+      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_B")
+      if (get_name_sound.length > 0) {
+        const Sound = get_name_sound[0]?.sound
+        Sound?.play()
+        setSelected_vegies([...Selected_vegies, item_name])
+        // setplaying(true)
+        // Sound.on("end", () => {
+        //   setplaying(false)
+        // })
+      }
+      setStarz(Starz + 1)
+    } else {
+      Assets["Scene2"]?.sounds[1]?.sound?.play()
+    }
+  }
+
+
 
   return (
     ReactDOM.createPortal(
@@ -82,10 +143,8 @@ export default function Dnd() {
         {childrens}
 
         <Box
-          handleDrop={(e) => {
-            console.log("fruits", e)
-          }}
-          targetKey="fruits"
+          handleDrop={on_Dropdown_fruits}
+          targetKey="fv"
           style={{
             position: "fixed",
             top: `${drop_1?.top}px`,
@@ -97,10 +156,8 @@ export default function Dnd() {
         />
 
         <Box
-          handleDrop={(e) => {
-            console.log("vegetables", e)
-          }}
-          targetKey="vegetables"
+          handleDrop={on_Dropdown_vegies}
+          targetKey="fv"
           style={{
             position: "fixed",
             top: `${drop_2?.top}px`,
@@ -116,17 +173,24 @@ export default function Dnd() {
 
 
   function Boxable(props) {
-    const { targetKey, label, image, customDragElement, style, pos, onDragStart, onDragEnd } = props;
+
+    const {
+      Selected_fruits,
+      Selected_vegies,
+    } = useContext(SceneContext)
+
+    const { targetKey, label, image, customDragElement, style, pos, onDragStart, onDragEnd, onDrop, type } = props;
+
+    const sel_type = type === 'fruits' ? Selected_fruits : Selected_vegies;
+
     return (
-      <div className="boxable_component" style={{ display: "inline-block", position: "absolute", ...pos }}>
+      <div className="boxable_component" style={{ display: sel_type?.includes(label) ? "none" : "inline-block", position: "absolute", ...pos }}>
         <DragDropContainer
           targetKey={targetKey}
-          dragData={{ label: label, test: "sss" }}
+          dragData={{ label: label, type: type }}
           onDragStart={onDragStart}
           onDragEnd={onDragEnd}
-        // onDrag={() => console.log("dragging")}
-        // customDragElement={customDragElement}
-        // onDrop={(e) => console.log("deopped",e)}
+          onDrag={onDrop}
         >
           <img src={image} style={style} />
         </DragDropContainer>
