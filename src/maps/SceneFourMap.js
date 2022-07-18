@@ -1,18 +1,18 @@
-import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
+import { imgurl, soundurl, lottieurl } from "../utils/path"
 
 const Scene4Map = {
   id: "Scene4",
 
-  Bg: `${imgUrl}sb_43/scene4/bg.svg`,
+  Bg: `${imgurl}sb_43/scene4/bg.svg`,
 
   sprites: [
-    `${imgUrl}sb_43/scene4/Fruits_bowl.svg`,
-    `${imgUrl}sb_43/scene4/Vegitable_bowl.svg`,
+    `${imgurl}sb_43/scene4/fruits_bowl.svg`,
+    `${imgurl}sb_43/scene4/vegitable_bowl.svg`,
   ],
 
 
   sounds: [
-    `${soundUrl}select_salad.mp3`,
+    `${soundurl}select_salad.mp3`,
   ],
 
   lottie: [

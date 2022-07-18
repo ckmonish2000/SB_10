@@ -7,7 +7,7 @@ import "../../styles/Scene2.css"
 import { BGContext } from '../../contexts/Background';
 import fruits_size_scene1 from '../../styles/customstyles';
 import FoodMap from './../../maps/FruitsAndVeg';
-import { imgUrl } from "../../utils/path"
+import { imgurl } from "../../utils/path"
 
 
 export default function Scene2({ star }) {
@@ -125,7 +125,7 @@ export default function Scene2({ star }) {
         {/* fruits */}
         <div className="basket_fruits">
           {Selected_fruits?.map((v, idx) => {
-            const url = `${imgUrl}sb_43/fruits/${v}.svg`
+            const url = `${imgurl}sb_43/fruits/${v}.svg`
             const img = sprites?.filter(va => va.url === url)
             return <Image
               src={img[0].img}
@@ -143,7 +143,7 @@ export default function Scene2({ star }) {
         {/* vegies */}
         <div className="basket_vegies">
           {Selected_vegies?.map((v, idx) => {
-            const url = `${imgUrl}sb_43/vegies/${v}.svg`
+            const url = `${imgurl}sb_43/vegies/${v}.svg`
             const img = sprites?.filter(va => va.url === url)
             return <Image
               src={img[0].img}

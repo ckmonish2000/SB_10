@@ -1,8 +1,8 @@
 
-import { imgUrl, soundUrl, lottieUrl } from "../utils/path"
+import { imgurl, soundurl, lottieurl } from "../utils/path"
 
-const url = `${imgUrl}sb_43/fruits/`
-const url2 = `${imgUrl}sb_43/vegies/`
+const url = `${imgurl}sb_43/fruits/`
+const url2 = `${imgurl}sb_43/vegies/`
 
 export function shuffle(array) {
   let currentIndex = array.length, randomIndex;
@@ -26,59 +26,59 @@ export function shuffle(array) {
 
 const FoodMap = {
   fruits: shuffle([
-    `${url}Apple.svg`,
-    `${url}Banana.svg`,
-    `${url}Cherry.svg`,
-    `${url}Grapes.svg`,
-    `${url}Litchi.svg`,
-    `${url}Mango.svg`,
-    `${url}Orange.svg`,
-    `${url}Papaya.svg`,
-    `${url}Peach.svg`,
-    `${url}Pear.svg`,
-    `${url}Pineapple.svg`,
-    `${url}Plum.svg`,
-    `${url}Strawberry.svg`,
-    `${url}Watermelon.svg`,
-    `${url}Sweetlime.svg`,
+    `${url}apple.svg`,
+    `${url}banana.svg`,
+    `${url}cherry.svg`,
+    `${url}grapes.svg`,
+    `${url}litchi.svg`,
+    `${url}mango.svg`,
+    `${url}orange.svg`,
+    `${url}papaya.svg`,
+    `${url}peach.svg`,
+    `${url}pear.svg`,
+    `${url}pineapple.svg`,
+    `${url}plum.svg`,
+    `${url}strawberry.svg`,
+    `${url}watermelon.svg`,
+    `${url}sweetlime.svg`,
   ]),
   veg: shuffle([
     // 9
-    `${url2}Cabbage.svg`,
-    `${url2}Carrot.svg`,
-    `${url2}Corn.svg`,
-    `${url2}Cucumber.svg`,
-    `${url2}Lettuce.svg`,
-    `${url2}Onion.svg`,
-    `${url2}Raddish.svg`,
-    `${url2}Spinach.svg`,
-    `${url2}Tomato.svg`,
+    `${url2}cabbage.svg`,
+    `${url2}carrot.svg`,
+    `${url2}corn.svg`,
+    `${url2}cucumber.svg`,
+    `${url2}lettuce.svg`,
+    `${url2}onion.svg`,
+    `${url2}raddish.svg`,
+    `${url2}spinach.svg`,
+    `${url2}tomato.svg`,
   ]),
   all: shuffle([
-    `${url2}Cabbage.svg`,
-    `${url2}Carrot.svg`,
-    `${url2}Corn.svg`,
-    `${url2}Cucumber.svg`,
-    `${url2}Lettuce.svg`,
-    `${url2}Onion.svg`,
-    `${url2}Raddish.svg`,
-    `${url2}Spinach.svg`,
-    `${url2}Tomato.svg`,
-    `${url}Sweetlime.svg`,
-    `${url}Apple.svg`,
-    `${url}Banana.svg`,
-    `${url}Cherry.svg`,
-    `${url}Grapes.svg`,
-    `${url}Litchi.svg`,
-    `${url}Mango.svg`,
-    `${url}Orange.svg`,
-    `${url}Papaya.svg`,
-    `${url}Peach.svg`,
-    `${url}Pear.svg`,
-    `${url}Pineapple.svg`,
-    `${url}Plum.svg`,
-    `${url}Strawberry.svg`,
-    `${url}Watermelon.svg`
+    `${url2}cabbage.svg`,
+    `${url2}carrot.svg`,
+    `${url2}corn.svg`,
+    `${url2}cucumber.svg`,
+    `${url2}lettuce.svg`,
+    `${url2}onion.svg`,
+    `${url2}raddish.svg`,
+    `${url2}spinach.svg`,
+    `${url2}tomato.svg`,
+    `${url}sweetlime.svg`,
+    `${url}apple.svg`,
+    `${url}banana.svg`,
+    `${url}cherry.svg`,
+    `${url}grapes.svg`,
+    `${url}litchi.svg`,
+    `${url}mango.svg`,
+    `${url}orange.svg`,
+    `${url}papaya.svg`,
+    `${url}peach.svg`,
+    `${url}pear.svg`,
+    `${url}pineapple.svg`,
+    `${url}plum.svg`,
+    `${url}strawberry.svg`,
+    `${url}watermelon.svg`
   ])
 }
 
