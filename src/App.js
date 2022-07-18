@@ -22,7 +22,6 @@ import GoodJob from "./Scenes/sb_43/Scene6";
 import SoundScene from "./Scenes/sb_43/SoundsScene";
 import { imgurl } from "./utils/path";
 import Dnd from "./Dnd";
-import Main from "./test/main";
 
 
 function App() {
@@ -46,7 +45,6 @@ function App() {
   const Asset = useLoadAsset(introMap)
 
   const resizer = () => {
-    console.log(window.innerWidth / window.innerHeight)
     setLandScape(window.innerWidth / window.innerHeight < 1.0)
     if (window.innerWidth <= 1264) {
       setheight("87%")

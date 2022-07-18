@@ -84,7 +84,6 @@ export default function SoundScene({ type = "fruits" }) {
     }
   }
 
-  console.log(Played)
 
   return <Scenes
     Bg={Bg}
