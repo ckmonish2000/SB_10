@@ -16,6 +16,7 @@ export default function Dnd() {
     setSelected_fruits,
     Selected_vegies,
     setSelected_vegies,
+    setplaying
   } = useContext(SceneContext)
 
   const [childrens, setchildrens] = useState([])
@@ -34,12 +35,14 @@ export default function Dnd() {
   // drop container styles
   const drop_1 = document.getElementsByClassName('drop_container_1')[0]?.getBoundingClientRect()
   const drop_2 = document.getElementsByClassName('drop_container_2')[0]?.getBoundingClientRect()
+  const useless_board = document.getElementsByClassName('useless_board')[0]
+  const useless_board_styles = useless_board?.getBoundingClientRect()
+
+  const stop_sound = () => {
+    Assets["Scene2"]?.sounds?.forEach(v => v?.sound?.stop())
+  }
 
   useEffect(() => {
-
-
-
-
     // Scene2 fruits and vegies grid
     const container = document.getElementById('f_v_containers')
     const children = [...container?.children]
@@ -87,25 +90,22 @@ export default function Dnd() {
       setchildrens(c => [...c, x])
     })
 
-
     container.style.display = "none"
   }, [])
 
   const on_Dropdown_fruits = (e) => {
-    console.log(e?.dragData)
     const item_name = e?.dragData?.label
-    const types = fruits?.includes(item_name)
-
+    stop_sound()
     if (fruits?.includes(item_name)) {
       const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_B")
       if (get_name_sound.length > 0) {
         const Sound = get_name_sound[0]?.sound
         Sound?.play()
         setSelected_fruits([...Selected_fruits, item_name])
-        // setplaying(true)
-        // Sound.on("end", () => {
-        //   setplaying(false)
-        // })
+        setplaying(true)
+        Sound.on("end", () => {
+          setplaying(false)
+        })
       }
       setStarz(Starz + 1)
     } else {
@@ -114,9 +114,8 @@ export default function Dnd() {
   }
 
   const on_Dropdown_vegies = (e) => {
-    console.log(e?.dragData)
     const item_name = e?.dragData?.label
-
+    stop_sound()
 
     if (vegetables?.includes(item_name)) {
       const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_B")
@@ -124,10 +123,10 @@ export default function Dnd() {
         const Sound = get_name_sound[0]?.sound
         Sound?.play()
         setSelected_vegies([...Selected_vegies, item_name])
-        // setplaying(true)
-        // Sound.on("end", () => {
-        //   setplaying(false)
-        // })
+        setplaying(true)
+        Sound.on("end", () => {
+          setplaying(false)
+        })
       }
       setStarz(Starz + 1)
     } else {
@@ -151,7 +150,6 @@ export default function Dnd() {
             left: `${drop_1?.left}px`,
             width: `${drop_1?.width}px`,
             height: `${drop_1?.height}px`,
-            border: "1px solid"
           }}
         />
 
@@ -164,9 +162,21 @@ export default function Dnd() {
             left: `${drop_2?.left}px`,
             width: `${drop_2?.width}px`,
             height: `${drop_2?.height}px`,
-            border: "1px solid"
           }}
         />
+
+        <img
+          src={useless_board?.src}
+          alt=""
+          style={{
+            position: "fixed",
+            top: `${useless_board_styles?.top}px`,
+            left: `${useless_board_styles?.left}px`,
+            width: `${useless_board_styles?.width}px`,
+            height: `${useless_board_styles?.height}px`,
+          }}
+        />
+
       </>
       , new_parent)
   )

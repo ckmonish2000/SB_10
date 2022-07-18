@@ -74,9 +74,9 @@ function App() {
 
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("ee03_nt_1to100_btn/sounds/bg_sound.mp3"))
-    seticon1(await LoadImage("ee03_nt_1to100_btn/images/sound.svg"))
-    seticon2(await LoadImage("ee03_nt_1to100_btn/images/nosound.svg"))
+    setBG_sound(await AudioPlayer2("ee01_ow_tgf_pl1/sounds/bg_sound.mp3"))
+    seticon1(await LoadImage("ee01_ow_tgf_pl1/images/sound.svg"))
+    seticon2(await LoadImage("ee01_ow_tgf_pl1/images/nosound.svg"))
     const progress_bar = await LoadImage(`${imgUrl}sb_43/stars/Progress_bar.svg`)
     const grey = await LoadImage(`${imgUrl}sb_43/stars/Grey_star.svg`)
     const star = await LoadImage(`${imgUrl}sb_43/stars/Star.svg`)
