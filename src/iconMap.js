@@ -1,4 +1,4 @@
-import { imgurl, soundurl, lottieurl } from "./utils/path"
+import { imgurl } from "./utils/path"
 
 const icons = {
   id: "icons",

@@ -84,6 +84,8 @@ export default function SoundScene({ type = "fruits" }) {
     }
   }
 
+  console.log(Played)
+
   return <Scenes
     Bg={Bg}
     sprites={
@@ -121,7 +123,11 @@ export default function SoundScene({ type = "fruits" }) {
           })}
         </div>
 
-        {Played.length === 6 && <Image
+        {Played.length >= 6 && <Image
+          style={{
+            left: "69%",
+            width: "5%"
+          }}
           src={Assets["sounds"]?.sprites[0]?.img}
           className="home_btn"
           onClick={() => {
@@ -138,33 +144,33 @@ export default function SoundScene({ type = "fruits" }) {
 const sel_pos = {
   0: {
     position: "fixed",
-    left: "27.5%",
+    left: "25.2%",
     top: "45%"
   },
   1: {
     position: "fixed",
-    left: "44.5%",
+    left: "42.2%",
     top: "45%"
   },
   2: {
     position: "fixed",
-    left: "61.5%",
+    left: "57.5%",
     top: "45%"
   },
   // 
   3: {
     position: "fixed",
-    left: "27%",
+    left: "25.2%",
     top: "73%"
   },
   4: {
     position: "fixed",
-    left: "44.5%",
+    left: "42.2%",
     top: "73%"
   },
   5: {
     position: "fixed",
-    left: "61.5%",
+    left: "57.5%",
     top: "73%"
   }
 }
@@ -172,42 +178,42 @@ const sel_pos = {
 const fruit_pos = {
   0: {
     position: "fixed",
-    left: "27.5%",
+    left: "25.5%",
     top: "47%",
     width: "7%",
     height: "12%"
   },
   1: {
     position: "fixed",
-    left: "44.5%",
+    left: "42.5%",
     top: "47%",
     width: "7%",
     height: "12%"
   },
   2: {
     position: "fixed",
-    left: "61.7%",
+    left: "57.7%",
     top: "47%",
     width: "7%",
     height: "12%"
   },
   3: {
     position: "fixed",
-    left: "27.5%",
+    left: "25.5%",
     top: "76%",
     width: "7%",
     height: "12%"
   },
   4: {
     position: "fixed",
-    left: "44.5%",
+    left: "42.5%",
     top: "76%",
     width: "7%",
     height: "12%"
   },
   5: {
     position: "fixed",
-    left: "61.5%",
+    left: "57.7%",
     top: "76%",
     width: "7%",
     height: "12%"
@@ -218,32 +224,32 @@ const fruit_pos = {
 const board_pos = {
   0: {
     position: "fixed",
-    left: "26.5%",
+    left: "24.5%",
     top: "60%"
   },
   1: {
     position: "fixed",
-    left: "43.5%",
+    left: "41.2%",
     top: "60%"
   },
   2: {
     position: "fixed",
-    left: "60.5%",
+    left: "56.5%",
     top: "60%"
   },
   3: {
     position: "fixed",
-    left: "26%",
+    left: "24.5%",
     top: "87%",
   },
   4: {
     position: "fixed",
-    left: "43.5%",
+    left: "41.2%",
     top: "87%",
   },
   5: {
     position: "fixed",
-    left: "60.5%",
+    left: "56.5%",
     top: "87%",
   }
 }

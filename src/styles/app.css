@@ -296,6 +296,14 @@
 
 }
 
+
+@media (max-width: 654px){
+  .leaves{
+    top: 7%;
+  }
+
+}
+
 @media (max-width: 640px){
   .leaves{
     top: 3.5%;
