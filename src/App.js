@@ -77,12 +77,12 @@ function App() {
     setBG_sound(await AudioPlayer2("ee01_ow_tgf_pl1/sounds/bg_sound.mp3"))
     seticon1(await LoadImage("ee01_ow_tgf_pl1/images/sound.svg"))
     seticon2(await LoadImage("ee01_ow_tgf_pl1/images/nosound.svg"))
-    const progress_bar = await LoadImage(`${imgurl}sb_43/stars/Progress_bar.svg`)
-    const grey = await LoadImage(`${imgurl}sb_43/stars/Grey_star.svg`)
-    const star = await LoadImage(`${imgurl}sb_43/stars/Star.svg`)
+    const progress_bar = await LoadImage(`${imgurl}sb_43/stars/progress_bar.svg`)
+    const grey = await LoadImage(`${imgurl}sb_43/stars/grey_star.svg`)
+    const star = await LoadImage(`${imgurl}sb_43/stars/star.svg`)
     const fg_1 = await LoadImage(`${imgurl}sb_43/scene2/scene2_fg.svg`)
     const fg_2 = await LoadImage(`${imgurl}sb_43/scene5/fg.svg`)
-    const bowl_cover = await LoadImage(`${imgurl}sb_43/Bowl_Frunt.svg`)
+    const bowl_cover = await LoadImage(`${imgurl}sb_43/bowl_frunt.svg`)
     setFGs({ fg_1, fg_2, bowl_cover })
     setstars({
       progress: progress_bar,
@@ -131,7 +131,9 @@ function App() {
 
         {/* mute btn */}
         {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
+        {!mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon1)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
+        {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
         {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
         {/* game one stars */}
