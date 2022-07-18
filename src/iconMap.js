@@ -1,4 +1,4 @@
-import { imgUrl, soundUrl, lottieUrl } from "./utils/path"
+import { imgurl, soundurl, lottieurl } from "./utils/path"
 
 const icons = {
   id: "icons",
@@ -6,7 +6,7 @@ const icons = {
   Bg: ``,
 
   sprites: [
-    `${imgUrl}play.svg`,
+    `${imgurl}play.svg`,
   ],
 
 

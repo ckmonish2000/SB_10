@@ -97,7 +97,7 @@ export default function Dnd() {
     const item_name = e?.dragData?.label
     stop_sound()
     if (fruits?.includes(item_name)) {
-      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_B")
+      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_b")
       if (get_name_sound.length > 0) {
         const Sound = get_name_sound[0]?.sound
         Sound?.play()
@@ -118,7 +118,7 @@ export default function Dnd() {
     stop_sound()
 
     if (vegetables?.includes(item_name)) {
-      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_B")
+      const get_name_sound = Assets["Scene2"].sounds.slice(3)?.filter(v => getname(v.url) === item_name + "_b")
       if (get_name_sound.length > 0) {
         const Sound = get_name_sound[0]?.sound
         Sound?.play()

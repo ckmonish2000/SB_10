@@ -1,3 +1,3 @@
-export const imgUrl = "ee01_ow_tgf_pl1/images/"
-export const soundUrl = "ee01_ow_tgf_pl1/audio/"
-export const lottieUrl = "ee01_ow_tgf_pl1/lottie/"
+export const imgurl = "ee01_ow_tgf_pl1/images/"
+export const soundurl = "ee01_ow_tgf_pl1/audio/"
+export const lottieurl = "ee01_ow_tgf_pl1/lottie/"

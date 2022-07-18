@@ -20,7 +20,7 @@ import Scene4 from "./Scenes/sb_43/Scene4";
 import Scene5 from "./Scenes/sb_43/Scene5";
 import GoodJob from "./Scenes/sb_43/Scene6";
 import SoundScene from "./Scenes/sb_43/SoundsScene";
-import { imgUrl } from "./utils/path";
+import { imgurl } from "./utils/path";
 import Dnd from "./Dnd";
 import Main from "./test/main";
 
@@ -77,12 +77,12 @@ function App() {
     setBG_sound(await AudioPlayer2("ee01_ow_tgf_pl1/sounds/bg_sound.mp3"))
     seticon1(await LoadImage("ee01_ow_tgf_pl1/images/sound.svg"))
     seticon2(await LoadImage("ee01_ow_tgf_pl1/images/nosound.svg"))
-    const progress_bar = await LoadImage(`${imgUrl}sb_43/stars/Progress_bar.svg`)
-    const grey = await LoadImage(`${imgUrl}sb_43/stars/Grey_star.svg`)
-    const star = await LoadImage(`${imgUrl}sb_43/stars/Star.svg`)
-    const fg_1 = await LoadImage(`${imgUrl}sb_43/scene2/scene2_fg.svg`)
-    const fg_2 = await LoadImage(`${imgUrl}sb_43/scene5/fg.svg`)
-    const bowl_cover = await LoadImage(`${imgUrl}sb_43/Bowl_Frunt.svg`)
+    const progress_bar = await LoadImage(`${imgurl}sb_43/stars/Progress_bar.svg`)
+    const grey = await LoadImage(`${imgurl}sb_43/stars/Grey_star.svg`)
+    const star = await LoadImage(`${imgurl}sb_43/stars/Star.svg`)
+    const fg_1 = await LoadImage(`${imgurl}sb_43/scene2/scene2_fg.svg`)
+    const fg_2 = await LoadImage(`${imgurl}sb_43/scene5/fg.svg`)
+    const bowl_cover = await LoadImage(`${imgurl}sb_43/Bowl_Frunt.svg`)
     setFGs({ fg_1, fg_2, bowl_cover })
     setstars({
       progress: progress_bar,

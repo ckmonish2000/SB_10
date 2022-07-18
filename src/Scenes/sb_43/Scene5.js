@@ -372,9 +372,9 @@ export default function Scene5({ type = "fruits" }) {
             id={get_name(v.url)}
             style={{
               opacity: Selected[Selected.length - 1] === get_name(v.url) && showChopped ? 1 : 0,
-              width: get_name(v.url) === "Cabbage" ? "5%" : "",
-              left: get_name(v.url) === "Cabbage" ? "41%" : "",
-              bottom: get_name(v.url) === "Cabbage" ? "11%" : ""
+              width: get_name(v.url) === "cabbage" ? "5%" : "",
+              left: get_name(v.url) === "cabbage" ? "41%" : "",
+              bottom: get_name(v.url) === "cabbage" ? "11%" : ""
             }}
             className="chopped_fruits"
             src={v.img}

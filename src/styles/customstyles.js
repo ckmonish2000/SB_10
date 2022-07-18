@@ -1,51 +1,51 @@
 const fruits_size_scene1 = {
-  Carrot: {
+  carrot: {
     width: "55px",
     transform: "scale(-1) rotate(-100deg)",
     marginBottom: "4px"
   },
-  Watermelon: {
+  watermelon: {
     width: "70px",
   },
-  ["Grapes"]: {
+  ["grapes"]: {
     width: "40px"
   },
-  Cucumber: {
+  cucumber: {
     width: "55px"
   },
-  Banana: {
+  banana: {
     width: "70px",
     marginLeft: "-10px"
   },
-  Lettuce: {
+  lettuce: {
     width: "45px"
   },
-  Papaya: {
+  papaya: {
     marginLeft: "15px"
   },
-  Spinach: {
+  spinach: {
     width: "55px",
     marginLeft: "15px"
   },
-  Orange: {
+  orange: {
     width: "60px"
   },
-  Sweetlime: {
+  sweetlime: {
     width: "60px"
   },
-  Raddish: {
+  raddish: {
     width: "75px"
   },
-  Peach: {
+  peach: {
     width: "60px"
   },
-  Mango: {
+  mango: {
     width: "60px",
   },
-  Pineapple: {
+  pineapple: {
     width: "50px",
   },
-  Cabbage: {
+  cabbage: {
     width: "70px"
   }
 }
