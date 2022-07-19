@@ -72,7 +72,7 @@ function App() {
 
 
   const loadAudio = async () => {
-    setBG_sound(await AudioPlayer2("ee01_ow_tgf_pl1/sounds/bg_sound.mp3"))
+    setBG_sound(await AudioPlayer2("ee01_ow_tgf_pl1/audio/bg_sound.mp3"))
     seticon1(await LoadImage("ee01_ow_tgf_pl1/images/sound.svg"))
     seticon2(await LoadImage("ee01_ow_tgf_pl1/images/nosound.svg"))
     const progress_bar = await LoadImage(`${imgurl}sb_43/stars/progress_bar.svg`)
