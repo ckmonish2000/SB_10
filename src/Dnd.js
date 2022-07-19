@@ -6,7 +6,7 @@ import { SceneContext } from './contexts/SceneContext'
 import FoodMap from './maps/FruitsAndVeg'
 
 
-export default function Dnd() {
+export default function Dnd({ LandScape }) {
   const {
     setName,
     Assets,
@@ -138,7 +138,7 @@ export default function Dnd() {
 
   return (
     ReactDOM.createPortal(
-      <>
+      <div style={{ opacity: LandScape ? 0 : 1 }}>
         {childrens}
 
         <Box
@@ -177,7 +177,7 @@ export default function Dnd() {
           }}
         />
 
-      </>
+      </div>
       , new_parent)
   )
 

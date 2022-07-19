@@ -135,7 +135,7 @@ function App() {
         {mute && SceneId !== "/" && <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icon2)}`} alt="" className="mute_btn" onClick={toggleMute} />}
 
         {/* game one stars */}
-        {SceneId === "/Scene2" && <Stars
+        {SceneId === "/Scene2" && !LandScape && <Stars
           // height={height}
           s={true}
           board={stars?.progress}
@@ -145,7 +145,9 @@ function App() {
           total={12}
         />}
 
-        {SceneId === "/Scene2" && Assets["Scene2"] && <Dnd />}
+
+        {SceneId === "/Scene2" && Assets["Scene2"] && <Dnd LandScape={LandScape} />}
+
         <GameContainer setLandScape={setLandScape} LandScape={LandScape}>
 
           <Router sceneId="/">
